@@ -20,12 +20,14 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
-        navigator.network.isReachable("phonegap.com", reachableCallback, {});
+        navigator.network.isReachable("phonegapx.com", reachableCallback, {});
     }
 
     // Check network status
     //
     function reachableCallback(reachability) {
+
+
         // There is no consistency on the format of reachability
         var networkState = reachability.code || reachability;
 
@@ -35,6 +37,7 @@
         states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = 'WiFi connection';
 
         alert('Connection type: ' + states[networkState]);
+        //navigator.notification.alert("You appear to be offline.", "your app name");
     }
 
     </script>
