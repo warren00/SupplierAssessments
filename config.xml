@@ -11,7 +11,6 @@
   <access origin="*" />
   <preference name="SplashScreen" value="screen" />
   <preference name="permissions" value="none"/>
-  <feature name="http://api.phonegap.com/1.0/network"/>
   <vs:features />
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows8" id="TESTSuppAssessv1">
