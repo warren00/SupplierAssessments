@@ -1,0 +1,29 @@
+﻿<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = "https://supplierassessment.azurewebsites.net/Permissions/UserPermissions/Logout";
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            transformRequest: function (obj) {
+                var str = [];
+                for (var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                return str.join("&");
+            },
+        }).success(function (data) {
+            document.location = "./login.html"
+        });
+    });
+</script>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Log out</title>
+</head>
+<body>
+</body>
+</html>
