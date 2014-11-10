@@ -199,10 +199,10 @@
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify(request)
                 }).success(function(data){
-                    if (data.isAuthorized)
+                    if (data.IsAuthorized)
                         document.location = './HTMLClient/default.htm'
                     else
-                        $('#FailureText').text(data.message);
+                        $('#FailureText').text(data.Message);
                 });
             });
         });
