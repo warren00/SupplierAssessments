@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="css/ladda-themeless.min.css" />
+    <link rel="stylesheet" href="css/site.css"/>
+    <title>Log In</title>
+</head>
+<body>
+    <form id="LogInForm" runat="server">
+        <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+            <layouttemplate>
+                <div class="accountInfo">
+                    <h1>VOW Supplier Assessment</h1>
+                    <div style="margin-bottom: 10px;">
+                        <label id="UsernameLabel" for="Username" class="labelStyle" />Username: </label>
+                        <asp:RequiredFieldValidator ID="UsernameRequired" runat="server" ControlToValidate="Username" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Username is required" CssClass="requiredStyle" />
+                        <input type="text" id="Username" class="textBoxStyle" />
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
+                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Password is required" CssClass="requiredStyle" />
+                        <input type="password" id="Password" class="textBoxStyle" />
+                    </div>
+                    <div class="submit-login">
+                        <div class="rememberme">
+                            <span class="checkStyle">
+                                <input id="rememberMe" type="checkbox" id="RememberMe" class="checkStyle" />
+                                <label for="RememberMe">Remember me next time.</label>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="logInBtn">
+                            <button type="button" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
+                        </div>
+                    </div>
+                    <span class="failureNotification">
+                        <span id="FailureText" />
+                    </span>
+                    <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" ValidationGroup="LoginUserValidationGroup" />
+                </div>
+            </layouttemplate>
+        </asp:Login>
+    </form>
+
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/spin.min.js"></script>
+    <script src="js/ladda.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            Ladda.bind('.ladda-button');
+
+            $("button").click(function (event) {
+                event.preventDefault();
+
+                $('#FailureText').text('');
+
+                setTimeout(function () { login(); }, 1000);
+            });
+
+            function login() {
+                var url = "https://supplierassessment9792.azurewebsites.net/Permissions/UserPermissions/Login";
+
+                var request =
+                    {
+                        username: $('#Username').val(),
+                        password: $('#Password').val(),
+                        rememberMe: $('#rememberMe').val()
+                    };
+
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    url: url,
+                    headers: { 'Content-Type': 'application/json' },
+                    data: JSON.stringify(request)
+                }).success(function (data) {
+                    if (data.isAuthorized) {
+                        document.location = 'http://supplierassessment9792.azurewebsites.net'
+                    }
+                    else {
+                        $('#FailureText').text(data.message);
+                        Ladda.stopAll();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
