@@ -1,82 +1,76 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
+    <title>Durandal Starter Kit</title>
+
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>VOW Supplier Assessment</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script type="text/javascript" src="phonegap.js"></script>
+
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-landscape.png" media="(orientation:landscape)" />
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-portrait.png" media="(orientation:portrait)" />
+    <link rel="apple-touch-icon" href="Content/images/icon.png" />
+
+    <link href="Content/ie10mobile.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/slate-bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/durandal.css" rel="stylesheet" />
+    <link href="Content/starterkit.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/morris.css" rel="stylesheet" />
+    <link href="Content/animate.css" rel="stylesheet" />
+
+
     <script type="text/javascript">
-    // Work around viewport sizing issue in IE 10 on Windows Phone 8
-    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-        document.writeln("<style>@-ms-viewport { width: auto!important; }</style>");
-    }
-
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    function onDeviceReady() {
-        //StatusBar.styleLightContent();
-        //checkConnection();
-    }
-
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN] = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI] = 'WiFi connection';
-        states[Connection.CELL_2G] = 'Cell 2G connection';
-        states[Connection.CELL_3G] = 'Cell 3G connection';
-        states[Connection.CELL_4G] = 'Cell 4G connection';
-        states[Connection.CELL] = 'Cell generic connection';
-        states[Connection.NONE] = 'No network connection';
-
-        if (networkState != Connection.NONE) {
-            window.location.href = "http://supplierassessment.azurewebsites.net/HTMLClient/";
-        } else {
-            document.getElementById("warning").style.visibility = "visible";
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
         }
-
-    }
-
-    function callAnothePage() {
-        window.location = "./Mobile/index.html";
-    }
-
     </script>
-
-    <!-- SupplierAssessmentAppWrapper references -->
-    <link href="css/index.css" rel="stylesheet" />
 </head>
-<body style="margin: 0px; padding:0px; height: 100%; overflow:hidden; ">
+<body>
+
     <script src="scripts/platformOverrides.js"></script>
 
     <script src="scripts/index.js"></script>
 
-    <header style="background-color:#606060  ;position:fixed;height:8%;width:100%;font-family: 'Segoe Light','Segoe UI Light','Frutiger','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;z-index:10">
-        <div style="width:20%;color:white;position:fixed;left:2%;top: 1%"><a style="color:white;" id="backButton" title="Click to go back" href="#" onclick="goBack(); return false;">Back</a></div>
-        <div style="width:60%;color:white;position:fixed;left:40%;top: 1%"><a style="color:white;" id="backButton" title="Click to go back" href="#" onclick="callAnothePage(); return false;">Test2</a></div>
-        <div style="width:20%;color:white;position:fixed;right:2%;top: 1%">Log Out</div>
-    </header>
-
-    <!--
-          <iframe src="http://supplierassessment.azurewebsites.net/HTMLClient/" width="100%" height="100%" frameborder="0"></iframe>
-      -->
-
-
-    <div id="warning" style="visibility:hidden">
-        This application requires an internet connection
+    <div id="applicationHost">
+        <div class="splash">
+            <div class="message">
+                Loading
+            </div>
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
     </div>
 
-   
-    </body>
-    </html>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/knockout-3.2.0.debug.js"></script>
+    <script src="Scripts/knockout-morris.js"></script>
+    <script src="Scripts/knockout-date.js"></script>
+    <script src="Scripts/morris.min.js"></script>
+    <script src="Scripts/raphael-min.js"></script>
+    <script src="Scripts/Q.js"></script>
+    <script src="Scripts/breeze.min.js"></script>
 
+    <script type="text/javascript" src="Scripts/require.js" data-main="App/main"></script>
 
+    <!-- Visual Studio Browser Link -->
+    <script type="application/json" id="__browserLink_initializationData">
+        {"appName":"Chrome","requestId":"8169d8d589a542cf8e621f2e77c19ee0"}
+    </script>
+    <!-- End Browser Link -->
+
+</body>
+</html>
