@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <span data-bind="date: assessment().date(), format: 'MMMM YYYY'"/> - Assessment
+        </h1>
+
+        <div style="margin-bottom:20px">
+            <ul class="tabs" data-bind="foreach: router.navigationModel()">
+                <li data-bind="css: { selected: isActive }"><a data-bind="attr: { href: dynamicHash }, css: { selected: isActive }, text: title"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-host row" data-bind="router: { transition:'entrance', cacheViews: true }"></div>
+    </div>
+</div>
