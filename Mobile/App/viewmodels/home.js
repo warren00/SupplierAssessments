@@ -1,4 +1,4 @@
-﻿define(['services/datacontext', 'config'], function(datacontext, config) {
+﻿define(['services/datacontext', 'services/accountService', 'config'], function (datacontext, accountService, config) {
 
     var supplier = ko.observable();
     var monthlyAssessment = ko.observable();
@@ -21,9 +21,8 @@
         deliveryAssessment: deliveryAssessment,
         assessmentCount: assessmentCount,
         deliveryAssessmentCount: deliveryAssessmentCount,
-        deliveryGrade: "Bronze",
         monthlyAssessmentScores: new ko.observable(monthlyAssessmentScores),
-        attached: function () {
+        compositionComplete: function () {
             $('#monthly-assessments-graph').resize();
         },
         activate: function () {
@@ -34,25 +33,35 @@
 
             var monthlyAssessments = ko.observable();
 
-            return Q.all([datacontext.getSupplier(supplierId, supplier),
-                datacontext.getCurrentMonthlyAssessment(supplierId, monthlyAssessment),
-                datacontext.getCurrentDeliveryAssessment(supplierId, deliveryAssessment),
-                datacontext.getMonthlyAssessmentCount(supplierId, assessmentCount),
-                datacontext.getDeliveryAssessmentCount(supplierId, deliveryAssessmentCount),
-                datacontext.getMonthlyAssessments(supplierId, 0, 45, monthlyAssessments)]).then(function()
-                {
-                    for(var i = 0; i < monthlyAssessments().length; i++)
-                    {
-                        var monthlyAssessment = {
-                            date: moment(monthlyAssessments()[i].date()).format("YYYY-MM").toString(),
-                            scoreAverage: parseFloat(monthlyAssessments()[i].scoreAverage()),
-                            deliveryAssessmentAverage: parseFloat(monthlyAssessments()[i].deliveryAssessmentAverage()),
-                            serviceFailureScore: parseFloat(monthlyAssessments()[i].serviceFailureScore())
-                        };
+            var supplierId
 
-                        monthlyAssessmentScores.push(monthlyAssessment);
-                    }
-                });
+            return Q.when(accountService.getLoggedInSupplierAccountNumber(),
+                function (accountNumber) {
+                    return datacontext.getSupplier(accountNumber, supplier);
+                }
+            ).then(function () {
+                return Q.all([datacontext.getCurrentMonthlyAssessment(supplier().id(), monthlyAssessment),
+                      datacontext.getCurrentDeliveryAssessment(supplier().id(), deliveryAssessment),
+                      datacontext.getMonthlyAssessmentCount(supplier().id(), assessmentCount),
+                      datacontext.getDeliveryAssessmentCount(supplier().id(), deliveryAssessmentCount),
+                      datacontext.getMonthlyAssessments(supplier().id(), 0, 45, monthlyAssessments)])
+            }).then(function () {
+                for (var i = 0; i < monthlyAssessments().length; i++) {
+                    var monthlyAssessment = {
+                        date: moment(monthlyAssessments()[i].date()).format("YYYY-MM").toString(),
+                        scoreAverage: parseFloat(monthlyAssessments()[i].scoreAverage()),
+                        deliveryAssessmentAverage: parseFloat(monthlyAssessments()[i].deliveryAssessmentAverage()),
+                        serviceFailureScore: parseFloat(monthlyAssessments()[i].serviceFailureScore())
+                    };
+
+                    monthlyAssessmentScores.push(monthlyAssessment);
+                }
+            }).then(function () {
+                config.supplierId = supplier().id();
+            }).fail(function(result)
+            {
+                document.location = "login.html";
+            })
         }
     }
 });

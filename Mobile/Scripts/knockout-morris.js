@@ -14,7 +14,16 @@
         value = _ref[key];
         options[key] = ko.unwrap(value);
       }
-      return element.morris = new Morris[options.type](options);
+
+      element.morris = new Morris[options.type](options);
+
+      $(document).ready(function () {
+          $(window).resize(function () {
+              element.morris.redraw();
+          })
+      });
+
+      return element.morris;
     },
     update: function(element, valueAccessor) {
       var _base;

@@ -7,17 +7,11 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="tiles">
-        <ul data-bind="foreach: assessments">
-            <li class="col-md-2 box" data-bind="event: { mousedown: $parent.select, mouseup: $parent.unselect, mouseleave: $parent.unselect }, css: {'ui-btn-down-a': selected(), 'box-focus' : selected(), 'ui-btn-up-a': !selected()}">
-                <div>
-                    <a data-bind="attr: { href: '#assessment/' + id() + '/summary' }">
-                        <p data-bind="date:date, format: 'MMMM YYYY'" />
-                        <p data-bind="text:currentGrade" />
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+<ul class="box-container" data-bind="foreach: assessments">
+    <li class="box" data-bind="event: { mousedown: $parent.select, mouseup: $parent.unselect, mouseleave: $parent.unselect }, css: {'ui-btn-down-a': selected(), 'box-focus' : selected(), 'ui-btn-up-a': !selected()}">
+            <a data-bind="attr: { href: '#assessment/' + id() + '/summary' }">
+                <p data-bind="date:date, format: 'MMMM YYYY'" />
+                <p data-bind="text:currentGrade" />
+            </a>
+    </li>
+</ul>

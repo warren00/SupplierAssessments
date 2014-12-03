@@ -2,7 +2,8 @@
     function (system, router, config, datacontext) {
         var shell = {
             activate: activate,
-            router: router
+            router: router,
+            logout: logout
         };
 
         return shell;
@@ -21,6 +22,14 @@
             return router.map(config.routes)
                 .buildNavigationModel()
                 .activate(config.startModule);
+        }
+
+        function logout()
+        {
+            $.get('https://supplierassessmentnew.azurewebsites.net/api/account/logout')
+                .done(function (result) {
+                        document.location = "../login.html";
+            });
         }
     }
 );

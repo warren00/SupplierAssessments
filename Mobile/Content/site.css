@@ -1,3 +1,7 @@
+.page-header {
+    margin:0px 0 15px;
+}
+
 body {
     margin-top: 70px;
     font-family: 'Segoe UI', 'Segoe WP', 'Roboto','Frutiger','Helvetica Neue', Helvetica, Arial, sans-serif; /*{global-font-family}*/
@@ -17,26 +21,29 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
 }
 
+.box-container {
+    display: block;
+}
+
 .box {
-    margin: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 5px 5px 5px 5px;
+    padding: 10px;
     border: 1px solid #666666; /*{a-bup-border}*/
     box-shadow: 0px 1px 0px /*{global-box-shadow-size}*/ rgba(0,0,0,0) /*{global-box-shadow-color}*/;
     background: #555555 /*{a-bup-background-color}*/;
     background-image: linear-gradient( #555555 /*{a-bup-background-start}*/, #555555 /*{a-bup-background-end}*/ );
     color: white;
-    min-width: 250px;
+    min-width: 235px;
     list-style: none;
-}
-
-.tiles ul {
-    margin: 0px;
-    padding-left: 10px;
+    float:left;
 }
 
 .box p {
     margin: 0px;
+}
+
+.box a {
+    text-decoration: none;
 }
 
 .box:hover {
@@ -57,6 +64,10 @@ h1, h2, h3, h4, h5, h6 {
     -moz-box-shadow: inset 0px 0px 1px #2EB5EF, 0px 0px 0px #2EB5EF;
     -webkit-box-shadow: inset 0px 0px 1px #2EB5EF, 0px 0px 0px #2EB5EF;
     box-shadow: inset 0px 0px 0px 1px #2EB5EF, 0px 0px 0px #2EB5EF;
+}
+
+dl {
+    word-wrap:break-word;
 }
 
 dl dt {
@@ -203,3 +214,5 @@ ul {
     width: 100%;
     height: 100%;
 }
+
+#monthly-assessments-graph > svg {width: 100% !important;}

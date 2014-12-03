@@ -64,7 +64,7 @@
                         <i class="fa fa-table fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><span data-bind="text: assessmentCount()"/></div>
+                        <div class="huge"><span data-bind="text: assessmentCount()" /></div>
                         <div>Supplier Assessments!</div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -116,38 +116,40 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <dl>
-                        <dt class="text-muted">Name:</dt>
-                        <dd><span data-bind="text: supplier().name"/></dd>
-                        <dt class="text-muted">Account Number:</dt>
-                        <dd><span data-bind="text: supplier().accountNumber" /></dd>
-                        <dt class="text-muted">Contact Email:</dt>
-                        <dd><span data-bind="text: supplier().email"/></dd>
-                        <dt class="text-muted">Last Accessed By:</dt>
-                        <dd><span data-bind="text: supplier().lastAccessedBy"/></dd>
-                        <dt class="text-muted">Pallet Exchange Type:</dt>
-                        <dd><span data-bind="text: supplier().palletExchangeType"/></dd>
-                    </dl>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <dl>
-                        <dt class="text-muted">League:</dt>
-                        <dd><span data-bind="text: supplier().league" /></dd>
-                        <dt class="text-muted">Last Assessed:</dt>
-                        <dd><span data-bind="date: supplier().lastAssessed"/></dd>
-                        <dt class="text-muted">Overall Grade:</dt>
-                        <dd><span data-bind="text: supplier().currentGrade"/></dd>
-                        <dt class="text-muted">Exchanged Pallets:</dt>
-                        <dd><span data-bind="text: supplier().exchangedPallets"/></dd>
-                        <dt class="text-muted">Exchanged Totes:</dt>
-                        <dd><span data-bind="text: supplier().exchangedTotes"/></dd>
-                    </dl>
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-5 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-6 col-xs-offset-1 col-xs-6">
+                        <dl>
+                            <dt class="text-muted">Name:</dt>
+                            <dd><span data-bind="text: supplier().name" /></dd>
+                            <dt class="text-muted">Account Number:</dt>
+                            <dd><span data-bind="text: supplier().accountNumber" /></dd>
+                            <dt class="text-muted">Contact Email:</dt>
+                            <dd><span data-bind="text: supplier().email" /></dd>
+                            <dt class="text-muted">Last Accessed By:</dt>
+                            <dd><span data-bind="text: supplier().lastAccessedBy" /></dd>
+                            <dt class="text-muted">Pallet Exchange Type:</dt>
+                            <dd><span data-bind="text: supplier().palletExchangeType" /></dd>
+                        </dl>
+                    </div>
+                    <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-5 col-xs-5">
+                        <dl>
+                            <dt class="text-muted">League:</dt>
+                            <dd><span data-bind="text: supplier().league" /></dd>
+                            <dt class="text-muted">Last Assessed:</dt>
+                            <dd><span data-bind="date: supplier().lastAssessed" /></dd>
+                            <dt class="text-muted">Overall Grade:</dt>
+                            <dd><span data-bind="text: supplier().currentGrade" /></dd>
+                            <dt class="text-muted">Exchanged Pallets:</dt>
+                            <dd><span data-bind="text: supplier().exchangedPallets" /></dd>
+                            <dt class="text-muted">Exchanged Totes:</dt>
+                            <dd><span data-bind="text: supplier().exchangedTotes" /></dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-7">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -156,7 +158,7 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <div id="monthly-assessments-graph" data-bind="morris: {type: 'Area', data: monthlyAssessmentScores, xkey: 'date', ykeys: ['scoreAverage', 'deliveryAssessmentAverage', 'serviceFailureScore'], labels: ['Score Average', 'Delivery Assessment Average', 'Service Failure Score'], pointSize: 2, hideHover: 'auto', resize: true, parseTime:true, lineColors: ['#0b62a4', '#7A92A3', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed']}"></div>
+                <div id="monthly-assessments-graph" data-bind="morris: {type: 'Area', data: monthlyAssessmentScores, xkey: 'date', ykeys: ['scoreAverage', 'deliveryAssessmentAverage', 'serviceFailureScore'], labels: ['Score Average', 'Delivery Assessment Average', 'Service Failure Score'], pointSize: 2, hideHover: 'auto', resize: false, redraw:true, parseTime:true, lineColors: ['#0b62a4', '#7A92A3', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed']}"></div>
             </div>
         </div>
     </div>

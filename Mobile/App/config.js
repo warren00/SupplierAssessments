@@ -1,6 +1,6 @@
 ﻿define(function () {
 
-    var remoteServiceName = "http://supplierassessmentnew.azurewebsites.net/api/breeze"
+    var remoteServiceName = "https://supplierassessmentnew.azurewebsites.net/api/breeze"
 
     var startModule = "home";
     var supplierId = 396;

@@ -195,9 +195,9 @@
         }
     }
 
-    var getSupplier = function (id, observable) {
+    var getSupplier = function (accountNumber, observable) {
         var query = EntityQuery.from("Suppliers")
-            .where("id", "eq", id)
+            .where("accountNumber", "eq", accountNumber)
 
         return manager.executeQuery(query)
             .then(querySucceeded)
@@ -239,7 +239,7 @@
         getMonthlyAssessmentById: getMonthlyAssessmentById,
         getDeliveryAssessmentsByDateRange: getDeliveryAssessmentsByDateRange,
         getDeliveryAssessmentDetail: getDeliveryAssessmentDetail,
-        getDeliveryAssessmentById: getDeliveryAssessmentById
+        getDeliveryAssessmentById: getDeliveryAssessmentById,
     };
 
 });
