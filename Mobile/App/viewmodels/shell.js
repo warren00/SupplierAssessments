@@ -28,7 +28,7 @@
         {
             $.get('https://supplierassessmentnew.azurewebsites.net/api/account/logout')
                 .done(function (result) {
-                        document.location = "../login.html";
+                        document.location = "login.html";
             });
         }
     }
