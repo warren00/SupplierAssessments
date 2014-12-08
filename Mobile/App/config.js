@@ -1,38 +1,36 @@
 ﻿define(function () {
 
-    var remoteServiceName = "https://supplierassessmentnew.azurewebsites.net/api/breeze"
+    var remoteServiceName = "http://supplierassessmentnew.azurewebsites.net/api/breeze"
 
     var startModule = "home";
-    var supplierId = 396;
 
-    var routes = [{
-        route: "",
-        title: "Dashboard",
-        moduleId: "viewmodels/home",
-        nav: true,
-        name: "Home"
-    }, {
-        route: "assessments",
-        moduleId: "viewmodels/assessments",
-        nav: true,
-        name: "Assessments"
-    }, {
-        route: "assessment/:id*details",
-        moduleId: "viewmodels/assessmentDetail",
-        title: "Assessment Detail",
-        hash: "#assessment/:id",
-        nav: false
-    }, {
-        route: "deliveryAssessment/:id*details",
-        moduleId: "viewmodels/deliveryAssessment",
-        title: "Delivery Assessment",
-        nav: false
-    }];
+    var supplier = ko.observable();
+    var accountNumber = null;
+
+    var routes = {};
+
+    routes['Supplier'] = [{ route: "", title: "Dashboard", moduleId: "viewmodels/home", nav: true, name: "Home", nav: false},
+                          { route: "assessments/:id", moduleId: "viewmodels/assessments", name: "Assessments", hash: "#assessments/:id", nav: false, },
+                          { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
+                          { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
+
+    routes['Administrator'] = [{ route: "", title: "Search Suppliers", moduleId: "viewmodels/searchSuppliers", nav: false },
+                               { route: "dashboard/:id", title: "Dashboard", moduleId: "viewmodels/home", name: "Home", nav: false },
+                               { route: "assessments/:id", moduleId: "viewmodels/assessments", name: "Assessments", hash: "#assessments/:id", nav: false, },
+                               { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
+                               { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
+
+    routes['Operations'] = [{ route: "", title: "Search Suppliers", moduleId: "viewmodels/searchSuppliers", nav: false },
+                               { route: "dashboard/:id", title: "Dashboard", moduleId: "viewmodels/home", name: "Home", nav: false },
+                               { route: "assessments", moduleId: "viewmodels/assessments", name: "Assessments", nav: false },
+                               { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
+                               { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
 
     return {
         remoteServiceName: remoteServiceName,
         routes: routes,
         startModule: startModule,
-        supplierId: supplierId
+        supplier: supplier,
+        accountNumber: accountNumber
     };
 });

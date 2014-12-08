@@ -1,9 +1,14 @@
 ﻿define(['durandal/system', 'config'], function (system, config) {
     var getLoggedInSupplierAccountNumber = function () {
-        return $.get('https://supplierassessmentnew.azurewebsites.net/api/account/getaccountnumber');
+        return $.get("http://supplierassessmentnew.azurewebsites.net/api/account/getAccountNumber");
+    }
+
+    var getLoggedInUserRoles = function () {
+        return $.get("http://supplierassessmentnew.azurewebsites.net/api/account/getLoggedInUserRoles");
     }
 
     return {
-        getLoggedInSupplierAccountNumber: getLoggedInSupplierAccountNumber
+        getLoggedInSupplierAccountNumber: getLoggedInSupplierAccountNumber,
+        getLoggedInUserRoles: getLoggedInUserRoles
     }
 });

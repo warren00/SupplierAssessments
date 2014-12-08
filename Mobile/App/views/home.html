@@ -9,19 +9,19 @@
 
 <div class="row">
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-certificate fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge"><span data-bind="text: monthlyAssessment().currentGrade()" /></div>
-                        <div>Overall Grade!</div>
+        <a data-bind="attr: {href: '#assessment/' + monthlyAssessment().id() + '/summary'}">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-certificate fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><span data-bind="text: monthlyAssessment().currentGrade(), style: {fontSize: monthlyAssessment().currentGrade().length > 8 ? '0.6em' : '1.0em'}" /></div>
+                            <div>Overall Grade!</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a data-bind="attr: {href: '#assessment/' + monthlyAssessment().id() + '/summary'}">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right">
@@ -29,23 +29,23 @@
                     </span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-green">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-truck fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge"><span data-bind="text: deliveryAssessment().currentGrade()" /></div>
-                        <div>Delivery Grade!</div>
+        <a data-bind="attr: {href: '#assessment/' + monthlyAssessment().id() + '/deliveryAssessments' }">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-truck fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><span data-bind="text: deliveryAssessment().currentGrade(), style: {fontSize: deliveryAssessment().currentGrade().length > 8 ? '0.6em' : '1.0em'}" /></div>
+                            <div>Delivery Grade!</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a data-bind="attr: {href: '#assessment/' + monthlyAssessment().id() + '/deliveryAssessments' }">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right">
@@ -53,23 +53,23 @@
                     </span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-table fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge"><span data-bind="text: assessmentCount()" /></div>
-                        <div>Supplier Assessments!</div>
+        <a data-bind="attr: {href: '#assessments/' + supplier().accountNumber()}">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-table fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><span data-bind="text: assessmentCount()" /></div>
+                            <div>Supplier Assessments!</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href="#assessments">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right">
@@ -77,23 +77,23 @@
                     </span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-table fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge"><span data-bind="text: deliveryAssessmentCount()" /></div>
-                        <div>Delivery Assessments!</div>
+        <a data-bind="attr: {href: '#assessments/' + supplier().accountNumber()}">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-table fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><span data-bind="text: deliveryAssessmentCount()" /></div>
+                            <div>Delivery Assessments!</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href="#assessments">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right">
@@ -101,8 +101,8 @@
                     </span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
 </div>
 
@@ -138,7 +138,7 @@
                             <dt class="text-muted">Last Assessed:</dt>
                             <dd><span data-bind="date: supplier().lastAssessed" /></dd>
                             <dt class="text-muted">Overall Grade:</dt>
-                            <dd><span data-bind="text: supplier().currentGrade" /></dd>
+                            <dd><span data-bind="text: monthlyAssessment().currentGrade()" /></dd>
                             <dt class="text-muted">Exchanged Pallets:</dt>
                             <dd><span data-bind="text: supplier().exchangedPallets" /></dd>
                             <dt class="text-muted">Exchanged Totes:</dt>

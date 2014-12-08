@@ -195,6 +195,27 @@
         }
     }
 
+    var getSuppliersByName = function(name, skip, take, observable)
+    {
+        if (name == null)
+            name = '';
+
+        var query = EntityQuery.from("Suppliers")
+            .where("name", "startsWith", name)
+            .orderBy("name asc")
+            .skip(skip).take(take);
+
+        return manager.executeQuery(query)
+            .then(querySucceeded)
+            .fail(queryFailed)
+
+        function querySucceeded(data) {
+            if (observable) {
+                observable(data.results);
+            }
+        }
+    }
+
     var getSupplier = function (accountNumber, observable) {
         var query = EntityQuery.from("Suppliers")
             .where("accountNumber", "eq", accountNumber)
@@ -240,6 +261,7 @@
         getDeliveryAssessmentsByDateRange: getDeliveryAssessmentsByDateRange,
         getDeliveryAssessmentDetail: getDeliveryAssessmentDetail,
         getDeliveryAssessmentById: getDeliveryAssessmentById,
+        getSuppliersByName: getSuppliersByName
     };
 
 });
