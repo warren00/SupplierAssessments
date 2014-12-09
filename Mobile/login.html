@@ -1,12 +1,20 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Log In</title>
+    <link href="Content/ie10mobile.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/slate-bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/durandal.css" rel="stylesheet" />
+    <link href="Content/starterkit.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/morris.css" rel="stylesheet" />
+    <link href="Content/animate.css" rel="stylesheet" />
+    <link href="Content/ladda-themeless.min.css" rel="stylesheet" />
 
+    <title>Log In</title>
     <style type="text/css">
         /* Here you can customize your login screen */
         html {
@@ -152,7 +160,7 @@
                     <div style="margin-bottom: 10px;">
                         <label id="UsernameLabel" for="Username" class="labelStyle" />Username: </label>
                         <asp:RequiredFieldValidator ID="UsernameRequired" runat="server" ControlToValidate="Username" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Username is required" CssClass="requiredStyle" />
-                        <input type="text" id="Username" class="textBoxStyle" />
+                        <input type="text" id="Username" class="textBoxStyle" autocapitalize="off" />
                     </div>
                     <div style="margin-bottom: 10px;">
                         <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
@@ -167,7 +175,7 @@
                             </span>
                         </div>
                         <div style="margin-bottom: 10px;" class="logInBtn">
-                            <span class="checkStyle"><button id="LoginButton" type="button" value="LOG IN" class="buttonStyle" style="height:38px;width:112px;">LOG IN</button></span>
+                            <button type="button" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
                         </div>
                     </div>
                     <span class="failureNotification">
@@ -180,21 +188,34 @@
     </form>
 
     <script src="Scripts/jquery-2.1.1.js"></script>
-<script src="Scripts/modernizr-2.8.3.js"></script>
-<script src="Scripts/moment.min.js"></script>
-<script src="Scripts/bootstrap.js"></script>
-<script src="Scripts/knockout-3.2.0.debug.js"></script>
-<script src="Scripts/knockout-morris.js"></script>
-<script src="Scripts/knockout-date.js"></script>
-<script src="Scripts/morris.min.js"></script>
-<script src="Scripts/raphael-min.js"></script>
-<script src="Scripts/q.min.js"></script>
-<script src="Scripts/breeze.min.js"></script>
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/knockout-3.2.0.debug.js"></script>
+    <script src="Scripts/knockout-morris.js"></script>
+    <script src="Scripts/knockout-date.js"></script>
+    <script src="Scripts/morris.min.js"></script>
+    <script src="Scripts/raphael-min.js"></script>
+    <script src="Scripts/q.min.js"></script>
+    <script src="Scripts/breeze.min.js"></script>
+    <script src="Scripts/spin.min.js"></script>
+    <script src="Scripts/ladda.min.js"></script>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#LoginButton').click(function () {
+
+            Ladda.bind('.ladda-button');
+
+            $("button").click(function (event) {
+                event.preventDefault();
+
+                $('#FailureText').text('');
+
+                setTimeout(function () { login(); }, 1000);
+            });
+
+            function login() {
                 $('#FailureText').text('');
 
                 var url = "http://supplierassessmentnew.azurewebsites.net/api/account/login";
@@ -208,17 +229,20 @@
 
                 $.ajax({
                     type: 'post',
-                    dataType:'json',
+                    dataType: 'json',
                     url: url,
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify(request)
-                }).success(function(data){
-                    if (data.isAuthorized)
+                }).success(function (data) {
+                    if (data.isAuthorized) {
                         document.location = 'index.html'
-                    else
+                    }
+                    else {
                         $('#FailureText').text(data.message);
+                        Ladda.stopAll();
+                    }
                 });
-            });
+            };
         });
     </script>
 </body>

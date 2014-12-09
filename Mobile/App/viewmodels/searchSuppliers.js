@@ -1,6 +1,7 @@
 ﻿define(['durandal/system', 'services/datacontext'], function (system, datacontext) {
     suppliers = ko.observableArray();
     searchTerm = ko.observable();
+    isSearching = ko.observable();
 
     function getAvailableClientWidth(element) {
 
@@ -70,6 +71,8 @@
         },
         searchTerm: searchTerm,
         activate: function () {
+            isSearching(false);
+
             if (suppliers().length == 0) {
                 return datacontext.getSuppliersByName(this.searchTerm(), 0, 100, suppliers)
                     .then(function () {
@@ -108,18 +111,24 @@
             $(window).scroll(function () {
                 var newSuppliers = ko.observableArray();
 
-                if ($(window).scrollTop() >= $(document).height() - $(window).height()) {
-                    datacontext.getSuppliersByName(searchTerm(), suppliers().length, 100, newSuppliers)
-                    .then(function () {
-                        ko.utils.arrayForEach(newSuppliers(), function (supplier) {
-                            supplier.selected = ko.observable();
-                            supplier.selected(false);
+                if ($(window).scrollTop() >= ($(document).height() - $(window).height()) * 0.5) {
+                    if (!isSearching()) {
+                        isSearching(true);
 
-                            suppliers.push(supplier);
-                        })
+                        datacontext.getSuppliersByName(searchTerm(), suppliers().length, 100, newSuppliers)
+                        .then(function () {
+                            ko.utils.arrayForEach(newSuppliers(), function (supplier) {
+                                supplier.selected = ko.observable();
+                                supplier.selected(false);
 
-                        updateTileWidth($("#supplier-list"));
-                    });
+                                suppliers.push(supplier);
+                            })
+
+                            isSearching(false);
+
+                            updateTileWidth($("#supplier-list"));
+                        });
+                    }
                 }
             });
         },
