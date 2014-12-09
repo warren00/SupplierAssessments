@@ -1,4 +1,4 @@
-﻿define(['services/datacontext', 'services/accountService', 'config'], function (datacontext, accountService, config) {
+﻿define(['plugins/router', 'services/datacontext', 'services/accountService', 'config'], function (router, datacontext, accountService, config) {
     var ctor = function () {
         var supplier = ko.observable();
         var monthlyAssessment = ko.observable();
@@ -39,6 +39,28 @@
             pollForGraphContainerUpdate(view);
         };
 
+
+        function setRoutes(accountNumber)
+        {
+            return accountService.getLoggedInUserRoles().then(function (roles) {
+                if (roles != null && ($.inArray("Administrator", roles) != -1) || $.inArray("Operator", roles) != -1) {
+                    for (var i = 0; i < router.routes.length; i++) {
+                        var route = router.routes[i];
+
+                        if (route.name == 'Home') {
+                            route.hash = "#dashboard/" + accountNumber;
+                            route.nav = true;
+                        }
+                        else if (route.name == '') {
+                            route.nav = false;
+                        }
+                    }
+                }
+
+                router.buildNavigationModel();
+            });
+        }
+
         this.activate = function (accountNumber) {
 
             monthlyAssessmentScores([]);
@@ -65,7 +87,7 @@
 
                         monthlyAssessmentScores.push(monthlyAssessment);
                     }
-                })
+                }).then(setRoutes(accountNumber))
         };
     }
 

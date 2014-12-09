@@ -9,11 +9,18 @@
             activate: activate,
             router: router,
             logout: logout,
-            roles: roles
+            roles: roles,
+			showSearchSuppliers: showSearchSuppliers
         };
 
         return shell;
 
+		function showSearchSuppliers()
+        {
+            return roles != null && ($.inArray("Administrator", roles) != -1 ||
+                $.inArray("Operations", roles) != -1)
+        }
+		
         function activate() {
             return initialize().then(boot)
                 .fail(failedInitialization);
