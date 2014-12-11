@@ -1,5 +1,4 @@
 ﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService'],
-
     function (system, router, config, datacontext, accountService) {
 
         var self = this;
@@ -9,29 +8,48 @@
             activate: activate,
             router: router,
             logout: logout,
-            roles: roles,
-			showSearchSuppliers: showSearchSuppliers
+            showBackButton: showBackButton,
+            navigateBack: navigateBack,
+            attached: function()
+            {
+                $(document).on('click', '.navbar-collapse.in', function (e) {
+                    if ($(e.target).is('a')) {
+                        $(this).collapse('hide');
+                    }
+                });
+            }
         };
 
         return shell;
 
-		function showSearchSuppliers()
+        function navigateBack()
         {
-            return roles != null && ($.inArray("Administrator", roles) != -1 ||
-                $.inArray("Operations", roles) != -1)
+            router.navigateBack();
         }
-		
+
+        function showBackButton()
+        {
+            for (var i = 0; i < router.routes.length; i++)
+            {
+                var route = router.routes[i];
+
+                if (route.route == '' && route.isActive())
+                    return false;
+            }
+
+            return true;
+        }
+
         function activate() {
             return initialize().then(boot)
                 .fail(failedInitialization);
         }
 
         function failedInitialization(error) {
-			if (error.status != 401)
-			{
-				var msg = 'App initialization failed: ' + error.message;
-				alert(msg);
-			}
+            if (error.status != 401) {
+                var msg = 'App initialization failed: ' + error.message;
+                alert(msg);
+            }
         }
 
         function initialize() {

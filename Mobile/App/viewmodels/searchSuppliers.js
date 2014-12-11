@@ -1,4 +1,4 @@
-﻿define(['durandal/system', 'services/datacontext'], function (system, datacontext) {
+﻿define(['plugins/router', 'durandal/system', 'services/datacontext'], function (router, system, datacontext) {
     suppliers = ko.observableArray();
     searchTerm = ko.observable();
     isSearching = ko.observable();
@@ -65,12 +65,28 @@
     return {
         select: function (assessment) {
             assessment.selected(true);
+
+            return true;
         },
         unselect: function (assessment) {
             assessment.selected(false);
+
+            return true;
         },
         searchTerm: searchTerm,
         activate: function () {
+
+            for (var i = 0; i < router.routes.length; i++) {
+                var route = router.routes[i];
+
+                if (route.name == 'Dashboard') {
+                    route.nav = false;
+                }
+            }
+
+            router.buildNavigationModel();
+
+
             isSearching(false);
 
             if (suppliers().length == 0) {

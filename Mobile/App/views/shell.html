@@ -7,14 +7,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a data-bind="visible: showSearchSuppliers()" class="navbar-brand" href="#">
-                <i class="fa fa-search"></i>
-                <span>Search</span>
-            </a>
-            <a data-bind="visible: !showSearchSuppliers()" class="navbar-brand" href="#">
-                <i class="fa fa-home"></i>
-                <span>Home</span>
-            </a>
+            <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
+                <a href="#"><i class="fa fa-arrow-circle-left" /></a>
+            </span>
+            <span class="navbar-brand" href="#">
+                <span>VOW Supplier Portal</span>
+            </span>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -6,7 +6,7 @@
             .makeRelative({ moduleId: "viewmodels/assessment", fromParent: true, dynamicHash: ':id' })
             .map([
                 { route: ['', 'summary'], moduleId: 'summary', title: 'Summary', nav: true },
-                { route: 'deliveryAssessments', moduleId: 'deliveryAssessments', title: 'Delivery Assessments', nav: true }
+                { route: 'deliveryAssessments', moduleId: 'deliveryAssessments', title: 'Deliveries', nav: true }
             ]).buildNavigationModel();
 
         this.assessment = assessment;
