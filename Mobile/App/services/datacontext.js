@@ -246,8 +246,12 @@
     }
 
     function queryFailed(error) {
-        var msg = "Error retreiving data. '" + error.message;
-        alert(msg);
+        if (error.message != "abort") {
+            var msg = "Error retreiving data. '" + error.message;
+            alert(msg);
+        }
+
+        throw error;
     }
 
     return {

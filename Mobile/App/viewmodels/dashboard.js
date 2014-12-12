@@ -35,11 +35,16 @@
         this.deliveryAssessmentCount = deliveryAssessmentCount;
         this.monthlyAssessmentScores = monthlyAssessmentScores;
 
+        this.accountNumber = null;
+
         this.attached = function (view, parent) {
             pollForGraphContainerUpdate(view);
+
+            updateDashboardRoute(this.accountNumber);
         };
 
         function updateDashboardRoute(accountNumber) {
+
             return accountService.getLoggedInUserRoles().then(function (roles) {
                 for (var i = 0; i < router.routes.length; i++) {
                     var route = router.routes[i];
@@ -61,11 +66,11 @@
 
             monthlyAssessmentScores([]);
 
-            var accountNumber = accountNumber != null ? accountNumber : config.accountNumber;
+            this.accountNumber = accountNumber != null ? accountNumber : config.accountNumber;
 
             var monthlyAssessments = ko.observable();
 
-            return datacontext.getSupplier(accountNumber, supplier)
+            return datacontext.getSupplier(this.accountNumber, supplier)
                 .then(function () {
                     return Q.all([datacontext.getCurrentMonthlyAssessment(supplier().id(), monthlyAssessment),
                         datacontext.getCurrentDeliveryAssessment(supplier().id(), deliveryAssessment),
@@ -83,7 +88,7 @@
 
                         monthlyAssessmentScores.push(monthlyAssessment);
                     }
-                }).then(updateDashboardRoute(accountNumber))
+                });
         };
     }
 
