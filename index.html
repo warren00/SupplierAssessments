@@ -21,6 +21,7 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
+        document.location = "./Mobile/splash.html";
         //StatusBar.styleLightContent();
         //checkConnection();
     }
@@ -44,10 +45,6 @@
             document.getElementById("warning").style.visibility = "visible";
         }
 
-    }
-
-    function callAnothePage() {
-        window.location = "./Mobile/splash.html";
     }
 
     </script>
