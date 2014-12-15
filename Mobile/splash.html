@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
+    <style>
+        @font-face {
+            font-family: 'Bowlby One', cursive;
+            src: url(fonts/BowlbyOne-Regular.ttf);
+        }
+        body
+        {
+            font-family: 'Bowlby One', cursive;
+            background-color:#C41520;
+        }
+
+        #container {
+            height:100%;
+            width:100%;
+            left:0;
+            top:0;
+            overflow:hidden;
+            position:absolute;
+            position:fixed;
+            background-color:#C41520;
+            font-weight: 500;
+        }
+
+        .content
+        {
+            margin-left:auto;
+            margin-right:auto;
+            position:relative;
+            top:30%;
+            color:white;
+            width:50%;
+            font-size:4.5em;
+        }
+
+        .content .icon
+        {
+            margin-top:-25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="content">
+            <div style="text-align:center">
+                <span>VOW</span>
+                <span class="icon fa fa-truck" style="display:block;font-size:2em;" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                document.location = "index.html";
+            }, 3000);
+        })
+    </script>
+</body>
+</html>
