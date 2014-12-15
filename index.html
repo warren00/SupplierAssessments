@@ -1,61 +1,71 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title></title>
+    <link href="Mobile/Content/font-awesome.min.css" rel="stylesheet">
     <link href="Mobile/Content/bootstrap.min.css" rel="stylesheet" />
-    <title>VOW Supplier Assessment</title>
     <script type="text/javascript" src="phonegap.js"></script>
+    <style>
+        @font-face {
+            font-family: Bowlby One;
+            src: url(Mobile/fonts/BowlbyOne-Regular.ttf);
+        }
 
-    <script src="Mobile/Scripts/jquery-2.1.1.min.js"></script>
-    <script src="Mobile/Scripts/bootstrap.min.js"></script>
+        body {
+            font-family: 'Bowlby One', cursive;
+            background-color: #C41520;
+        }
+
+        #container {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            position: absolute;
+            position: fixed;
+            background-color: #C41520;
+            font-weight: 500;
+        }
+
+        .content {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            top: 30%;
+            color: white;
+            width: 50%;
+            font-size: 4.5em;
+        }
+
+            .content .icon {
+                margin-top: -25px;
+            }
+    </style>
 </head>
 <body>
-    <div class="modal fade" id="myModal" tabindex="-1" role="alertdialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">VOW Supplier Portal</h4>
-                </div>
-                <div class="modal-body">
-                    No data connection available.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="retry btn btn-primary">Retry</button>
-                </div>
+    <div id="container">
+        <div class="content">
+            <div style="text-align:center">
+                <span>VOW</span>
+                <span class="icon fa fa-truck" style="display:block;font-size:2em;" />
             </div>
         </div>
     </div>
 
-    <div id="warning" style="visibility:hidden">
-        This application requires an internet connection
-    </div>
-
+    <script type="text/javascript" src="Mobile/Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="Mobile/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
             $(".retry").click(function () {
                 $('#myModal').modal('hide');
                 checkConnection();
             });
-        });
 
-        // Work around viewport sizing issue in IE 10 on Windows Phone 8
-        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-            document.writeln("<style>@-ms-viewport { width: auto!important; }</style>");
-        }
-
-        // Wait for PhoneGap to load
-        //
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-        //
-        function onDeviceReady() {
             checkConnection();
         }
 
@@ -73,7 +83,9 @@
             states[Connection.NONE] = 'No network connection';
 
             if (networkState != Connection.NONE) {
-                window.location.href = "./Mobile/splash.html";
+                setTimeout(function () {
+                    document.location = "./Mobile/index.html";
+                }, 1000);
             } else {
                 $('#myModal').modal('show');
             }
