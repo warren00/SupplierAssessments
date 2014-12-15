@@ -53,21 +53,6 @@
         }
 
         function initialize() {
-
-            var dialogVisible = false;
-
-            var handle = window.setInterval(function () {
-                if (!dialogVisible && !window.navigator.onLine) {
-                    dialogVisible = true;
-
-                    app.showMessage("No data connection available.", "VOW Supplier Portal").then(function (result) {
-                        dialogVisible = false;
-                    });
-
-                    $(document).resize();
-                }
-            }, 5000);
-
             var supplier = ko.observable();
 
             return Q.when(accountService.getLoggedInUserRoles().then(function (roles) {
