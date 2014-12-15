@@ -19,7 +19,7 @@
                                { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
                                { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
 
-    routes['Operations'] = [{ route: "", title: "Search Suppliers", moduleId: "viewmodels/searchSuppliers", name: "Search", nav: false },
+    routes['Operations'] = [{ route: "", title: "Suppliers", moduleId: "viewmodels/searchSuppliers", name: "Search", nav: true },
                                { route: "dashboard/:id", title: "Dashboard", moduleId: "viewmodels/dashboard", name: "Dashboard", nav: false },
                                { route: "assessments", moduleId: "viewmodels/assessments", name: "Assessments", nav: false },
                                { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
