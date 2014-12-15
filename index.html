@@ -13,11 +13,6 @@
             src: url(Mobile/fonts/BowlbyOne-Regular.ttf);
         }
 
-        body {
-            font-family: 'Bowlby One', cursive;
-            background-color: #C41520;
-        }
-
         #container {
             height: 100%;
             width: 100%;
@@ -31,6 +26,8 @@
         }
 
         .content {
+            font-family: 'Bowlby One', cursive;
+            background-color: #C41520;
             margin-left: auto;
             margin-right: auto;
             position: relative;
@@ -47,6 +44,23 @@
 </head>
 <body>
     <div id="container">
+        <div class="modal fade" id="myModal" tabindex="-1" role="alertdialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">VOW Supplier Portal</h4>
+                    </div>
+                    <div class="modal-body">
+                        No data connection available.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="retry btn btn-primary">Retry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content">
             <div style="text-align:center">
                 <span>VOW</span>
