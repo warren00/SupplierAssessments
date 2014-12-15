@@ -9,7 +9,11 @@
             </button>
 
             <!--<span class="navbar-brand"><span style="color:red; font-weight:800">VOW</span><span> Supplier</span></span>-->
-            <div class="navbar-brand">
+            <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
+                <a href="#"><i class="fa fa-arrow-circle-left" /></a>
+            </span>
+
+            <div class="navbar-brand" style="padding-left:10px">
                 <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.2em;float:left;">
                     VOW
                 </div>
@@ -17,10 +21,6 @@
                     Supplier Portal
                 </div>
             </div>
-
-            <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
-                <a href="#"><i class="fa fa-arrow-circle-left" /></a>
-            </span>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
