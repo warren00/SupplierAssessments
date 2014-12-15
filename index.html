@@ -6,9 +6,11 @@
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="Mobile/Content/bootstrap.min.css" rel="stylesheet" />
     <title>VOW Supplier Assessment</title>
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript">
+
         // Work around viewport sizing issue in IE 10 on Windows Phone 8
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
             document.writeln("<style>@-ms-viewport { width: auto!important; }</style>");
@@ -21,9 +23,7 @@
         // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
         //
         function onDeviceReady() {
-            document.location = "./Mobile/splash.html";
-            //StatusBar.styleLightContent();
-            //checkConnection();
+            checkConnection();
         }
 
         function checkConnection() {
@@ -40,21 +40,49 @@
             states[Connection.NONE] = 'No network connection';
 
             if (networkState != Connection.NONE) {
-                window.location.href = "http://supplierassessment.azurewebsites.net/HTMLClient/";
+                window.location.href = "./Mobile/splash.html";
             } else {
-                document.getElementById("warning").style.visibility = "visible";
+                $('#myModal').modal('show');
             }
 
         }
 
     </script>
 
-    <!-- SupplierAssessmentAppWrapper references -->
-    <link href="css/index.css" rel="stylesheet" />
+    <script src="Mobile/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Mobile/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="alertdialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">VOW Supplier Portal</h4>
+                </div>
+                <div class="modal-body">
+                    No data connection available.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="retry btn btn-primary">Retry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="warning" style="visibility:hidden">
         This application requires an internet connection
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".retry").click(function () {
+                $('#myModal').modal('hide');
+                checkConnection();
+            });
+        });
+    </script>
+
 </body>
 </html>
