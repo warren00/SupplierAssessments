@@ -77,7 +77,10 @@
         function onDeviceReady() {
             $(".retry").click(function () {
                 $('#myModal').modal('hide');
-                checkConnection();
+
+                setTimeout(function () {
+                    checkConnection();
+                }, 1000);
             });
 
             checkConnection();
