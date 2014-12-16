@@ -24,6 +24,7 @@
   <preference name="SplashScreen" value="splash" />
   <preference name="show-splash-screen-spinner" value="true" />
   <preference name="auto-hide-splash-screen" value="true" />
+  <preference name="SplashScreenDelay" value="5000" />
   <preference name="permissions" value="none"/>
 
   <icon src="icon.png" />
