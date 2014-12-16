@@ -28,15 +28,15 @@
 
   <platform name="android">
     <!-- you can use any density that exists in the Android project -->
-    <splash src="splash/HDPI-800x480.png" density="land-hdpi"/>
-    <splash src="splash/LDPI-320x200.png" density="land-ldpi"/>
-    <splash src="splash/MDPI-480x320.png" density="land-mdpi"/>
-    <splash src="splash/XHDPI-1280x720.png" density="land-xhdpi"/>
+    <splash src="res/screen/android/HDPI-800x480.png" density="land-hdpi"/>
+    <splash src="res/screen/android/LDPI-320x200.png" density="land-ldpi"/>
+    <splash src="res/screen/android/MDPI-480x320.png" density="land-mdpi"/>
+    <splash src="res/screen/android/XHDPI-1280x720.png" density="land-xhdpi"/>
 
-    <splash src="splash/HDPI-480x800.png" density="port-hdpi"/>
-    <splash src="splash/LDPI-200x320.png" density="port-ldpi"/>
-    <splash src="splash/MDPI-320x480.png" density="port-mdpi"/>
-    <splash src="splash/XHDPI-720x1280.png" density="port-xhdpi"/>
+    <splash src="res/screen/android/HDPI-480x800.png" density="port-hdpi"/>
+    <splash src="res/screen/android/LDPI-200x320.png" density="port-ldpi"/>
+    <splash src="res/screen/android/MDPI-320x480.png" density="port-mdpi"/>
+    <splash src="res/screen/android/XHDPI-720x1280.png" density="port-xhdpi"/>
   </platform>
 
   <platform name="ios">
