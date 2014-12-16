@@ -27,6 +27,7 @@
   <preference name="permissions" value="none"/>
 
   <platform name="android">
+    <splash src="splash.png"/>
     <!-- you can use any density that exists in the Android project -->
     <splash src="res/screen/android/HDPI-800x480.png" density="land-hdpi"/>
     <splash src="res/screen/android/LDPI-320x200.png" density="land-ldpi"/>
