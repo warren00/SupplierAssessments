@@ -22,21 +22,18 @@
   <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 
   <preference name="SplashScreen" value="splash" />
+  <preference name="show-splash-screen-spinner" value="true" />
+  <preference name="auto-hide-splash-screen" value="true" />
   <preference name="SplashScreenDelay" value="10000" />
-  <preference name="permissions" value="none"/>
 
   <icon src="icon.png" />
   <splash src="splash.png" />
 
-  <splash src="res/drawable/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-  <splash src="res/drawable/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-  <splash src="res/drawable/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-  <splash src="res/drawable/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
-  
-  <splash src="res/drawable/port-ldpi.png" gap:platform="android" gap:qualifier="port-ldpi" />
-  <splash src="res/drawable/port-mdpi.png" gap:platform="android" gap:qualifier="port-mdpi" />
-  <splash src="res/drawable/port-hdpi.png" gap:platform="android" gap:qualifier="port-hdpi" />
-  <splash src="res/drawable/port-xhdpi.png" gap:platform="android" gap:qualifier="port-xhdpi" />  
- 
+  <gap:splash src="splash/port-ldpi.png" gap:platform="android" gap:density="ldpi" />
+  <gap:splash src="splash/port-mdpi.png" gap:platform="android" gap:density="mdpi" />
+  <gap:splash src="splash/port-hdpi.png" gap:platform="android" gap:density="hdpi" />
+  <gap:splash src="splash/port-xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+  <gap:splash src="splash/port-xhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+  <gap:splash src="splash.png" />
 
 </widget>
