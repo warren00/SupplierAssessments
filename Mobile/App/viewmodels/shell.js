@@ -1,5 +1,5 @@
-﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService', 'durandal/app'],
-    function (system, router, config, datacontext, accountService, app) {
+﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService'],
+    function (system, router, config, datacontext, accountService) {
 
         var self = this;
         self.roles = null;
@@ -10,7 +10,8 @@
             logout: logout,
             showBackButton: showBackButton,
             navigateBack: navigateBack,
-            attached: function () {
+            attached: function()
+            {
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');
@@ -21,12 +22,15 @@
 
         return shell;
 
-        function navigateBack() {
+        function navigateBack()
+        {
             router.navigateBack();
         }
 
-        function showBackButton() {
-            for (var i = 0; i < router.routes.length; i++) {
+        function showBackButton()
+        {
+            for (var i = 0; i < router.routes.length; i++)
+            {
                 var route = router.routes[i];
 
                 if (route.route == '' && route.isActive())
@@ -49,20 +53,6 @@
         }
 
         function initialize() {
-
-            var dialogVisible = false;
-
-            var handle = window.setInterval(function () {
-                if (!dialogVisible && !window.navigator.onLine) {
-                    dialogVisible = true;
-
-                    app.showMessage("No data connection available.", "VOW Supplier Portal").then(function (result) {
-                        dialogVisible = false;
-                    });
-
-                    $(document).resize();
-                }
-            }, 5000);
 
             var supplier = ko.observable();
 
