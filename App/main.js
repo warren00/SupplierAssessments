@@ -14,7 +14,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
 
     var useragent = navigator.userAgent.toLowerCase();
     if (useragent.match(/android/) || useragent.match(/iphone/) || useragent.match(/ipad/) || useragent.match('ios') || useragent.match('Windows Phone') || useragent.match('iemobile')) {
-        document.addEventListener('deviceready', onDeviceReady, false);
+        setTimeout(document.addEventListener('deviceready', onDeviceReady, false), 1000);
     }
     else {
         onDeviceReady();
