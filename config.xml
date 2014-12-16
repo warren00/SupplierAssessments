@@ -21,6 +21,7 @@
   <preference name="SplashScreen" value="screen" />
   <preference name="SplashScreenDelay" value="10000" />
   <preference name="permissions" value="none"/>
+  <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="com.phonegap.plugin.statusbar" />
 
