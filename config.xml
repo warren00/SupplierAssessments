@@ -21,10 +21,10 @@
   <gap:plugin name="com.phonegap.plugin.statusbar" />
   <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 
-  <preference name="SplashScreen" value="splash" />
+  <preference name="splashscreen" value="splash" />
   <preference name="show-splash-screen-spinner" value="true" />
   <preference name="auto-hide-splash-screen" value="true" />
-  <preference name="SplashScreenDelay" value="5000" />
+  <preference name="splashScreenDelay" value="5000" />
   <preference name="permissions" value="none"/>
 
   <icon src="icon.png" />
