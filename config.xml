@@ -28,10 +28,10 @@
   <platform name="android">
     <gap:splash src="splash.png"/>
     <!-- you can use any density that exists in the Android project -->
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/HDPI-800x480.png"/>
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/LDPI-320x200.png"/>
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/MDPI-480x320.png"/>
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi"  src="res/screen/android/XHDPI-1280x720.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="splash/android/HDPI-800x480.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="splash/android/LDPI-320x200.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="splash/android/MDPI-480x320.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi"  src="splash/android/XHDPI-1280x720.png"/>
   </platform>
 
 </widget>
