@@ -28,15 +28,15 @@
   <icon src="icon.png" />
   <splash src="splash.png" />
 
-  <splash src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-  <splash src="mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-  <splash src="hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-  <splash src="xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+  <splash src="res/drawable/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+  <splash src="res/drawable/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+  <splash src="res/drawable/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+  <splash src="res/drawable/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
   
-  <splash src="port-ldpi.png" gap:platform="android" gap:qualifier="port-ldpi" />
-  <splash src="port-mdpi.png" gap:platform="android" gap:qualifier="port-mdpi" />
-  <splash src="port-hdpi.png" gap:platform="android" gap:qualifier="port-hdpi" />
-  <splash src="port-xhdpi.png" gap:platform="android" gap:qualifier="port-xhdpi" />  
+  <splash src="res/drawable/port-ldpi.png" gap:platform="android" gap:qualifier="port-ldpi" />
+  <splash src="res/drawable/port-mdpi.png" gap:platform="android" gap:qualifier="port-mdpi" />
+  <splash src="res/drawable/port-hdpi.png" gap:platform="android" gap:qualifier="port-hdpi" />
+  <splash src="res/drawable/port-xhdpi.png" gap:platform="android" gap:qualifier="port-xhdpi" />  
  
 
 </widget>
