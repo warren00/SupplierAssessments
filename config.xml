@@ -3,7 +3,6 @@
 	xmlns="http://www.w3.org/ns/widgets"
 	xmlns:gap="http://phonegap.com/ns/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:rim="http://www.blackberry.com/ns/widgets"
 	id="me.app.id"
 	version="1.0.0">
   <gap:config-file platform="android" parent="/manifest">
@@ -29,73 +28,10 @@
   <platform name="android">
     <gap:splash src="splash.png"/>
     <!-- you can use any density that exists in the Android project -->
-    <splash src="res/screen/android/HDPI-800x480.png" density="land-hdpi"/>
-    <splash src="res/screen/android/LDPI-320x200.png" density="land-ldpi"/>
-    <splash src="res/screen/android/MDPI-480x320.png" density="land-mdpi"/>
-    <splash src="res/screen/android/XHDPI-1280x720.png" density="land-xhdpi"/>
-
-    <splash src="res/screen/android/HDPI-480x800.png" density="port-hdpi"/>
-    <splash src="res/screen/android/LDPI-200x320.png" density="port-ldpi"/>
-    <splash src="res/screen/android/MDPI-320x480.png" density="port-mdpi"/>
-    <splash src="res/screen/android/XHDPI-720x1280.png" density="port-xhdpi"/>
-  </platform>
-
-  <platform name="ios">
-    <!-- images are determined by width and height. The following are supported -->
-    <splash src="splash/iPhone5-640x1136.png" width="640" height="1136"/>
-    <splash src="splash/iPhone5-1136x640.png" width="1136" height="640"/>
-    <splash src="splash/iPhone6-750x1134.png" width="750" height="1334"/>
-    <splash src="splash/iPhone6-750x1134.png" width="1334" height="750"/>
-    <splash src="splash/iPad-768x1024.png" width="768" height="1024"/>
-    <splash src="splash/iPad-1024x768.png" width="1024" height="768"/>
-    <splash src="splash/iPad-1536x2048.png" width="1536" height="2048"/>
-    <splash src="splash/iPad-1536x2048.png" width="2048" height="1536"/>
-    <splash src="splash/iphone6plus-1242x2208.png" width="1242" height="2208"/>
-    <splash src="splash/iphone6plus-2208x1242.png" width="2208" height="1242"/>
-    <splash src="splash/iPhone-iPod-320x480.png" width="320" height="480"/>
-    <splash src="splash/iPhone-iPod-320x480.png" width="480" height="320"/>
-    <splash src="splash/iPhone-iPod-640x960.png" width="640" height="960"/>
-    <splash src="splash/iPhone-iPod-960x640.png" width="960" height="640"/>
-  </platform>
-
-  <platform name="wp8">
-    <!-- images are determined by width and height. The following are supported -->
-    <splash src="splash/HDPI-800x480.png" width="800" height="480"/>
-    <splash src="splash/LDPI-320x200.png" width="320" height="200"/>
-    <splash src="splash/MDPI-480x320.png" width="480" height="320"/>
-    <splash src="splash/XHDPI-1280x720.png" width="1280" height="720"/>
-
-    <splash src="splash/HDPI-480x800.png" width="480" height="800"/>
-    <splash src="splash/LDPI-200x320.png" width="200" height="320"/>
-    <splash src="splash/MDPI-320x480.png" width="320" height="480"/>
-    <splash src="splash/XHDPI-720x1280.png" width="720" height="1280"/>
-  </platform>
-
-  <platform name="windows8">
-    <!-- images are determined by width and height. The following are supported -->
-    <splash src="splash/HDPI-800x480.png" width="800" height="480"/>
-    <splash src="splash/LDPI-320x200.png" width="320" height="200"/>
-    <splash src="splash/MDPI-480x320.png" width="480" height="320"/>
-    <splash src="splash/XHDPI-1280x720.png" width="1280" height="720"/>
-
-    <splash src="splash/HDPI-480x800.png" width="480" height="800"/>
-    <splash src="splash/LDPI-200x320.png" width="200" height="320"/>
-    <splash src="splash/MDPI-320x480.png" width="320" height="480"/>
-    <splash src="splash/XHDPI-720x1280.png" width="720" height="1280"/>
-  </platform>
-
-  <platform name="blackberry10">
-    <!-- Add a rim:splash element for each resolution and locale you wish -->
-    <!-- http://developer.blackberry.com/html5/documentation/rim_splash_element.html -->
-    <rim:splash src="splash/HDPI-800x480.png" width="800" height="480"/>
-    <rim:splash src="splash/LDPI-320x200.png" width="320" height="200"/>
-    <rim:splash src="splash/MDPI-480x320.png" width="480" height="320"/>
-    <rim:splash src="splash/XHDPI-1280x720.png" width="1280" height="720"/>
-
-    <rim:splash src="splash/HDPI-480x800.png" width="480" height="800"/>
-    <rim:splash src="splash/LDPI-200x320.png" width="200" height="320"/>
-    <rim:splash src="splash/MDPI-320x480.png" width="320" height="480"/>
-    <rim:splash src="splash/XHDPI-720x1280.png" width="720" height="1280"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/HDPI-800x480.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/LDPI-320x200.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/MDPI-480x320.png"/>
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi"  src="res/screen/android/XHDPI-1280x720.png"/>
   </platform>
 
 </widget>
