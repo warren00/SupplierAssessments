@@ -46,8 +46,7 @@
                 var msg = 'App initialization failed: ' + error.message;
                 alert(msg);
             }
-            else
-            {
+            else {
                 if (window.isCordovaApp) {
                     checkConnection();
                 }
@@ -72,7 +71,9 @@
             states[Connection.NONE] = 'No network connection';
 
             if (networkState == Connection.NONE) {
-                window.navigator.alert("No data connection");
+                window.navigator.alert("No data connection", function () {
+                    document.location = "/"
+                }, "Supplier Assessment Portal", "Ok");
             }
         }
 
