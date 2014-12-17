@@ -17,10 +17,10 @@
   </author>
   <content src="index.html" />
   <access origin="*" />
-  <plugin name="org.apache.cordova.network-information"/>
-  <plugin name="com.phonegap.plugin.statusbar" />
-  <plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
-  <plugin name="org.apache.cordova.dialogs"/>
+  <gap:plugin name="org.apache.cordova.network-information"/>
+  <gap:plugin name="com.phonegap.plugin.statusbar" />
+  <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+  <gap:plugin name="org.apache.cordova.dialogs"/>
 
   <preference name="splashscreen" value="splash" />
   <preference name="splash-screen-duration" value="10000" />
