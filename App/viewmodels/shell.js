@@ -71,7 +71,7 @@
             states[Connection.NONE] = 'No network connection';
 
             if (networkState == Connection.NONE) {
-                window.navigator.alert("No data connection", function () {
+                window.navigator.notification.alert("No data connection", function () {
                     document.location = "/"
                 }, "Supplier Assessment Portal", "Ok");
             }
