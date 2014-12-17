@@ -57,9 +57,9 @@
             var networkState = navigator.connection.type;
 
             if (networkState == Connection.NONE) {
-                window.navigator.notification.alert("No data connection", function () {
-                    document.location = "login.html"
-                }, "Supplier Assessment Portal", "Ok");
+                window.navigator.notification.alert("No data connection", null, "Supplier Assessment Portal", "Ok");
+
+                document.location = "login.html"
             }
         }
 
