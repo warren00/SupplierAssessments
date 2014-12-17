@@ -83,8 +83,6 @@
             }).fail(function (result) {
                 if (result.status == 401)
                     document.location = "./login.html";
-                else
-                    throw result;
             }));
         }
 
