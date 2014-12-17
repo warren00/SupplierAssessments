@@ -10,8 +10,7 @@
             logout: logout,
             showBackButton: showBackButton,
             navigateBack: navigateBack,
-            attached: function()
-            {
+            attached: function () {
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');
@@ -22,15 +21,12 @@
 
         return shell;
 
-        function navigateBack()
-        {
+        function navigateBack() {
             router.navigateBack();
         }
 
-        function showBackButton()
-        {
-            for (var i = 0; i < router.routes.length; i++)
-            {
+        function showBackButton() {
+            for (var i = 0; i < router.routes.length; i++) {
                 var route = router.routes[i];
 
                 if (route.route == '' && route.isActive())
@@ -50,9 +46,39 @@
                 var msg = 'App initialization failed: ' + error.message;
                 alert(msg);
             }
+            else
+            {
+                if (window.isCordovaApp) {
+                    checkConnection();
+                }
+            }
+        }
+
+        function onDeviceReady() {
+            checkConnection();
+        }
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.CELL] = 'Cell generic connection';
+            states[Connection.NONE] = 'No network connection';
+
+            if (networkState == Connection.NONE) {
+                window.navigator.alert("No data connection");
+            }
         }
 
         function initialize() {
+
+            document.addEventListener("deviceready", onDeviceReady, false);
 
             var supplier = ko.observable();
 

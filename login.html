@@ -187,7 +187,6 @@
         </asp:Login>
     </form>
 
-    <script src="phonegap.js"></script>
     <script src="Scripts/jquery-2.1.1.js"></script>
     <script src="Scripts/modernizr-2.8.3.js"></script>
     <script src="Scripts/moment.min.js"></script>
@@ -204,31 +203,6 @@
 
 
     <script type="text/javascript">
-
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-            checkConnection();
-        }
-
-        function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            var states = {};
-            states[Connection.UNKNOWN] = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI] = 'WiFi connection';
-            states[Connection.CELL_2G] = 'Cell 2G connection';
-            states[Connection.CELL_3G] = 'Cell 3G connection';
-            states[Connection.CELL_4G] = 'Cell 4G connection';
-            states[Connection.CELL] = 'Cell generic connection';
-            states[Connection.NONE] = 'No network connection';
-
-            if (networkState == Connection.NONE) {
-                navigator.notification.alert("No data connection");
-            }
-        }
-
         $(document).ready(function () {
 
             Ladda.bind('.ladda-button');
