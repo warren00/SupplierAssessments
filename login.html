@@ -242,7 +242,10 @@
                         Ladda.stopAll();
                     }
                 }).fail(function (jqXHR, textStatus) {
-                    alert(textStatus);
+                    if (textStatus == "error" && jqXHR.status == 0) {
+                        Ladda.stopAll();
+                        $('#FailureText').text("No data connection");
+                    }
                 });
             };
         });
