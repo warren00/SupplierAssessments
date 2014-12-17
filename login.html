@@ -241,6 +241,8 @@
                         $('#FailureText').text(data.message);
                         Ladda.stopAll();
                     }
+                }).fail(function (jqXHR, textStatus) {
+                    alert(textStatus);
                 });
             };
         });
