@@ -215,6 +215,20 @@
                 setTimeout(function () { login(); }, 1000);
             });
 
+            $("input[type=password]").keypress(function (e) {
+
+                if (e.which == 13) // enter key code
+                {
+                    event.preventDefault();
+
+                    $('input:focus').blur();
+
+                    $('#FailureText').text('');
+
+                    setTimeout(function () { login(); }, 1000);
+                }
+            });
+
             function login() {
                 $('#FailureText').text('');
 
