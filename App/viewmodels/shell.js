@@ -72,7 +72,7 @@
 
             if (networkState == Connection.NONE) {
                 window.navigator.notification.alert("No data connection", function () {
-                    document.location = "/"
+                    document.location = "../../login.html"
                 }, "Supplier Assessment Portal", "Ok");
             }
         }
