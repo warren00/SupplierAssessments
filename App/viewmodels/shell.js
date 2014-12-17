@@ -43,12 +43,12 @@
 
         function failedInitialization(error) {
             if (error.status != 401) {
-                var msg = 'App initialization failed: ' + error.message;
-                alert(msg);
-            }
-            else {
-                if (window.isCordovaApp) {
+                if (window.cordova != null) {
                     checkConnection();
+                }
+                else {
+                    var msg = 'App initialization failed: ' + error.message;
+                    alert(msg);
                 }
             }
         }
