@@ -245,10 +245,26 @@
         }
     }
 
+    function checkConnection() {
+        var networkState = navigator.connection.type;
+
+        if (networkState == Connection.NONE) {
+            window.navigator.notification.alert("No data connection", null, "VOW Supplier Portal", "Ok");
+
+            document.location = "login.html"
+        }
+    }
+
     function queryFailed(error) {
         if (error.message != "abort") {
-            var msg = "Error retreiving data. '" + error.message;
-            alert(msg);
+
+            if (window.cordova != null) {
+                checkConnection();
+            }
+            else {
+                var msg = "Error retreiving data. '" + error.message;
+                alert(msg);
+            }
         }
 
         throw error;
