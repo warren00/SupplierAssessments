@@ -53,10 +53,6 @@
             }
         }
 
-        function onDeviceReady() {
-            checkConnection();
-        }
-
         function checkConnection() {
             var networkState = navigator.connection.type;
 
@@ -72,14 +68,12 @@
 
             if (networkState == Connection.NONE) {
                 window.navigator.notification.alert("No data connection", function () {
-                    document.location = "../../login.html"
+                    document.location = "../login.html"
                 }, "Supplier Assessment Portal", "Ok");
             }
         }
 
         function initialize() {
-
-            document.addEventListener("deviceready", onDeviceReady, false);
 
             var supplier = ko.observable();
 
