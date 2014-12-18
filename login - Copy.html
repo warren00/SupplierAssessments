@@ -14,10 +14,6 @@
     <link href="Content/animate.css" rel="stylesheet" />
     <link href="Content/ladda-themeless.min.css" rel="stylesheet" />
 
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/slate-bootstrap.min.css" rel="stylesheet" />
-
-
     <title>Log In</title>
     <style type="text/css">
         /* Here you can customize your login screen */
@@ -33,16 +29,6 @@
 
         h1 {
             color: #ffffff;
-        }
-
-        .page-header {
-            margin: 0px 0 15px;
-        }
-
-
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-brand:focus {
-            color: #c8c8c8;
         }
 
         .requiredStyle {
@@ -102,14 +88,16 @@
             width: 95%;
             max-width: 310px;
             position: absolute;
-            top: 47%;
+            top: 40%;
             margin-top: -144px;
             left: 50%;
             margin-left: -155px;
         }
 
-            .accountInfo h1 {
-            }
+        .accountInfo h1
+        {
+            text-align:center;
+        }
 
         .labelStyle {
             font-family: 'Segoe UI Semibold', 'Frutiger','Helvetica Neue Semibold',Helvetica,Arial,sans-serif;
@@ -167,54 +155,48 @@
             font-size: 15px;
         }
 
-        .logInBtn button {
-            width: 95%;
+        .logInBtn button
+        {
+            width:95%;
         }
+
     </style>
 </head>
 <body>
-    <div>
-        <form id="LogInForm" runat="server">
-            <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
-                <layouttemplate>
-                    <div class="accountInfo">
-                        <div>
-                            <h1 class="page-header">
-                                Supplier Portal
-                                <small>Login</small>
-                            </h1>
-                        </div>
-
-                        <div style="margin-bottom: 10px;">
-                            <label id="UsernameLabel" for="Username" class="labelStyle" />Username: </label>
-                            <asp:RequiredFieldValidator ID="UsernameRequired" runat="server" ControlToValidate="Username" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Username is required" CssClass="requiredStyle" />
-                            <input type="text" id="Username" class="textBoxStyle" autocapitalize="off" />
-                        </div>
-                        <div style="margin-bottom: 10px;">
-                            <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
-                            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Password is required" CssClass="requiredStyle" />
-                            <input type="password" id="Password" class="textBoxStyle" />
-                        </div>
-                        <div class="submit-login">
-                            <div class="rememberme">
-                                <span class="checkStyle">
-                                    <input id="rememberMe" type="checkbox" id="RememberMe" class="checkStyle" />
-                                    <label for="RememberMe">Remember me next time.</label>
-                                </span>
-                            </div>
-                            <div style="margin-bottom: 10px;" class="logInBtn">
-                                <button type="button" id="login" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
-                            </div>
-                        </div>
-                        <span class="failureNotification">
-                            <span id="FailureText" />
-                        </span>
-                        <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" ValidationGroup="LoginUserValidationGroup" />
+    <form id="LogInForm" runat="server">
+        <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+            <layouttemplate>
+                <div class="accountInfo">
+                    <h1>VOW Supplier Portal</h1>
+                    <div style="margin-bottom: 10px;">
+                        <label id="UsernameLabel" for="Username" class="labelStyle" />Username: </label>
+                        <asp:RequiredFieldValidator ID="UsernameRequired" runat="server" ControlToValidate="Username" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Username is required" CssClass="requiredStyle" />
+                        <input type="text" id="Username" class="textBoxStyle" autocapitalize="off" />
                     </div>
-                </layouttemplate>
-            </asp:Login>
-        </form>
-    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
+                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ValidationGroup="LoginUserValidationGroup" Text="*" ToolTip="Password is required" CssClass="requiredStyle" />
+                        <input type="password" id="Password" class="textBoxStyle" />
+                    </div>
+                    <div class="submit-login">
+                        <div class="rememberme">
+                            <span class="checkStyle">
+                                <input id="rememberMe" type="checkbox" id="RememberMe" class="checkStyle" />
+                                <label for="RememberMe">Remember me next time.</label>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="logInBtn">
+                            <button type="button" id="login" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
+                        </div>
+                    </div>
+                    <span class="failureNotification">
+                        <span id="FailureText" />
+                    </span>
+                    <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" ValidationGroup="LoginUserValidationGroup" />
+                </div>
+            </layouttemplate>
+        </asp:Login>
+    </form>
 
     <script src="Scripts/jquery-2.1.1.js"></script>
     <script src="Scripts/modernizr-2.8.3.js"></script>
