@@ -88,7 +88,7 @@
             width: 95%;
             max-width: 310px;
             position: absolute;
-            top: 45%;
+            top: 43%;
             margin-top: -144px;
             left: 50%;
             margin-left: -155px;
@@ -175,7 +175,7 @@
                             </span>
                         </div>
                         <div style="margin-bottom: 10px;" class="logInBtn">
-                            <button type="button" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
+                            <button type="button" id="login" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
                         </div>
                     </div>
                     <span class="failureNotification">
@@ -207,25 +207,22 @@
 
             Ladda.bind('.ladda-button');
 
-            $("button").click(function (event) {
-                event.preventDefault();
+            $("#login").click(function (event) {
 
                 $('#FailureText').text('');
 
                 setTimeout(function () { login(); }, 1000);
             });
 
-            $("input[type=password]").keypress(function (e) {
+            $("input[type=password], input[type=text]").keypress(function (e) {
 
                 if (e.which == 13) // enter key code
                 {
                     event.preventDefault();
 
+                    $("#login").click();
+
                     $('input:focus').blur();
-
-                    $('#FailureText').text('');
-
-                    setTimeout(function () { login(); }, 1000);
                 }
             });
 
