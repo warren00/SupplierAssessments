@@ -1,5 +1,5 @@
-﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService'],
-    function (system, router, config, datacontext, accountService) {
+﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService', 'durandal/app'],
+    function (system, router, config, datacontext, accountService, app) {
 
         var self = this;
         self.roles = null;
@@ -42,25 +42,8 @@
         }
 
         function failedInitialization(error) {
-            if (error.status != 401) {
-                if (window.cordova != null) {
-                    checkConnection();
-                }
-                else {
-                    var msg = 'App initialization failed: ' + error.message;
-                    alert(msg);
-                }
-            }
-        }
-
-        function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            if (networkState == Connection.NONE) {
-                window.navigator.notification.alert("No data connection", null, "VOW Supplier Portal", "Ok");
-
-                document.location = "login.html"
-            }
+            var msg = 'App initialization failed: ' + error.message;
+            alert(msg);
         }
 
         function initialize() {
@@ -97,6 +80,17 @@
                 for (var j = 0; j < roleRoutes.length; j++)
                     routes.push(roleRoutes[j]);
             }
+
+            router.isNavigating.subscribe(function (newValue) {
+
+                if (newValue == true) {
+
+                    var collapsedMenu = $('.navbar-collapse');
+
+                    if (collapsedMenu != null)
+                        $('.navbar-collapse').collapse('hide');
+                }
+            });
 
             return router.map(routes)
                 .buildNavigationModel()

@@ -1,23 +1,33 @@
 ﻿<div>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
+        <div class="pull-right" data-bind="visible:!router.isNavigating()">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+        </div>
+        <div class="pull-right navbar-spinner">
+            <ul>
+                <li class="loader" data-bind="visible:router.isNavigating">
+                    <i class="fa fa-spinner fa-spin fa-2x"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <div class="pull-left">
+                <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
+                    <a href="#"><i class="fa fa-arrow-circle-left" /></a>
+                </span>
 
-            <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
-                <a href="#"><i class="fa fa-arrow-circle-left" /></a>
-            </span>
-
-            <div class="navbar-brand" style="padding-left:10px">
-                <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.3em;float:left;">
-                    VOW
-                </div>
-                <div style="float:left; margin-left:5px;">
-                    Supplier Portal
+                <div class="navbar-brand" style="padding-left:10px">
+                    <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.3em;float:left;">
+                        VOW
+                    </div>
+                    <div style="float:left; margin-left:5px;">
+                        Supplier Portal
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,11 +44,6 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href='#' data-bind="click: logout">Log Out</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="loader" data-bind="visible:router.isNavigating">
-                    <i class="fa fa-spinner fa-spin fa-2x"></i>
                 </li>
             </ul>
         </div>
