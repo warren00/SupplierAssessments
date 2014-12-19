@@ -171,7 +171,6 @@
         .logInBtn button {
             width: 100%;
         }
-
     </style>
 </head>
 <body>
@@ -235,8 +234,9 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady() {
             Ladda.bind('.ladda-button');
 
             $("#login").click(function (event) {
@@ -278,8 +278,7 @@
                     data: JSON.stringify(request)
                 }).success(function (data, message, jqXHR) {
                     if (data.isAuthorized) {
-                        if (document.cordova != null && request.rememberMe)
-                        {
+                        if (document.cordova != null && request.rememberMe) {
                             var cookie = jqXHR.getResponseHeader("Set-Cookie");
                             window.localStorage.setItem("cookie", cookie);
                         }
@@ -297,7 +296,7 @@
                     }
                 });
             };
-        });
+        }
     </script>
 </body>
 </html>
