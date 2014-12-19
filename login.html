@@ -275,8 +275,14 @@
                     url: url,
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify(request)
-                }).success(function (data) {
+                }).success(function (data, message, jqXHR) {
                     if (data.isAuthorized) {
+                        if (document.cordova != null && request.rememberMe)
+                        {
+                            var cookie = jqXHR.getResponseHeader("Set-Cookie");
+                            window.localStorage.setItem("cookie", cookie);
+                        }
+
                         document.location = 'index.html'
                     }
                     else {
