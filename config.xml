@@ -29,6 +29,10 @@
   <preference name="SplashScreenDelay" value="1000" />
   <preference name="permissions" value="none"/>
 
+  <preference name="StatusBarOverlaysWebView" value="false"/>
+  <preference name="StatusBarBackgroundColor" value="#000000"/>
+  <preference name="StatusBarStyle" value="lightcontent" />
+
   <icon src="icon.png" />
 
   <icon src="icon-60@3x.png" gap:platform="ios" width="180" height="180" />
