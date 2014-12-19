@@ -103,10 +103,10 @@
 
                 if (newValue == true) {
 
-                    var collapsedMenu = $('.navbar-collapse');
+                    var collapsedMenu = $('.navbar-collapse.in');
 
-                    if (collapsedMenu != null)
-                        $('.navbar-collapse').collapse('hide');
+                    if (collapsedMenu != null && collapsedMenu.length > 0)
+                        $('.navbar-collapse.in').collapse('hide');
                 }
             });
 
