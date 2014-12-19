@@ -8,7 +8,7 @@
   <gap:config-file platform="android" parent="/manifest">
     <application android:debuggable="true" />
   </gap:config-file>
-  <name>VOW Supplier Portal</name>
+  <name>Suppliers</name>
   <description>
     A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.
   </description>
