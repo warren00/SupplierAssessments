@@ -291,6 +291,7 @@ ul {
     padding: 14px 0px 0px 15px;
     font-size: 14px;
     line-height: 20px;
+    color:#C3C0C0
 }
 
     .back-button a {
@@ -302,4 +303,24 @@ ul {
 .back-button a:hover {
     color: white;
     background-color: none;
+}
+
+.navbar-brand
+{
+    font-size:16px
+}
+
+.navbar-nav li.loader
+{
+    text-align:right;
+}
+
+.navbar-spinner {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
