@@ -41,9 +41,27 @@
                 .fail(failedInitialization);
         }
 
+
         function failedInitialization(error) {
-            var msg = 'App initialization failed: ' + error.message;
-            alert(msg);
+            if (error.status != 401) {
+                if (window.cordova != null) {
+                    checkConnection();
+                }
+                else {
+                    var msg = 'App initialization failed: ' + error.message;
+                    alert(msg);
+                }
+            }
+        }
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            if (networkState == Connection.NONE) {
+                window.navigator.notification.alert("No data connection", null, "VOW Supplier Portal", "Ok");
+
+                document.location = "login.html"
+            }
         }
 
         function initialize() {
