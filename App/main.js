@@ -15,7 +15,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'VOW Supplier Assessment';
+    app.title = 'Supplier';
 
     app.configurePlugins({
         router: true,
