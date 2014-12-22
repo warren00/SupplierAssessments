@@ -14,7 +14,7 @@
 
                 document.addEventListener("deviceready", onDeviceReady, false);
 
-                function onDeviceReady() {
+                function onDestroy() {
                     window.onunload = function unloaded() {
                         window.cookies.clear();
                     };
