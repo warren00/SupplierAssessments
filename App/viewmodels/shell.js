@@ -12,9 +12,13 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                window.onunload = function unloaded() {
-                    window.cookies.clear();
-                };
+                document.addEventListener("deviceready", onDeviceReady, false);
+
+                function onDeviceReady() {
+                    window.onunload = function unloaded() {
+                        window.cookies.clear();
+                    };
+                }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
