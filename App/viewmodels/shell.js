@@ -15,7 +15,6 @@
                 document.addEventListener("onunloaded", unloaded, false);
 
                 function unloaded() {
-                    alert("unloaded");
                     window.cookies.clear();
                 }
 
