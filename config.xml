@@ -30,7 +30,7 @@
   <preference name="SplashScreenDelay" value="1000" />
   <preference name="permissions" value="none"/>
 
-  <preference name="StatusBarOverlaysWebView" value="false"/>
+  <preference name="StatusBarOverlaysWebView" value="true"/>
   <preference name="StatusBarBackgroundColor" value="#FF0000"/>
   <preference name="StatusBarStyle" value="lightcontent" />
 
