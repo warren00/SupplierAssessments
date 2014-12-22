@@ -118,6 +118,7 @@
         function logout() {
             $.get('http://supplierassessmentnew.azurewebsites.net/api/account/logout')
                 .done(function (result) {
+                    window.cookies.clear();
                     document.location = "./login.html";
                 });
         }
