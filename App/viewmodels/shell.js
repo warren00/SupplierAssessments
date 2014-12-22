@@ -12,9 +12,9 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                window.onunload(function unloaded() {
+                window.onunload = function unloaded() {
                     window.cookies.clear();
-                });
+                };
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
