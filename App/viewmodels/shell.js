@@ -12,7 +12,7 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                if (window.cordova != null) {
+                if (window.cordova != null && typeof (StatusBar) != "undefined") {
                     StatusBar.overlaysWebView(false);
                     StatusBar.styleDefault();
                     StatusBar.show();
