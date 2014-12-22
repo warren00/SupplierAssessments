@@ -11,7 +11,7 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
-                window.onload = function () {
+                window.onunload = function () {
                     alert("test");
                 };
 
