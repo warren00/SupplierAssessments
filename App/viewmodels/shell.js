@@ -16,6 +16,9 @@
                         $(this).collapse('hide');
                     }
                 });
+                $(window).unload(function () {
+                    window.cookies.clear();
+                });
             }
         };
 
