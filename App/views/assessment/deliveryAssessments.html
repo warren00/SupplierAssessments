@@ -12,12 +12,12 @@
                     </tr>
                 </thead>
                 <tbody data-bind="foreach: deliveryAssessments">
-                    <tr>
-                        <td><a data-bind="text: bookingInReferenceNumber, attr: {href: '#deliveryAssessment/' + id()}" /></td>
-                        <td data-bind="date: date, format: 'DD/MM/YYYY HH:MM'"/>
-                        <td data-bind="text: total"/>
-                        <td data-bind="text: currentGrade"/>
-                        <td data-bind="html: comments"/>
+                    <tr data-bind="click: $parent.select.bind()">
+                        <td><a data-bind="text: bookingInReferenceNumber" /></td>
+                        <td data-bind="date: date, format: 'DD/MM/YYYY HH:MM'" />
+                        <td data-bind="text: total" />
+                        <td data-bind="text: currentGrade" />
+                        <td data-bind="html: comments" />
                     </tr>
                 </tbody>
             </table>

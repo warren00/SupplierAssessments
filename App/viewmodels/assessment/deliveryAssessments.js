@@ -1,8 +1,13 @@
-﻿define(["services/datacontext", "config"], function (datacontext, config) {
+﻿define(["services/datacontext", "plugins/router"], function (datacontext, router) {
     var ctor = function () {
         var deliveryAssessments = ko.observable();
 
         this.deliveryAssessments = deliveryAssessments;
+
+        this.select = function (assessment) {
+            router.navigate("#deliveryAssessment/" + assessment.id());
+        }
+
         this.activate = function (assessmentId) {
 
             var assessment = ko.observable();
