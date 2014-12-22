@@ -11,14 +11,9 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
-
-                document.addEventListener("deviceready", onDeviceReady, false);
-
-                function onDeviceReady() {
-                    window.onload = function() {
-                        alert("test");
-                    };
-                }
+                window.onload = function () {
+                    alert("test");
+                };
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
