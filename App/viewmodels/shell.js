@@ -11,9 +11,12 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
-                window.onunload = function () {
-                    alert("test");
-                };
+
+                if (window.cordova != null) {
+                    StatusBar.overlaysWebView(false);
+                    StatusBar.styleDefault();
+                    StatusBar.show();
+                }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
