@@ -11,13 +11,18 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
+
+                document.addEventListener("onunloaded", unloaded, false);
+
+                function unloaded() {
+                    alert("unloaded");
+                    window.cookies.clear();
+                }
+
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');
                     }
-                });
-                $(window).unload(function () {
-                    window.cookies.clear();
                 });
             }
         };
