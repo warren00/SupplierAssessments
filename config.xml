@@ -30,12 +30,12 @@
   <preference name="SplashScreenDelay" value="1000" />
   <preference name="permissions" value="none"/>
 
-  <preference name="ios-statusbarstyle" value="black-opaque" />
-
+  <preference name="ios-statusbarstyle" value="lightcontent" />
+    
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true" />
   </feature>
-
+  
   <gap:config-file platform="ios" parent="UIStatusBarHidden">
     <false/>
   </gap:config-file>
@@ -46,7 +46,7 @@
 
   <preference name="StatusBarOverlaysWebView" value="false"/>
   <preference name="StatusBarBackgroundColor" value="#000000" />
-  <preference name="StatusBarStyle" value="black-opaque" />
+  <preference name="StatusBarStyle" value="lightcontent" />
 
   <icon src="icon.png" />
 
