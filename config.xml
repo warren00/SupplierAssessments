@@ -45,7 +45,7 @@
   </gap:config-file>
 
   <preference name="StatusBarOverlaysWebView" value="false"/>
-  <preference name="StatusBarBackgroundColor" value="#000000" />
+  <preference name="StatusBarBackgroundColor" value="#2b2e32" />
   <preference name="StatusBarStyle" value="lightcontent" />
 
   <icon src="icon.png" />
