@@ -1,7 +1,7 @@
 ﻿<div>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="pull-right" data-bind="visible:!router.isNavigating()">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -18,12 +18,19 @@
         <div class="navbar-header">
             <div class="pull-left">
                 <span data-bind="click: navigateBack, visible: showBackButton()" class="back-button">
-                    <a href="#"><i class="fa fa-arrow-circle-left" /></a>
+                    <a href="#"><i class="fa fa-chevron-left" /></a>
                 </span>
 
                 <div class="navbar-brand" style="padding-left:10px">
-                    <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.3em;float:left;">
-                        VOW
+                    <a data-bind="click:navigateBack, visible: showBackButton()" href="#">
+                        <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.3em;float:left;">
+                            VOW
+                        </div>
+                    </a>
+                    <div data-bind="visible: !showBackButton()" class="pull-left">
+                        <div style="color:rgba(245, 10, 10, 1); font-weight:800; font-size: 1.3em;float:left;">
+                            VOW
+                        </div>
                     </div>
                     <div style="float:left; margin-left:5px;">
                         Supplier
