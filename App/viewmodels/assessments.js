@@ -77,7 +77,7 @@
             accountNumber = config.accountNumber != null ? config.accountNumber : accountNumber;
 
             return datacontext.getSupplier(accountNumber, supplier).then(function () {
-                return datacontext.getMonthlyAssessments(supplier().id(), 0, 100, assessments)
+                return datacontext.getMonthlyAssessments(supplier().id(), 0, 100, "desc", assessments)
                 .then(function () {
                     ko.utils.arrayForEach(this.assessments(), function (assessment) {
                         assessment.selected = ko.observable();
@@ -96,7 +96,7 @@
                 var newAssessments = ko.observableArray();
 
                 if ($(window).scrollTop() >= $(document).height() - $(window).height()) {
-                    datacontext.getMonthlyAssessments(supplierId, assessments().length, 45, newAssessments)
+                    datacontext.getMonthlyAssessments(supplierId, assessments().length, 45, "desc", newAssessments)
                     .then(function () {
                         ko.utils.arrayForEach(newAssessments(), function (assessment) {
                             assessment.selected = ko.observable();

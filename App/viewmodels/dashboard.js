@@ -76,7 +76,7 @@
                         datacontext.getCurrentDeliveryAssessment(supplier().id(), deliveryAssessment),
                         datacontext.getMonthlyAssessmentCount(supplier().id(), assessmentCount),
                         datacontext.getDeliveryAssessmentCount(supplier().id(), deliveryAssessmentCount),
-                        datacontext.getMonthlyAssessments(supplier().id(), 0, 45, monthlyAssessments)])
+                        datacontext.getMonthlyAssessments(supplier().id(), 0, 45, "asc", monthlyAssessments)])
                 }).then(function () {
                     for (var i = 0; i < monthlyAssessments().length; i++) {
                         var monthlyAssessment = {

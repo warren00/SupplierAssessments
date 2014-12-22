@@ -30,13 +30,13 @@
         }
     }
 
-    var getMonthlyAssessments = function (supplierId, skip, take, observable) {
+    var getMonthlyAssessments = function (supplierId, skip, take, order, observable) {
         var p1 = new Predicate("supplierId", "eq", supplierId);
         var p2 = new Predicate("isComplete", "eq", 1);
 
         var query = EntityQuery.from("Assessments")
             .where(p1.and(p2))
-            .orderBy("date desc")
+            .orderBy("date " + order)
             .skip(skip).take(take);
 
         return manager.executeQuery(query)
