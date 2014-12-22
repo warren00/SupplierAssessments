@@ -20,6 +20,7 @@
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="com.phonegap.plugin.statusbar" />
   <gap:plugin name="org.apache.cordova.dialogs"/>
+  <gap:plugin name="com.bez4pieci.cookies" version="0.0.1" />
 
   <preference name="splashscreen" value="splash" />
   <preference name="splash-screen-duration" value="1000" />
