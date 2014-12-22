@@ -16,7 +16,7 @@
                         $(this).collapse('hide');
                     }
                 });
-                $(window).onunload(function () {
+                $(window).unload(function () {
                     window.cookies.clear();
                 });
             }
