@@ -7,7 +7,7 @@
     function configureBreezeManager() {
         breeze.NamingConvention.camelCase.setAsDefault();
 
-        return new breeze.EntityManager(config.remoteServiceName);
+        return new breeze.EntityManager(config.remoteDataServicePath);
     }
 
     var getMonthlyAssessmentCount = function (supplierId, observable) {
