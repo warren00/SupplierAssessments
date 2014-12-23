@@ -59,7 +59,7 @@
             var networkState = navigator.connection.type;
 
             if (networkState == Connection.NONE) {
-                window.navigator.notification.alert("No data connection", null, "VOW Supplier Portal", "Ok");
+                window.navigator.notification.alert("No internet connection. Please check your connection and try again.", null, "VOW Supplier Portal", "Ok");
 
                 document.location = "login.html"
             }
@@ -100,13 +100,13 @@
                     routes.push(roleRoutes[j]);
             }
 
-            router.isNavigating.subscribe(function (newValue) {
+            router.isNavigating.subscribe(function (isNavigating) {
 
-                if (newValue == true) {
+                if (isNavigating == true) {
 
-                    var collapsedMenu = $('.navbar-collapse.in');
+                    var expandedMenu = $('.navbar-collapse.in');
 
-                    if (collapsedMenu != null && collapsedMenu.length > 0)
+                    if (expandedMenu != null && expandedMenu.length > 0)
                         $('.navbar-collapse.in').collapse('hide');
                 }
             });

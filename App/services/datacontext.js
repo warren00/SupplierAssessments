@@ -249,7 +249,7 @@
         var networkState = navigator.connection.type;
 
         if (networkState == Connection.NONE) {
-            window.navigator.notification.alert("No data connection", null, "VOW Supplier Portal", "Ok");
+            window.navigator.notification.alert("No internet connection. Please check your connection and try again.", null, "VOW Supplier Portal", "Ok");
 
             document.location = "login.html"
         }
