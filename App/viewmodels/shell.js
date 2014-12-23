@@ -48,7 +48,7 @@
 
             var dialogTitle = "VOW Supplier Portal";
             var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-            var errorMessage = "There appears to be a problem with your application. Please close down and try again";
+            var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 
             if (error.status != 401) {
                 if (window.cordova != null) {
