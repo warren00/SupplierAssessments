@@ -30,6 +30,7 @@
             for (var i = 0; i < router.routes.length; i++) {
                 var route = router.routes[i];
 
+                // Don't display back button on home screen.
                 if (route.route == '' && route.isActive())
                     return false;
             }
@@ -122,16 +123,36 @@
                 }
             });
 
+            router.activeItem.subscribe(function (activeItem) {
+                if (roles != null && ($.inArray("Administrator", roles) != -1 ||
+                    $.inArray("Operator", roles) != -1)) {
+
+                    if (activeItem.__moduleId__ == "viewmodels/dashboard") {
+
+                        for (var i = 0; i < router.routes.length; i++) {
+
+                            var route = router.routes[i];
+
+                            if (route.title == "Dashboard") {
+                                route.nav = true;
+                                route.hash = "#" + router.activeInstruction().fragment;
+                            }
+                        }
+                    }
+
+                    router.buildNavigationModel();
+                }
+            });
+
             return router.map(routes)
                 .buildNavigationModel()
                 .activate(config.startModule);
         }
 
         function logout() {
-            $.get('http://supplierassessmentnew.azurewebsites.net/api/account/logout')
+            accountService.logout()
                 .done(function (result) {
-                    window.cookies.clear();
-                    document.location = "./login.html";
+                    document.location = "/";
                 });
         }
     });

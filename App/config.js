@@ -1,14 +1,13 @@
 ﻿define(function () {
 
-    var remoteServiceName = "http://supplierassessmentnew.azurewebsites.net/api/breeze"
-    var startModule = "home";
+    var remoteDataServicePath = "http://supplierassessmentnew.azurewebsites.net/api/breeze"
+    var remoteAccountServicePath = "http://supplierassessmentnew.azurewebsites.net/api/account";
 
-    var supplier = ko.observable();
     var accountNumber = null;
 
     var routes = {};
 
-    routes['Supplier'] = [{ route: "", title: "Dashboard", moduleId: "viewmodels/dashboard", nav: true, name: "Dashboard", nav: false },
+    routes['Supplier'] = [{ route: "", title: "Dashboard", moduleId: "viewmodels/dashboard", nav: true, name: "Dashboard", nav: true },
                           { route: "assessments/:id", moduleId: "viewmodels/assessments", name: "Assessments", hash: "#assessments/:id", nav: false, },
                           { route: "assessment/:id*details", moduleId: "viewmodels/assessmentDetail", title: "Assessment Detail", hash: "#assessment/:id", nav: false },
                           { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
@@ -26,10 +25,9 @@
                                { route: "deliveryAssessment/:id*details", moduleId: "viewmodels/deliveryAssessment", title: "Delivery Assessment", nav: false }];
 
     return {
-        remoteServiceName: remoteServiceName,
+        remoteDataServicePath: remoteDataServicePath,
+        remoteAccountServicePath: remoteAccountServicePath,
         routes: routes,
-        startModule: startModule,
-        supplier: supplier,
         accountNumber: accountNumber,
     };
 });

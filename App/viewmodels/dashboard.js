@@ -26,8 +26,6 @@
             }, 100);
         }
 
-        this.title = "Supplier";
-        this.subtitle = "Dashboard";
         this.supplier = supplier;
         this.monthlyAssessment = monthlyAssessment;
         this.deliveryAssessment = deliveryAssessment;
@@ -39,28 +37,7 @@
 
         this.attached = function (view, parent) {
             pollForGraphContainerUpdate(view);
-
-            updateDashboardRoute(this.accountNumber);
         };
-
-        function updateDashboardRoute(accountNumber) {
-
-            return accountService.getLoggedInUserRoles().then(function (roles) {
-                for (var i = 0; i < router.routes.length; i++) {
-                    var route = router.routes[i];
-
-                    if (route.name == 'Dashboard') {
-                        route.nav = true;
-
-                        if (roles != null && ($.inArray("Administrator", roles) != -1) || $.inArray("Operator", roles) != -1) {
-                            route.hash = "#dashboard/" + accountNumber;
-                        }
-                    }
-                }
-
-                router.buildNavigationModel();
-            });
-        }
 
         this.activate = function (accountNumber) {
 

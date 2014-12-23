@@ -1,14 +1,22 @@
 ﻿define(['durandal/system', 'config'], function (system, config) {
+
+    var servicePath = config.remoteAccountServicePath;
+
     var getLoggedInSupplierAccountNumber = function () {
-        return $.get("http://supplierassessmentnew.azurewebsites.net/api/account/getAccountNumber");
+        return $.get(servicePath + "/getAccountNumber");
     }
 
     var getLoggedInUserRoles = function () {
-        return $.get("http://supplierassessmentnew.azurewebsites.net/api/account/getLoggedInUserRoles");
+        return $.get(servicePath + "/getLoggedInUserRoles");
+    }
+
+    var logout = function () {
+        return $.get(servicePath + "/logout");
     }
 
     return {
         getLoggedInSupplierAccountNumber: getLoggedInSupplierAccountNumber,
-        getLoggedInUserRoles: getLoggedInUserRoles
+        getLoggedInUserRoles: getLoggedInUserRoles,
+        logout: logout
     }
 });
