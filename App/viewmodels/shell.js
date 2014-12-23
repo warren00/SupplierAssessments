@@ -44,11 +44,12 @@
         }
 
 
-        var dialogTitle = "VOW Supplier Portal";
-        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-        var errorMessage = "There appears to be a problem with your application. Please close down and try again";
-
         function failedInitialization(error) {
+
+            var dialogTitle = "VOW Supplier Portal";
+            var noConnectionMessage = "No internet connection. Please check your connection and try again.";
+            var errorMessage = "There appears to be a problem with your application. Please close down and try again";
+
             if (error.status != 401) {
                 if (window.cordova != null) {
                     var networkState = navigator.connection.type;
