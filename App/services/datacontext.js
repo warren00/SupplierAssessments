@@ -245,25 +245,27 @@
         }
     }
 
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-
-        if (networkState == Connection.NONE) {
-            window.navigator.notification.alert("No internet connection. Please check your connection and try again.", null, "VOW Supplier Portal", "Ok");
-
-            document.location = "login.html"
-        }
-    }
+    var dialogTitle = "VOW Supplier Portal";
+    var noConnectionMessage = "No internet connection. Please check your connection and try again.";
+    var errorMessage = "There appears to be a problem with your application. Please close down and try again";
 
     function queryFailed(error) {
         if (error.message != "abort") {
 
             if (window.cordova != null) {
-                checkConnection();
+                var networkState = navigator.connection.type;
+
+                if (networkState == Connection.NONE) {
+                    window.navigator.notification.alert(noConnectionMessage, null, dialogTitle, "Ok");
+                    document.location = "login.html"
+                }
+                else
+                {
+                    window.navigator.notification.alert(errorMessage, null, dialogTitle, "Ok");
+                }
             }
             else {
-                var msg = "Error retreiving data. '" + error.message;
-                alert(msg);
+                alert(errorMessage);
             }
         }
 

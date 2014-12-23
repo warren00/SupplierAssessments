@@ -43,14 +43,25 @@
         }
 
 
+        var dialogTitle = "VOW Supplier Portal";
+        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
+        var errorMessage = "There appears to be a problem with your application. Please close down and try again";
+
         function failedInitialization(error) {
             if (error.status != 401) {
                 if (window.cordova != null) {
-                    checkConnection();
+                    var networkState = navigator.connection.type;
+
+                    if (networkState == Connection.NONE) {
+                        window.navigator.notification.alert(noConnectionMessage, null, dialogTitle, "Ok");
+                        document.location = "login.html"
+                    }
+                    else {
+                        window.navigator.notification.alert(errorMessage, null, dialogTitle, "Ok");
+                    }
                 }
                 else {
-                    var msg = 'App initialization failed: ' + error.message;
-                    alert(msg);
+                    alert(errorMessage);
                 }
             }
         }
