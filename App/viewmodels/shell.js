@@ -1,6 +1,8 @@
 ﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService', 'durandal/app'],
     function (system, router, config, datacontext, accountService, app) {
 
+        var showBackButton = ko.observable(false);
+
         var self = this;
         self.roles = null;
 
@@ -24,18 +26,6 @@
 
         function navigateBack() {
             router.navigateBack();
-        }
-
-        function showBackButton() {
-            for (var i = 0; i < router.routes.length; i++) {
-                var route = router.routes[i];
-
-                // Don't display back button on home screen.
-                if (route.route == '' && route.isActive())
-                    return false;
-            }
-
-            return true;
         }
 
         function activate() {
@@ -141,9 +131,21 @@
                         }
                     }
 
+                    if (activeItem.__moduleId__ != "viewmodels/searchSuppliers")
+                        showBackButton(true);
+                    else
+                        showBackButton(false);
+
                     router.buildNavigationModel();
                 }
+                else {
+                    if (activeItem.__moduleId__ != "viewmodels/dashboard")
+                        showBackButton(true);
+                    else
+                        showBackButton(false);
+                }
             });
+
 
             return router.map(routes)
                 .buildNavigationModel()
