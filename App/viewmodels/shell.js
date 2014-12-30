@@ -153,6 +153,7 @@
         function logout() {
             accountService.logout()
                 .done(function (result) {
+                    window.cookies.clear();
                     document.location = "./login.html";
                 });
         }
