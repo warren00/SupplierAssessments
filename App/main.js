@@ -10,24 +10,31 @@
 define('jquery', function () { return jQuery; });
 define('knockout', ko);
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (system, app, viewLocator) {
-    //>>excludeStart("build", true);
-    system.debug(true);
-    //>>excludeEnd("build");
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (system, app, viewLocator) {
 
-    app.title = 'Supplier';
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-    app.configurePlugins({
-        router: true,
-        dialog: true
-    });
+    function onDeviceReady() {
+        window.cookies.clear();
 
-    app.start().then(function() {
-        //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
-        //Look for partial views in a 'views' folder in the root.
-        viewLocator.useConvention();
+        //>>excludeStart("build", true);
+        system.debug(true);
+        //>>excludeEnd("build");
 
-        //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/shell', 'entrance');
-    });
+        app.title = 'Supplier';
+
+        app.configurePlugins({
+            router: true,
+            dialog: true
+        });
+
+        app.start().then(function () {
+            //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
+            //Look for partial views in a 'views' folder in the root.
+            viewLocator.useConvention();
+
+            //Show the app by setting the root view model for our application with a transition.
+            app.setRoot('viewmodels/shell', 'entrance');
+        });
+    }
 });
