@@ -15,7 +15,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-        window.cookies.clear();
 
         //>>excludeStart("build", true);
         system.debug(true);
