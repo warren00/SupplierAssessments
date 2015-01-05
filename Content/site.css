@@ -1,3 +1,7 @@
+html {
+    -ms-overflow-style: scrollbar;
+}
+
 .page-header {
     margin: 0px 0 15px;
 }
@@ -27,7 +31,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .box {
     margin: 5px 5px 5px 5px;
-    padding: 10px;
     border: 1px solid #666666; /*{a-bup-border}*/
     box-shadow: 0px 1px 0px /*{global-box-shadow-size}*/ rgba(0,0,0,0) /*{global-box-shadow-color}*/;
     background: #555555 /*{a-bup-background-color}*/;
@@ -295,27 +298,25 @@ ul {
     padding: 14px 0px 0px 15px;
     font-size: 14px;
     line-height: 20px;
-    color:#C3C0C0
+    color: #C3C0C0;
 }
 
     .back-button a {
         font-size: 1.8em;
         color: #c8c8c8;
-        text-decoration:none;
+        text-decoration: none;
     }
 
-.back-button a:hover {
-    background-color: none;
+        .back-button a:hover {
+            background-color: none;
+        }
+
+.navbar-brand {
+    font-size: 16px;
 }
 
-.navbar-brand
-{
-    font-size:16px
-}
-
-.navbar-nav li.loader
-{
-    text-align:right;
+.navbar-nav li.loader {
+    text-align: right;
 }
 
 .navbar-spinner {
@@ -326,4 +327,8 @@ ul {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+table {
+    cursor: pointer;
 }
