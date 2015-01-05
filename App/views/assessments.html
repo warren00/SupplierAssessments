@@ -9,9 +9,9 @@
 
 <ul class="box-container" data-bind="foreach: assessments">
     <li class="box" data-bind="event: { mousedown: $parent.select, mouseup: $parent.unselect, mouseleave: $parent.unselect }, css: {'ui-btn-down-a': selected(), 'box-focus' : selected(), 'ui-btn-up-a': !selected()}">
-            <a data-bind="attr: { href: '#assessment/' + id() + '/summary' }">
-                <p data-bind="date:date, format: 'MMMM YYYY'" />
-                <p data-bind="text:currentGrade" />
-            </a>
+        <a data-bind="attr: { href: '#assessment/' + id() + '/summary' }">
+            <p data-bind="date:date, format: 'MMMM YYYY'" />
+            <p data-bind="text:currentGrade" />
+        </a>
     </li>
 </ul>

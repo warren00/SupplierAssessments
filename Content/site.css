@@ -46,7 +46,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .box a {
+        padding: 10px;
         text-decoration: none;
+        display: block;
+        height: 100%;
+        width: 100%;
     }
 
     .box:hover {
