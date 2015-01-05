@@ -277,7 +277,7 @@
             function login() {
                 $('#FailureText').text('');
 
-                var url = "/api/account/login";
+                var url = "http://supplierassessmentnew.azurewebsites.net/api/account/login";
 
                 var request =
                     {
@@ -292,9 +292,14 @@
                     url: url,
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify(request)
-                }).success(function (data) {
+                }).success(function (data, message, jqXHR) {
                     if (data.isAuthorized) {
-                        document.location = '/'
+                        if (window.cordova != null && request.rememberMe) {
+                            var cookie = jqXHR.getResponseHeader("Set-Cookie");
+                            window.localStorage.setItem("cookie", cookie);
+                        }
+
+                        document.location = 'index.html'
                     }
                     else {
                         $('#FailureText').text(data.message);
