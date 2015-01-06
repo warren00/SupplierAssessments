@@ -45,7 +45,7 @@
   </gap:config-file>
 
   <preference name="StatusBarOverlaysWebView" value="false"/>
-  <preference name="StatusBarBackgroundColor" value="#000000" />
+  <preference name="StatusBarBackgroundColor" value="#484e55" />
   <preference name="StatusBarStyle" value="lightcontent" />
   <preference name="DisallowOverscroll" value="true" />
 
