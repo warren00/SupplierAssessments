@@ -12,6 +12,10 @@
             navigateBack: navigateBack,
             attached: function () {
 
+                if (parseFloat(window.device.version) === 7.0) {
+                    $(".navbar").css("padding-top", "20px")
+                }
+
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');

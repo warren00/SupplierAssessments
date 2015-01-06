@@ -16,10 +16,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
 
     function onDeviceReady() {
 
-        if (parseFloat(window.device.version) === 7.0) {
-            $(".navbar").css("padding-top", "20px")
-        }
-
         //>>excludeStart("build", true);
         system.debug(true);
         //>>excludeEnd("build");
