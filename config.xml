@@ -31,8 +31,8 @@
   <preference name="permissions" value="none"/>
 
   <preference name="StatusBarOverlaysWebView" value="true"/>
-  <preference name="StatusBarBackgroundColor" value="#000000"/>
-  <preference name="StatusBarStyle" value="lightcontent" />
+  <preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
+  <preference name="StatusBarStyle" value="blacktranslucent" />
 
   <icon src="icon.png" />
 
