@@ -11,6 +11,13 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
+
+                $(document).on('blur', 'input, textarea', function () {
+                    setTimeout(function () {
+                        window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+                    }, 0);
+                });
+
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');
