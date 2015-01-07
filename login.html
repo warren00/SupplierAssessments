@@ -244,9 +244,17 @@
     <script src="Scripts/spin.min.js"></script>
     <script src="Scripts/ladda.min.js"></script>
 
-
     <script type="text/javascript">
-        $(document).ready(function () {
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            StatusBar.overlaysWebView(false);
+            StatusBar.styleLightContent();
+            StatusBar.backgroundColorByHexString("#272b30");
+            StatusBar.show();
+
+            Keyboard.disableScrollingInShrinkView(true);
 
             Ladda.bind('.ladda-button');
 
@@ -307,7 +315,7 @@
                     }
                 });
             };
-        });
+        }
     </script>
 </body>
 </html>
