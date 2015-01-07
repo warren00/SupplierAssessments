@@ -230,6 +230,7 @@
         </form>
     </div>
 
+    <script src="phonegap.js"></script>
     <script src="Scripts/jquery-2.1.1.js"></script>
     <script src="Scripts/modernizr-2.8.3.js"></script>
     <script src="Scripts/moment.min.js"></script>
@@ -247,15 +248,16 @@
 
     <script type="text/javascript">
 
-        function onDeviceReady() {
-            if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                document.body.style.marginTop = "20px";
-            }
-        }
-
         document.addEventListener('deviceready', onDeviceReady, false);
 
-        $(document).ready(function () {
+        function onDeviceReady() {
+
+            if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                StatusBar.overlaysWebView(false);
+                StatusBar.styleLightContent();
+                StatusBar.backgroundColorByHexString("#272b30");
+                StatusBar.show();
+            }
 
             Ladda.bind('.ladda-button');
 
@@ -316,7 +318,7 @@
                     }
                 });
             };
-        });
+        }
     </script>
 </body>
 </html>
