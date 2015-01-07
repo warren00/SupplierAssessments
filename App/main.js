@@ -16,8 +16,9 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
 
     function onDeviceReady() {
 
-        navigator.splashscreen.hide(); //Hides the splash screen for your app.
-        StatusBar.overlaysWebView(true); //Turns off web view overlay.
+        if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+            StatusBar.overlaysWebView(true);
+        }
 
         //>>excludeStart("build", true);
         system.debug(true);
