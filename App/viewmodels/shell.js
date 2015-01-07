@@ -11,16 +11,11 @@
             showBackButton: showBackButton,
             navigateBack: navigateBack,
             attached: function () {
+
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("padding-top", "15px")
                     $(".navbar-toggle").css("margin-right", "2px");
                 }
-
-                $(document).on('focus', 'textarea,input,select', function () {
-                    $('.navbar.navbar-fixed-top').css('position', 'static');
-                }).on('blur', 'textarea,input,select', function () {
-                    $('.navbar.navbar-fixed-top').css('position', 'fixed');
-                });
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
