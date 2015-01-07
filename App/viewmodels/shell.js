@@ -12,7 +12,7 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                if (parseFloat(window.device.version) === 7.0) {
+                if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("padding-top", "20px")
                 }
 
