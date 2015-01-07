@@ -17,7 +17,8 @@
                 }
 
                 $(document).on('focus', 'textarea,input,select', function () {
-                    $('.navbar.navbar-fixed-top').css('position', 'absolute');
+                    $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
+                    alert($(".navbar-fixed-top").css('position'));
                 }).on('blur', 'textarea,input,select', function () {
                     $('.navbar.navbar-fixed-top').css('position', '');
                 });
