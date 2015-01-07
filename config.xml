@@ -23,6 +23,7 @@
   <gap:plugin name="org.apache.cordova.dialogs"/>
   <gap:plugin name="com.bez4pieci.cookies" />
   <gap:plugin name="org.apache.cordova.device" />
+  <gap:plugin name="com.wizardlogic.cordova.ios_keyboard" />
 
   <preference name="splashscreen" value="splash" />
   <preference name="splash-screen-duration" value="1000" />
