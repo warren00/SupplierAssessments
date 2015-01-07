@@ -255,6 +255,8 @@
             StatusBar.backgroundColorByHexString("#272b30");
             StatusBar.show();
 
+            cordova.plugins.Keyboard.disableScroll(false);
+
             Ladda.bind('.ladda-button');
 
             $("#login").click(function (event) {
