@@ -21,7 +21,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
             StatusBar.styleLightContent();
             StatusBar.show();
 
-            Keyboard.disableScrollingInShrinkView(true);
+            Keyboard.disableScroll(true);
         }
 
         //>>excludeStart("build", true);
