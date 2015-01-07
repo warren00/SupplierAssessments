@@ -16,10 +16,10 @@
                     $(".navbar-toggle").css("margin-right", "2px");
                 }
 
-                $(document).on('blur', 'input, textarea', function () {
-                    setTimeout(function () {
-                        window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
-                    }, 0);
+                $(document).on('focus', 'textarea,input,select', function () {
+                    $('.navbar.navbar-fixed-top').css('position', 'absolute');
+                }).on('blur', 'textarea,input,select', function () {
+                    $('.navbar.navbar-fixed-top').css('position', '');
                 });
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
