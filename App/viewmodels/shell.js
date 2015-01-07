@@ -13,7 +13,7 @@
             attached: function () {
 
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                    $(".navbar").css("padding-top", "20px")
+                    $(".navbar").css("padding-top", "15px")
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
