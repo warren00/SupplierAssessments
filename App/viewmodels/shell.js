@@ -27,8 +27,22 @@
                         $('.navbar.navbar-fixed-top').css('position', 'absolute');
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', 'fixed');
-                        $('.navbar.navbar-fixed-top').css('top', '0');
+                        $('.navbar.navbar-fixed-top').css('top', '0px');
                     });
+
+                    window.addEventListener('native.showkeyboard', keyboardShowHandler);
+
+                    function keyboardShowHandler(e) {
+                        //alert('Keyboard height is: ' + e.keyboardHeight);
+                        cordova.plugins.Keyboard.disableScroll(true);
+                    }
+
+                    window.addEventListener('native.hidekeyboard', keyboardHideHandler);
+
+                    function keyboardHideHandler(e) {
+                        //alert('Goodnight, sweet prince');
+                        cordova.plugins.Keyboard.disableScroll(false);
+                    }
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
