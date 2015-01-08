@@ -25,11 +25,13 @@
 
                     $(document).on('focus', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', 'absolute');
+                        header.css({ position: 'absolute' });
+                        $(window).scrollTop(0);
                     }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', '');
+                        $('.navbar.navbar-fixed-top').css('position', 'fixed');
                     });
 
-                    window.addEventListener('native.showkeyboard', keyboardShowHandler);
+                    /*window.addEventListener('native.showkeyboard', keyboardShowHandler);
 
                     function keyboardShowHandler(e) {
                         //alert('Keyboard height is: ' + e.keyboardHeight);
@@ -41,7 +43,7 @@
                     function keyboardHideHandler(e) {
                         //alert('Goodnight, sweet prince');
                         cordova.plugins.Keyboard.disableScroll(false);
-                    }
+                    }*/
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
