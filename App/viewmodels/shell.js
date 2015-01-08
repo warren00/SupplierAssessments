@@ -29,7 +29,7 @@
                         document.body.scrollTop = 0;
 
                         $('.navbar').css('position', 'absolute');
-                        $('.navbar').css('top', '0px')
+                        $('.navbar').css('top', window.pageYOffset + 'px')
 
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', '');
