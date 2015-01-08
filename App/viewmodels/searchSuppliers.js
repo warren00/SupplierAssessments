@@ -173,7 +173,9 @@
                     if (e.keyCode == 13) {
                         e.preventDefault();
 
-                        $('input:focus').blur();
+
+                        //$('input:focus').blur();
+                        cordova.plugins.Keyboard.close();
 
                         return false;
                     }
