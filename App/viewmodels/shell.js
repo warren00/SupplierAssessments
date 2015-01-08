@@ -23,11 +23,9 @@
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar();
 
                     $(document).on('focus', 'textarea,input,select', function () {
-                        $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
+                        $('.navbar.navbar-fixed-top').css('position', 'absolute');
                     }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', 'fixed');
-                        $('.navbar.navbar-fixed-top').css('top', '0');
-                        cordova.plugins.Keyboard.close();
+                        $('.navbar.navbar-fixed-top').css('position', '');
                     });
                 }
 
