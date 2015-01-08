@@ -18,7 +18,6 @@
                 StatusBar.show();
 
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                    cordova.plugins.Keyboard.disableScroll(true);
 
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
@@ -29,6 +28,20 @@
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', '');
                     });
+
+                    window.addEventListener('native.showkeyboard', keyboardShowHandler);
+
+                    function keyboardShowHandler(e) {
+                        //alert('Keyboard height is: ' + e.keyboardHeight);
+                        cordova.plugins.Keyboard.disableScroll(true);
+                    }
+
+                    window.addEventListener('native.hidekeyboard', keyboardHideHandler);
+
+                    function keyboardHideHandler(e) {
+                        //alert('Goodnight, sweet prince');
+                        cordova.plugins.Keyboard.disableScroll(false);
+                    }
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
