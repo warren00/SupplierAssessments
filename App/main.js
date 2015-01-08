@@ -15,6 +15,11 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
+        StatusBar.overlaysWebView(false);
+        StatusBar.styleLightContent();
+        StatusBar.backgroundColorByHexString("#272b30");
+        StatusBar.show();
+
         //>>excludeStart("build", true);
         system.debug(true);
         //>>excludeEnd("build");
