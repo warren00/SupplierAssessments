@@ -23,6 +23,8 @@
 
                     $(document).on('focus', 'textarea,input,select', function () {
                         $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
+                        e.preventDefault(); e.stopPropagation();
+                        window.scrollTo(0, 0);
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', '');
                     });
