@@ -12,6 +12,15 @@
             navigateBack: navigateBack,
             attached: function () {
 
+                if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                    $(".navbar").css("border", "none")
+
+                    StatusBar.overlaysWebView(false);
+                    StatusBar.backgroundColorByHexString("#474D54");
+                    StatusBar.styleLightContent();
+                    StatusBar.show();
+                }
+
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
                         $(this).collapse('hide');
