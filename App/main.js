@@ -17,11 +17,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
     function onDeviceReady() {
 
         if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-            StatusBar.overlaysWebView(true);
+            StatusBar.overlaysWebView(false);
+            StatusBar.backgroundColorByHexString("#474D54");
             StatusBar.styleLightContent();
             StatusBar.show();
-
-            Keyboard.disableScrollingInShrinkView(true);
         }
 
         //>>excludeStart("build", true);
