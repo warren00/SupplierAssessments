@@ -47,14 +47,13 @@
                     }
 
                     function scrolled() {
-                        alert("scrolled");
-
                         if (isFocused) {
                             if (!focusedResizing) {
                                 focusedResizing = true;
                                 $('.navbar').css("position", "absolute");
                             }
                             $('.navbar').css("top", window.pageYOffset + 'px');
+                            alert(window.pageYOffset);
                             // window.innerHeight wrong
                             //var footTop = window.pageYOffset + window.innerHeight - foot.offsetHeight;
                             //footStyle.bottom = (document.body.offsetHeight - footTop) + 'px';
