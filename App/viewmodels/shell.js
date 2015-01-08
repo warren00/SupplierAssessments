@@ -18,6 +18,8 @@
                 StatusBar.show();
 
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                    cordova.plugins.Keyboard.disableScroll(true);
+
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar();
