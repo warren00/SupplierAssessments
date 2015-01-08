@@ -15,7 +15,7 @@
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
-                    Keyboard.hideKeyboardAccessoryBar();
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar();
 
                     StatusBar.overlaysWebView(false);
                     StatusBar.backgroundColorByHexString("#474D54");
@@ -27,7 +27,7 @@
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', 'fixed');
                         $('.navbar.navbar-fixed-top').css('top', '0');
-                        Keyboard.close();
+                        cordova.plugins.Keyboard.close();
                     });
                 }
 
