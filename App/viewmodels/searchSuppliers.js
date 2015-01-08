@@ -167,19 +167,6 @@
 
             pollForViewContainerWidthUpdate(view);
 
-            $(document).ready(function () {
-                $(document).on('keyup keypress', 'form input[type="text"]', function (e) {
-
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-
-                        $('input:focus').blur();
-
-                        return false;
-                    }
-                });
-            });
-
             $(window).scroll(function () {
                 var newSuppliers = ko.observableArray();
 
