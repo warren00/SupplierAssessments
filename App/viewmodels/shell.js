@@ -12,15 +12,15 @@
             navigateBack: navigateBack,
             attached: function () {
 
+                StatusBar.overlaysWebView(false);
+                StatusBar.backgroundColorByHexString("#474D54");
+                StatusBar.styleLightContent();
+                StatusBar.show();
+
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar();
-
-                    StatusBar.overlaysWebView(false);
-                    StatusBar.backgroundColorByHexString("#474D54");
-                    StatusBar.styleLightContent();
-                    StatusBar.show();
 
                     $(document).on('focus', 'textarea,input,select', function () {
                         $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
