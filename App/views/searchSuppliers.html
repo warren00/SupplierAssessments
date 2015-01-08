@@ -8,6 +8,8 @@
                 </h1>
             </div>
         </div>
+    </div>
+    <div>
         <form class="form-horizontal" role="search">
             <div class="form-group has-feedback has-feedback-left">
                 <div class="col-md-12">
@@ -16,8 +18,6 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div>
         <ul id="supplier-list" class="box-container" data-bind="foreach: suppliers">
             <li class="box" data-bind="event: { mousedown: $parent.select, mouseup: $parent.unselect, mouseleave: $parent.unselect }, css: {'ui-btn-down-a': selected(), 'box-focus' : selected(), 'ui-btn-up-a': !selected()}">
                 <a data-bind="attr: { href: '#dashboard/' + accountNumber() }">
