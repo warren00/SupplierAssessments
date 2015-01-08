@@ -12,9 +12,8 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                    $(".navbar").css("padding-top", "15px")
-                    $(".navbar-toggle").css("margin-right", "2px");
+                if (parseFloat(window.device.version) === 7.0) {
+                    $(".navbar").css("padding-top", "20px")
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {

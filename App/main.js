@@ -20,6 +20,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
             StatusBar.show();
+
+            Keyboard.disableScrollingInShrinkView(true);
         }
 
         //>>excludeStart("build", true);
