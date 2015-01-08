@@ -21,43 +21,45 @@
                     StatusBar.styleLightContent();
                     StatusBar.show();
 
-                var isFocused, focusedResizing;
+                    var isFocused, focusedResizing;
 
-                var inputs = document.getElementsByTagName('input');
-                for (var i = 0; i < inputs.length; i++) {
-                    input = inputs[i];
-                    $(input).focus(focused);
-                    $(input).blur(blured);
-                }
-                window.onscroll = scrolled;
-
-                function focused(event) {
-                    isFocused = true;
-                    scrolled();
-                }
-
-                function blured(event) {
-                    isFocused = false;
-
-                    if (focusedResizing) {
-                        focusedResizing = false;
-                        $('.navbar').css('position', 'fixed');
-                        $('.navbar').css('top', '0');
+                    var inputs = document.getElementsByTagName('input');
+                    for (var i = 0; i < inputs.length; i++) {
+                        input = inputs[i];
+                        $(input).focus(focused);
+                        $(input).blur(blured);
                     }
-                }
+                    window.onscroll = scrolled;
 
-                function scrolled() {
-                    if (isFocused) {
-                        if (!focusedResizing) {
-                            focusedResizing = true;
-                            $('.navbar').css("position", "absolute");
+                    function focused(event) {
+                        isFocused = true;
+                        scrolled();
+                    }
+
+                    function blured(event) {
+                        isFocused = false;
+
+                        if (focusedResizing) {
+                            focusedResizing = false;
+                            $('.navbar').css('position', 'fixed');
+                            $('.navbar').css('top', '0');
                         }
-                        $('.navbar').css("top", window.pageYOffset + 'px');
-                        // window.innerHeight wrong
-                        //var footTop = window.pageYOffset + window.innerHeight - foot.offsetHeight;
-                        //footStyle.bottom = (document.body.offsetHeight - footTop) + 'px';
                     }
-                }
+
+                    function scrolled() {
+                        alert("scrolled");
+
+                        if (isFocused) {
+                            if (!focusedResizing) {
+                                focusedResizing = true;
+                                $('.navbar').css("position", "absolute");
+                            }
+                            $('.navbar').css("top", window.pageYOffset + 'px');
+                            // window.innerHeight wrong
+                            //var footTop = window.pageYOffset + window.innerHeight - foot.offsetHeight;
+                            //footStyle.bottom = (document.body.offsetHeight - footTop) + 'px';
+                        }
+                    }
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
