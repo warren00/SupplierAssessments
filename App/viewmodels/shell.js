@@ -12,13 +12,12 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                StatusBar.overlaysWebView(true);
+                StatusBar.overlaysWebView(false);
+                StatusBar.backgroundColorByHexString("#474D54");
                 StatusBar.styleLightContent();
                 StatusBar.show();
 
                 if (device.platform === 'iOS') {
-
-                    $(".navbar").css("padding-top", "20px")
 
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
