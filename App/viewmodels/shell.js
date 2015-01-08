@@ -24,7 +24,7 @@
                     $(document).on('focus', 'textarea,input,select', function () {
                         $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
                     }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', '');
+                        $('.navbar.navbar-fixed-top').css('position', 'fixed');
                     });
                 }
 
