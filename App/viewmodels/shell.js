@@ -21,20 +21,43 @@
                     StatusBar.styleLightContent();
                     StatusBar.show();
 
-                    $(document).on('focus', 'textarea,input,select', function () {
-                        $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
+                var isFocused, focusedResizing;
 
-                        alert("scroll");
-                        window.scrollTo(0, 0);
-                        document.body.scrollTop = 0;
+                var inputs = document.getElementsByTagName('input');
+                for (var i = 0; i < inputs.length; i++) {
+                    input = inputs[i];
+                    $(input).focus(focused);
+                    $(input).blur(blured);
+                }
+                window.onscroll = scrolled;
 
-                        $('.navbar').css('position', 'absolute');
-                        $('.navbar').css('top', window.pageYOffset + 'px')
+                function focused(event) {
+                    isFocused = true;
+                    scrolled();
+                }
 
-                    }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', '');
+                function blured(event) {
+                    isFocused = false;
+
+                    if (focusedResizing) {
+                        focusedResizing = false;
                         $('.navbar').css('position', 'fixed');
-                    });
+                        $('.navbar').css('top', '0');
+                    }
+                }
+
+                function scrolled() {
+                    if (isFocused) {
+                        if (!focusedResizing) {
+                            focusedResizing = true;
+                            $('.navbar').css("position", "absolute");
+                        }
+                        $('.navbar').css("top", window.pageYOffset + 'px');
+                        // window.innerHeight wrong
+                        //var footTop = window.pageYOffset + window.innerHeight - foot.offsetHeight;
+                        //footStyle.bottom = (document.body.offsetHeight - footTop) + 'px';
+                    }
+                }
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
