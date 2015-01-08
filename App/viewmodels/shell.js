@@ -28,8 +28,12 @@
                         window.scrollTo(0, 0);
                         document.body.scrollTop = 0;
 
+                        $('.navbar').css('position', 'absolute');
+                        $('.navbar').css('top', '0px')
+
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', '');
+                        $('.navbar').css('position', 'fixed');
                     });
                 }
 
