@@ -12,44 +12,6 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                var isFocused, focusedResizing;
-
-                var inputs = document.getElementsByTagName('input');
-                for (var i = 0; i < inputs.length; i++) {
-                    input = inputs[i];
-                    $(input).focus(focused);
-                    $(input).blur(blured);
-                }
-                window.onscroll = scrolled;
-
-                function focused(event) {
-                    isFocused = true;
-                    scrolled();
-                }
-
-                function blured(event) {
-                    isFocused = false;
-
-                    if (focusedResizing) {
-                        focusedResizing = false;
-                        $('.navbar').css('position', 'fixed');
-                        $('.navbar').css('top', '0');
-                    }
-                }
-
-                function scrolled() {
-                    if (isFocused) {
-                        if (!focusedResizing) {
-                            focusedResizing = true;
-                            $('.navbar').css("position", "absolute");
-                        }
-                        $('.navbar').css("top", window.pageYOffset + 'px');
-                        // window.innerHeight wrong
-                        //var footTop = window.pageYOffset + window.innerHeight - foot.offsetHeight;
-                        //footStyle.bottom = (document.body.offsetHeight - footTop) + 'px';
-                    }
-                }
-
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
@@ -58,6 +20,12 @@
                     StatusBar.backgroundColorByHexString("#474D54");
                     StatusBar.styleLightContent();
                     StatusBar.show();
+
+                    $(document).on('focus', 'textarea,input,select', function () {
+                        $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
+                    }).on('blur', 'textarea,input,select', function () {
+                        $('.navbar.navbar-fixed-top').css('position', '');
+                    });
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
