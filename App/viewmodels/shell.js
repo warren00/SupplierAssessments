@@ -14,6 +14,7 @@
 
                 if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                     $(".navbar").css("border", "none")
+                    $(".navbar-toggle").css("margin-right", "5px");
 
                     StatusBar.overlaysWebView(false);
                     StatusBar.backgroundColorByHexString("#474D54");
