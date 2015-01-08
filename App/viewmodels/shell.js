@@ -17,7 +17,7 @@
                 StatusBar.styleLightContent();
                 StatusBar.show();
 
-                if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                if (device.platform === 'iOS') {
 
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
@@ -26,22 +26,9 @@
                     $(document).on('focus', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', 'absolute');
                     }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', '');
+                        $('.navbar.navbar-fixed-top').css('position', 'fixed');
+                        $('.navbar.navbar-fixed-top').css('top', '0');
                     });
-
-                    window.addEventListener('native.showkeyboard', keyboardShowHandler);
-
-                    function keyboardShowHandler(e) {
-                        //alert('Keyboard height is: ' + e.keyboardHeight);
-                        cordova.plugins.Keyboard.disableScroll(true);
-                    }
-
-                    window.addEventListener('native.hidekeyboard', keyboardHideHandler);
-
-                    function keyboardHideHandler(e) {
-                        //alert('Goodnight, sweet prince');
-                        cordova.plugins.Keyboard.disableScroll(false);
-                    }
                 }
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
