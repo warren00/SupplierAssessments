@@ -25,6 +25,7 @@
                         $('.navbar-fixed-top, .navbar-fixed-bottom').css('position', 'absolute');
                     }).on('blur', 'textarea,input,select', function () {
                         $('.navbar.navbar-fixed-top').css('position', 'fixed');
+                        $('.navbar.navbar-fixed-top').css('top', '0');
                     });
                 }
 
