@@ -21,8 +21,15 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (sy
         StatusBar.show();
 
         //>>excludeStart("build", true);
-        system.debug(true);
+        system.debug(false);
         //>>excludeEnd("build");
+
+        system.error = function (e) {
+            var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
+            alert(errorMessage);
+
+            throw e;
+        };
 
         app.title = 'Supplier';
 
