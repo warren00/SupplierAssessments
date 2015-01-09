@@ -4,8 +4,6 @@
         var self = this;
         self.roles = null;
 
-        var showBackButton = ko.observable();
-
         var shell = {
             activate: activate,
             router: router,
@@ -42,6 +40,18 @@
 
         return shell;
 
+        function showBackButton() {
+            for (var i = 0; i < router.routes.length; i++) {
+                var route = router.routes[i];
+
+                // Don't display back button on home screen.
+                if (route.route == '' && route.isActive()) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         function navigateBack() {
 
@@ -134,20 +144,6 @@
 
                     if (expandedMenu != null && expandedMenu.length > 0)
                         $('.navbar-collapse.in').collapse('hide');
-                }
-                else {
-                    for (var i = 0; i < router.routes.length; i++) {
-                        var route = router.routes[i];
-
-                        // Don't display back button on home screen.
-                        if (route.route == '' && route.isActive()) {
-                            showBackButton(false);
-
-                            return;
-                        }
-                    }
-
-                    showBackButton(true);
                 }
             });
 
