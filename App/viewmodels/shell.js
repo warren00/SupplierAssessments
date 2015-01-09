@@ -138,11 +138,9 @@
                         if (route.route == '' && route.isActive()) {
                             showBackButton(false);
                         }
-                        else
-                        {
-                            showBackButton(true);
-                        }
                     }
+
+                    showBackButton(true);
                 }
             });
 
