@@ -32,7 +32,7 @@
   <preference name="auto-hide-splash-screen" value="false" />
   <preference name="SplashScreenDelay" value="1000" />
   <preference name="permissions" value="none"/>
-  <preference name="fullscreen" value="true" />
+  <preference name="fullscreen" value="false" />
   <preference name="webviewbounce" value="false" />
   <preference name="UIWebViewBounce" value="false" />
   <preference name="DisallowOverscroll" value="true" />
