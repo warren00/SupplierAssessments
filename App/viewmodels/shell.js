@@ -42,7 +42,11 @@
 
         return shell;
 
+
         function navigateBack() {
+
+            $(this).clearQueue();
+
             if (!router.isNavigating())
                 router.navigateBack();
         }
