@@ -137,6 +137,8 @@
                         // Don't display back button on home screen.
                         if (route.route == '' && route.isActive()) {
                             showBackButton(false);
+
+                            return;
                         }
                     }
 
