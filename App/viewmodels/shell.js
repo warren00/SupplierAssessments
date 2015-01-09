@@ -46,18 +46,6 @@
             router.navigateBack();
         }
 
-        function showBackButton() {
-            for (var i = 0; i < router.routes.length; i++) {
-                var route = router.routes[i];
-
-                // Don't display back button on home screen.
-                if (route.route == '' && route.isActive())
-                    return false;
-            }
-
-            return true;
-        }
-
         function activate() {
             return initialize().then(boot)
                 .fail(failedInitialization);
