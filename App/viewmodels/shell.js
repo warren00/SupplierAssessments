@@ -43,7 +43,8 @@
         return shell;
 
         function navigateBack() {
-            router.navigateBack();
+            if (!router.isNavigating())
+                router.navigateBack();
         }
 
         function activate() {
