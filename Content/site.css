@@ -1,5 +1,8 @@
 html {
     -ms-overflow-style: scrollbar;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
 }
 
 .page-header {
@@ -11,8 +14,6 @@ body {
     font-family: 'Segoe UI', 'Segoe WP', 'Roboto','Frutiger','Helvetica Neue', Helvetica, Arial, sans-serif; /*{global-font-family}*/
     font-weight: 400;
     color: #ffffff;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -27,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .box-container {
     display: block;
-    -webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 .box {
