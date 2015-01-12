@@ -22,11 +22,10 @@
                     $(".navbar").css("border", "none")
                     $(".navbar-toggle").css("margin-right", "5px");
 
-                    $(document).on('focus', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', 'absolute');
-                    }).on('blur', 'textarea,input,select', function () {
-                        $('.navbar.navbar-fixed-top').css('position', 'fixed');
-                        $('.navbar.navbar-fixed-top').css('top', '0px');
+                    $(document).on('blur', 'input, textarea', function () {
+                        setTimeout(function () {
+                            window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+                        }, 0);
                     });
                 }
 
