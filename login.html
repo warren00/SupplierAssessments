@@ -1,48 +1,30 @@
-
-
 <!DOCTYPE html>
-<html>
+<html style="-ms-overflow-style: none;">
 <head>
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="msapplication-TileImage" content="Content/Images/48x48.png" />
-    <meta name="msapplication-TileColor" content="#515151" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="apple-touch-startup-image" href="Content/images/1024x1024.png" media="(orientation:landscape)" />
-    <link rel="apple-touch-startup-image" href="Content/images/1024x1024.png" media="(orientation:portrait)" />
-    <link rel="apple-touch-icon" href="Content/images/114x114.png" />
+    <link rel="apple-touch-icon" href="/Content/images/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/images/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/images/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/images/apple-touch-icon-144x144-precomposed.png">
 
-    <link rel="shortcut icon" href="Content/images/32x32.png" />
+    <link rel="shortcut icon" href="/Content/images/32x32.png" />
+    <link rel="shortcut icon" href="/Content/images/64x64.png" />
+    <link rel="shortcut icon" href="/Content/images/96x96.png" />
 
-    <link href="Content/64x64.png" rel="apple-touch-icon" />
-    <link href="Content/16x16.png" rel="apple-touch-icon" sizes="16x16" />
-    <link href="Content/32x32.png" rel="apple-touch-icon" sizes="32x32" />
-    <link href="Content/36x36.png" rel="apple-touch-icon" sizes="36x36" />
-    <link href="Content/48x48.png" rel="apple-touch-icon" sizes="48x48" />
-    <link href="Content/57x57.png" rel="apple-touch-icon" sizes="57x57" />
-    <link href="Content/58x58.png" rel="apple-touch-icon" sizes="58x58" />
-    <link href="Content/64x64.png" rel="apple-touch-icon" sizes="64x64" />
-    <link href="Content/72x72.png" rel="apple-touch-icon" sizes="72x72" />
-    <link href="Content/96x96.png" rel="apple-touch-icon" sizes="96x96" />
-    <link href="Content/114x114.png" rel="apple-touch-icon" sizes="114x114" />
-    <link href="Content/144x144.png" rel="apple-touch-icon" sizes="144x144" />
-    <link href="Content/192x192.png" rel="apple-touch-icon" sizes="192x192" />
-    <link href="Content/320x320.png" rel="apple-touch-icon" sizes="320x320" />
-    <link href="Content/512x512.png" rel="apple-touch-icon" sizes="512x512" />
-    <link href="Content/1024x1024.png" rel="apple-touch-icon" sizes="1024x1024" />
-    <link rel="shortcut icon" href="Content/images/32x32.png" />
-    <link href="Content/ie10mobile.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/slate-bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="Content/durandal.css" rel="stylesheet" />
-    <link href="Content/starterkit.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
-    <link href="Content/morris.css" rel="stylesheet" />
-    <link href="Content/animate.css" rel="stylesheet" />
-    <link href="Content/ladda-themeless.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/slate-bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/ionicons.min.css" rel="stylesheet" />
+    <link href="/Content/durandal.css" rel="stylesheet" />
+    <link href="/Content/starterkit.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
+    <link href="/Content/morris.css" rel="stylesheet" />
+    <link href="/Content/ladda-themeless.min.css" rel="stylesheet" />
 
     <title>Supplier</title>
     <style type="text/css">
@@ -58,12 +40,6 @@
 
         .page-header {
             margin: 0px 0 15px;
-        }
-
-
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-brand:focus {
-            color: #c8c8c8;
         }
 
         .requiredStyle {
@@ -103,28 +79,13 @@
             width: 100%;
         }
 
-        html, body {
-            font-family: 'Segoe UI','Frutiger','Helvetica Neue',Helvetica,Arial,sans-serif;
-            font-size: 16px;
-            font-weight: normal;
-        }
-
-        h1 {
-            font-family: 'Segoe Light','Segoe UI Light','Frutiger','Helvetica Neue',Helvetica,Arial,sans-serif;
-            font-size: 40px;
-            text-align: left;
-            letter-spacing: -1pt;
-            font-weight: normal !important;
-            margin-bottom: 12px;
-        }
-
         .accountInfo {
-            width: 95%;
-            max-width: 310px;
+            width: 100%;
+            max-width: 325px;
             position: absolute;
             top: 47%;
             margin-top: -144px;
-            left: 50%;
+            left: 48%;
             margin-left: -155px;
             padding: 10px;
         }
@@ -194,66 +155,203 @@
     </style>
 </head>
 <body>
-    <div>
-        <form id="LogInForm">
-            <div class="accountInfo">
-                <div>
-                    <h1 class="page-header">
-                        Supplier
-                        <small>Login</small>
-                    </h1>
+    <div class="register-form">
+        <i style="margin:0 10px 0 0px;font-size: 2.2em;" class="icon ion-chevron-left register-close"></i>
+        <h1 style="display:inline-block" class="page-header">
+            Register
+        </h1>
+        <div>
+            <form>
+                <div class="form-group has-feedback">
+                    <label class="control-label labelStyle" for="registerCompany">Company Name</label>
+                    <input id="registerCompany" class="textBoxStyle" type="text" placeholder="" required />
+                    <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                 </div>
-
-                <div style="margin-bottom: 10px;">
-                    <label id="UsernameLabel" for="Username" class="labelStyle">Username:</label>
-                    <input type="text" id="Username" class="textBoxStyle" autocapitalize="off" autocorrect="false" />
+                <div class="form-group has-feedback">
+                    <label class="control-label labelStyle" for="registerEmailAddress">Email Address</label>
+                    <input id="registerEmailAddress" class="textBoxStyle" type="email" placeholder="" required />
+                    <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                 </div>
-                <div style="margin-bottom: 10px;">
-                    <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
-                    <input type="password" id="Password" class="textBoxStyle" autocapitalize="off" autocorrect="false" />
+                <div class="form-group has-feedback">
+                    <label class="control-label labelStyle" for="registerAccountNumber">Account Number</label>
+                    <input id="registerAccountNumber" class="textBoxStyle" type="text" placeholder="" required />
+                    <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                 </div>
-                <div class="submit-login">
-                    <div class="rememberme">
-                        <span class="checkStyle">
-                            <input id="rememberMe" type="checkbox" class="checkStyle" />
-                            <label for="RememberMe">Remember me next time.</label>
-                        </span>
-                    </div>
+                <div class="submit-login" style="margin-top:20px;">
                     <div style="margin-bottom: 10px;" class="logInBtn">
-                        <button type="button" id="login" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
+                        <button type="button" class="ladda-button buttonStyle submit-register-form" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">Submit</span></button>
                     </div>
                 </div>
-                <span class="failureNotification">
-                    <span id="FailureText"></span>
-                </span>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="lost-password-form">
+        <i style="margin:0 10px 0 0px;font-size: 2.2em;" class="icon ion-chevron-left lost-password-close"></i>
+        <h1 style="display:inline-block" class="page-header">
+            Forgot Password
+        </h1>
+        <form>
+            <div class="form-group has-feedback">
+                <label class="control-label labelStyle" for="lostPasswordUsername">Username</label>
+                <input id="lostPasswordUsername" class="textBoxStyle" type="text" placeholder="" required />
+                <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="control-label labelStyle" for="lostPasswordEmailAddress">Email Address</label>
+                <input id="lostPasswordEmailAddress" class="textBoxStyle" type="email" placeholder="" required />
+                <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="control-label labelStyle" for="lostPasswordAccountNumber">Account Number</label>
+                <input id="lostPasswordAccountNumber" class=" textBoxStyle" type="text" placeholder="" required />
+                <span class="success glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span class="fail glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="submit-login" style="margin-top:20px;">
+                <div style="margin-bottom: 10px;" class="logInBtn">
+                    <button type="button" class="ladda-button buttonStyle submit-forgot-password" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">Submit</span></button>
+                </div>
             </div>
         </form>
     </div>
 
-    <script src="phonegap.js"></script>
-    <script src="Scripts/jquery-2.1.1.js"></script>
-    <script src="Scripts/modernizr-2.8.3.js"></script>
-    <script src="Scripts/moment.min.js"></script>
-    <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/knockout-3.2.0.debug.js"></script>
-    <script src="Scripts/knockout-morris.js"></script>
-    <script src="Scripts/knockout-date.js"></script>
-    <script src="Scripts/morris.min.js"></script>
-    <script src="Scripts/raphael-min.js"></script>
-    <script src="Scripts/q.min.js"></script>
-    <script src="Scripts/breeze.min.js"></script>
-    <script src="Scripts/spin.min.js"></script>
-    <script src="Scripts/ladda.min.js"></script>
+    <form id="LogInForm">
+        <div class="accountInfo">
+            <div>
+                <h1 class="page-header">
+                    Supplier
+                    <small>Login</small>
+                </h1>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <label id="UsernameLabel" for="Username" class="labelStyle">Username:</label>
+                <input type="text" id="Username" class="textBoxStyle" autocapitalize="off" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label id="PasswordLabel" for="Password" class="labelStyle">Password: </label>
+                <input type="password" id="Password" class="textBoxStyle" />
+            </div>
+            <div class="submit-login">
+                <div class="rememberme">
+                    <span class="checkStyle">
+                        <input id="rememberMe" type="checkbox" class="checkStyle" />
+                        <label for="RememberMe">Remember me next time.</label>
+                    </span>
+                </div>
+                <div style="margin-bottom: 10px;" class="logInBtn">
+                    <button type="button" id="login" class="ladda-button buttonStyle" data-style="expand-right" style="height:38px;min-width:130px;"><span class="ladda-label">LOG IN</span></button>
+                </div>
+            </div>
+            <div class="failureNotification" style="text-align:center">
+                <span id="FailureText"></span>
+            </div>
+            <div style="text-align:center">
+                <a href="#" class="register-link">Register</a> | <a href="#" class="forgot-password-link">Forgot Password</a>
+            </div>
+        </div>
+    </form>
+
+    <script src="/Scripts/jquery-2.1.3.js"></script>
+    <script src="/Scripts/moment.min.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/knockout-3.2.0.debug.js"></script>
+    <script src="/Scripts/knockout-morris.js"></script>
+    <script src="/Scripts/knockout-date.js"></script>
+    <script src="/Scripts/morris.min.js"></script>
+    <script src="/Scripts/raphael-min.js"></script>
+    <script src="/Scripts/Q.js"></script>
+    <script src="/Scripts/breeze.min.js"></script>
+    <script src="/Scripts/spin.min.js"></script>
+    <script src="/Scripts/ladda.min.js"></script>
+
 
     <script type="text/javascript">
+        $(document).ready(function () {
 
-        document.addEventListener("deviceready", onDeviceReady, false);
+            function validateEmail(email) {
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
 
-        function onDeviceReady() {
-            StatusBar.overlaysWebView(false);
-            StatusBar.styleLightContent();
-            StatusBar.backgroundColorByHexString("#272b30");
-            StatusBar.show();
+            $(".register-close").click(function () {
+                $(".register-form").fadeOut(function () {
+                    $("#LogInForm").fadeIn();
+
+                    $(".ladda-button .ladda-spinner").remove();
+                    Ladda.bind('.ladda-button');
+                });
+            });
+
+            $(".lost-password-close").click(function () {
+                $(".lost-password-form").fadeOut(function () {
+                    $("#LogInForm").fadeIn();
+
+                    $(".ladda-button .ladda-spinner").remove();
+                    Ladda.bind('.ladda-button');
+                });
+            });
+
+            $(".register-link").click(function () {
+                //$(".register-form").show();
+                $("#LogInForm").fadeOut("slow", function () {
+                    $(".register-form").fadeIn();
+
+                    $(".ladda-button .ladda-spinner").remove();
+                    Ladda.bind('.ladda-button');
+                })
+            });
+
+            $(".forgot-password-link").click(function () {
+                $("#LogInForm").fadeOut("slow", function () {
+                    $(".lost-password-form").fadeIn();
+
+                    $(".ladda-button .ladda-spinner").remove();
+                    Ladda.bind('.ladda-button');
+                })
+            });
+
+            $('.form-group > :input').blur(function (event) {
+                if ($(this).attr('required') && $(this).val() == '') {
+
+                    $(this).parent(".form-group").removeClass("has-success");
+                    $(this).parent('.form-group').addClass('has-error');
+
+                    $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                    $('.success', $(this).parent('.form-group')).css('display', 'none');
+                }
+                else {
+                    $(this).parent(".form-group").removeClass("has-error");
+                    $(this).parent('.form-group').addClass('has-success');
+
+                    $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                    $('.success', $(this).parent('.form-group')).css('display', 'block');
+                }
+            });
+
+            $('.form-group > :input[type=email]').blur(function (event) {
+                if (!validateEmail($(this).val())) {
+                    $(this).parent(".form-group").removeClass("has-success");
+                    $(this).parent('.form-group').addClass('has-error');
+
+                    $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                    $('.success', $(this).parent('.form-group')).css('display', 'none');
+                }
+                else {
+                    $(this).parent(".form-group").removeClass("has-error");
+                    $(this).parent('.form-group').addClass('has-success');
+
+                    $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                    $('.success', $(this).parent('.form-group')).css('display', 'block');
+                }
+            });
 
             Ladda.bind('.ladda-button');
 
@@ -264,7 +362,7 @@
                 setTimeout(function () { login(); }, 1000);
             });
 
-            $("input[type=password], input[type=text]").keypress(function (e) {
+            $("#LogInForm :input[type=password],#LogInForm :input[type=text]").keypress(function (e) {
 
                 if (e.which == 13) // enter key code
                 {
@@ -276,10 +374,163 @@
                 }
             });
 
+            $(".register-form :input[type=text], .register-form :input[type=email]").keypress(function (e) {
+                if (e.which == 13) // enter key code
+                    $(this).blur();
+            });
+
+            $(".lost-password-form :input[type=text], .lost-password-form :input[type=email]").keypress(function (e) {
+                if (e.which == 13) // enter key code
+                    $(this).blur();
+            });
+
+            $('.submit-register-form').click(function () {
+
+                var processRequest = true;
+
+                $('.register-form :input').each(function () {
+                    if ($(this).attr('required') && $(this).val() == '') {
+                        $(this).parent(".form-group").removeClass("has-success");
+                        $(this).parent('.form-group').addClass('has-error');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                        $('.success', $(this).parent('.form-group')).css('display', 'none');
+
+                        processRequest = false;
+                    }
+                    else {
+                        $(this).parent(".form-group").removeClass("has-error");
+                        $(this).parent('.form-group').addClass('has-success');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                        $('.success', $(this).parent('.form-group')).css('display', 'block');
+                    }
+                });
+
+                $('.register-form :input[type=email]').each(function () {
+                    if (!validateEmail($(this).val())) {
+                        $(this).parent(".form-group").removeClass("has-success");
+                        $(this).parent('.form-group').addClass('has-error');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                        $('.success', $(this).parent('.form-group')).css('display', 'none');
+
+                        processRequest = false;
+                    }
+                    else {
+                        $(this).parent(".form-group").removeClass("has-error");
+                        $(this).parent('.form-group').addClass('has-success');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                        $('.success', $(this).parent('.form-group')).css('display', 'block');
+                    }
+                });
+
+                if (processRequest) {
+                    var url = "https://supplierassessment6729.azurewebsites.net/api/account/SendRegisterRequest";
+
+                    var request =
+                    {
+                        company: $('#registerCompany').val(),
+                        accountNumber: $('#registerAccountNumber').val(),
+                        email: $('#registerEmailAddress').val(),
+                    }
+
+                    $.ajax({
+                        type: 'post',
+                        dataTyoe: 'json',
+                        url: url,
+                        headers: { 'Content-Type': 'application/json' },
+                        data: JSON.stringify(request)
+                    }).success(function (data) {
+                        setTimeout(function () {
+                            $(".register-close").click();
+                            Ladda.stopAll();
+                        }, 1000);
+                    });
+                }
+                else {
+                    setTimeout(function () {
+                        Ladda.stopAll();
+                    }, 1000);
+                }
+            });
+
+            $('.submit-forgot-password').click(function () {
+
+                var processRequest = true;
+
+                $('.lost-password-form :input').each(function () {
+                    if ($(this).attr('required') && $(this).val() == '') {
+                        $(this).parent(".form-group").removeClass("has-success");
+                        $(this).parent('.form-group').addClass('has-error');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                        $('.success', $(this).parent('.form-group')).css('display', 'none');
+
+                        processRequest = false;
+                    }
+                    else {
+                        $(this).parent(".form-group").removeClass("has-error");
+                        $(this).parent('.form-group').addClass('has-success');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                        $('.success', $(this).parent('.form-group')).css('display', 'block');
+                    }
+                });
+
+                $('.lost-password-form :input[type=email]').each(function () {
+                    if (!validateEmail($(this).val())) {
+                        $(this).parent(".form-group").removeClass("has-success");
+                        $(this).parent('.form-group').addClass('has-error');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'block');
+                        $('.success', $(this).parent('.form-group')).css('display', 'none');
+
+                        processRequest = false;
+                    }
+                    else {
+                        $(this).parent(".form-group").removeClass("has-error");
+                        $(this).parent('.form-group').addClass('has-success');
+
+                        $('.fail', $(this).parent('.form-group')).css('display', 'none');
+                        $('.success', $(this).parent('.form-group')).css('display', 'block');
+                    }
+                });
+
+                if (processRequest) {
+                    var url = "https://supplierassessment6729.azurewebsites.net/api/account/SendForgotPasswordRequest";
+
+                    var request =
+                    {
+                        accountNumber: $('#lostPasswordAccountNumber').val(),
+                        email: $('#lostPasswordEmailAddress').val(),
+                        username: $('#lostPasswordUsername').val(),
+                    }
+
+                    $.ajax({
+                        type: 'post',
+                        dataTyoe: 'json',
+                        url: url,
+                        headers: { 'Content-Type': 'application/json' },
+                        data: JSON.stringify(request)
+                    }).success(function (data) {
+                        setTimeout(function () {
+                            $(".lost-password-close").click();
+                            Ladda.stopAll();
+                        }, 1000);
+                    });
+                } else {
+                    setTimeout(function () {
+                        Ladda.stopAll();
+                    }, 1000);
+                }
+            });
+
             function login() {
                 $('#FailureText').text('');
 
-                var url = "http://supplierassessmentnew.azurewebsites.net/api/account/login";
+                var url = "https://supplierassessment6729.azurewebsites.net/api/account/login";
 
                 var request =
                     {
@@ -294,14 +545,9 @@
                     url: url,
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify(request)
-                }).success(function (data, message, jqXHR) {
+                }).success(function (data) {
                     if (data.isAuthorized) {
-                        if (window.cordova != null && request.rememberMe) {
-                            var cookie = jqXHR.getResponseHeader("Set-Cookie");
-                            window.localStorage.setItem("cookie", cookie);
-                        }
-
-                        document.location = 'index.html'
+                        document.location = '/'
                     }
                     else {
                         $('#FailureText').text(data.message);
@@ -314,7 +560,7 @@
                     }
                 });
             };
-        }
+        });
     </script>
 </body>
 </html>

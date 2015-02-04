@@ -28,7 +28,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .box-container {
     display: block;
-    -webkit-overflow-scrolling: touch;
 }
 
 .box {
@@ -332,5 +331,70 @@ ul {
 }
 
 table {
+    cursor: pointer;
+}
+
+.merchandiseReview {
+    padding-bottom: 7px;
+}
+
+.register-form .fail {
+    display: none;
+}
+
+.register-form .success {
+    display: none;
+}
+
+
+.register-form {
+    display: none;
+    width: 100%;
+    max-width: 325px;
+    position: absolute;
+    top: 47%;
+    margin-top: -144px;
+    left: 48%;
+    margin-left: -155px;
+    padding: 10px;
+}
+
+    .register-form .fail {
+        display: none;
+    }
+
+    .register-form .success {
+        display: none;
+    }
+
+.lost-password-form {
+    display: none;
+    width: 100%;
+    max-width: 325px;
+    position: absolute;
+    top: 47%;
+    margin-top: -144px;
+    left: 48%;
+    margin-left: -155px;
+    padding: 10px;
+}
+
+    .lost-password-form .fail {
+        display: none;
+    }
+
+    .lost-password-form .success {
+        display: none;
+    }
+
+.submit-login {
+    width: 100%;
+}
+
+.register-close {
+    cursor: pointer;
+}
+
+.lost-password-close {
     cursor: pointer;
 }

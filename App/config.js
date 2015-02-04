@@ -1,7 +1,7 @@
 ﻿define(function () {
 
-    var remoteDataServicePath = "http://supplierassessmentnew.azurewebsites.net/api/breeze"
-    var remoteAccountServicePath = "http://supplierassessmentnew.azurewebsites.net/api/account";
+    var remoteDataServicePath = "http://supplierassessment6729.azurewebsites.net/api/breeze"
+    var remoteAccountServicePath = "http://supplierassessment6729.azurewebsites.net/api/account";
 
     var accountNumber = null;
 
