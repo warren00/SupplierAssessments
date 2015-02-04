@@ -318,33 +318,7 @@
 
     function queryFailed(error) {
 
-	    if (error.status == 401) {
-			document.location = "login.html";
-            return;
-        }
-	
-        var dialogTitle = "VOW Supplier Portal";
-        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
-
-        if (error.message != "abort") {
-
-            if (window.cordova != null) {
-                var networkState = navigator.connection.type;
-
-                if (networkState == Connection.NONE) {
-                    window.navigator.notification.alert(noConnectionMessage, null, dialogTitle, "Ok");
-                    document.location = "login.html"
-                }
-                else
-                {
-                    window.navigator.notification.alert(errorMessage, null, dialogTitle, "Ok");
-                }
-            }
-            else {
-                alert(errorMessage);
-            }
-        }
+        platform.queryFailed();
 
         throw error;
     }
