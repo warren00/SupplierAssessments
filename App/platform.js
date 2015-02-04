@@ -78,7 +78,7 @@ define(function () {
 
     var logout = function () {
         window.cookies.clear();
-        document.location = "./login.html";
+        document.location = "login.html";
     }
 
     return {
