@@ -98,7 +98,6 @@
         },
         searchTerm: searchTerm,
         activate: function () {
-
             for (var i = 0; i < router.routes.length; i++) {
                 var route = router.routes[i];
 
@@ -173,7 +172,7 @@
                     if (e.keyCode == 13) {
                         e.preventDefault();
 
-                        $('input:focus').blur();
+                        $('form input[type="text"]').blur();
 
                         return false;
                     }

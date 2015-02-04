@@ -67,13 +67,42 @@
             if (observable) {
 
                 var entity = data.results[0];
+
                 observable(entity);
+
+                observable.serviceScore = ko.computed(function () {
+                    var serviceFailureScore = parseFloat(entity.serviceFailureScore());
+                    var fillRate = parseFloat(entity.fillRateScore());
+                    var leadTime = parseFloat(entity.leadTimeScore());
+
+                    return serviceFailureScore + fillRate + leadTime;
+                });
+
+                observable.serviceGrade = ko.computed(function () {
+                    var bronzeGradeScore = 12;
+                    var goldGradeScore = 2;
+                    var silverGradeScore = 7;
+
+                    var serviceFailureScore = parseFloat(entity.serviceFailureScore());
+                    var fillRate = parseFloat(entity.fillRateScore());
+                    var leadTime = parseFloat(entity.leadTimeScore());
+
+                    var serviceScore = serviceFailureScore + fillRate + leadTime;
+
+                    if (serviceScore >= bronzeGradeScore)
+                        return "Merchandise Review"
+                    else if (serviceScore < goldGradeScore)
+                        return "Gold";
+                    else if (serviceScore < silverGradeScore)
+                        return "Silver";
+                    else if (serviceScore < bronzeGradeScore)
+                        return "Bronze";
+                });
             }
         }
     }
 
-    var getMonthlyAssessmentById = function(id, observable)
-    {
+    var getMonthlyAssessmentById = function (id, observable) {
         return manager.fetchEntityByKey("Assessment", id)
             .then(querySucceeded)
             .fail(queryFailed);
@@ -85,6 +114,31 @@
             entity.totalScore = ko.computed(function () {
                 var serviceScore = parseFloat(entity.serviceFailureScore()) + parseFloat(entity.fillRateScore()) + parseFloat(entity.leadTimeScore());
                 return entity.deliveryAssessmentAverage() + serviceScore;
+            });
+
+            entity.serviceScore = ko.computed(function () {
+                return parseFloat(entity.serviceFailureScore()) + parseFloat(entity.fillRateScore()) + parseFloat(entity.leadTimeScore());
+            });
+
+            entity.serviceGrade = ko.computed(function () {
+                var bronzeGradeScore = 12;
+                var goldGradeScore = 2;
+                var silverGradeScore = 7;
+
+                var serviceFailureScore = parseFloat(entity.serviceFailureScore());
+                var fillRate = parseFloat(entity.fillRateScore());
+                var leadTime = parseFloat(entity.leadTimeScore());
+
+                var serviceScore = serviceFailureScore + fillRate + leadTime;
+
+                if (serviceScore >= bronzeGradeScore)
+                    return "Merchandise Review"
+                else if (serviceScore < goldGradeScore)
+                    return "Gold";
+                else if (serviceScore < silverGradeScore)
+                    return "Silver";
+                else if (serviceScore < bronzeGradeScore)
+                    return "Bronze";
             });
 
             if (observable)
@@ -195,8 +249,7 @@
         }
     }
 
-    var getSuppliersByName = function(name, skip, take, observable)
-    {
+    var getSuppliersByName = function (name, skip, take, observable) {
         if (name == null)
             name = '';
 
@@ -219,6 +272,7 @@
     var getSupplier = function (accountNumber, observable) {
         var query = EntityQuery.from("Suppliers")
             .where("accountNumber", "eq", accountNumber)
+            .expand("yearToDateScore")
 
         return manager.executeQuery(query)
             .then(querySucceeded)
@@ -240,6 +294,23 @@
                 entity.assessments.sort(date_sort_desc);
                 entity.deliveryAssessments.sort(date_sort_desc);
 
+                entity.yearToDateGrade = ko.computed(function () {
+                    var bronzeGradeScore = 12;
+                    var goldGradeScore = 2;
+                    var silverGradeScore = 7;
+
+                    var serviceScore = entity.yearToDateScore().totalScore();
+
+                    if (serviceScore >= bronzeGradeScore)
+                        return "Merchandise Review"
+                    else if (serviceScore < goldGradeScore)
+                        return "Gold";
+                    else if (serviceScore < silverGradeScore)
+                        return "Silver";
+                    else if (serviceScore < bronzeGradeScore)
+                        return "Bronze";
+                });
+
                 observable(entity);
             }
         }
@@ -247,6 +318,11 @@
 
     function queryFailed(error) {
 
+	    if (error.status == 401) {
+			document.location = "login.html";
+            return;
+        }
+	
         var dialogTitle = "VOW Supplier Portal";
         var noConnectionMessage = "No internet connection. Please check your connection and try again.";
         var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";

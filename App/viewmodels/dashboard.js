@@ -3,6 +3,7 @@
         var supplier = ko.observable();
         var monthlyAssessment = ko.observable();
         var deliveryAssessment = ko.observable();
+        var deliveryAssessments = ko.observableArray();
 
         var supplierAssessmentCount = ko.observable();
         var deliveryAssessmentCount = ko.observable();
@@ -47,23 +48,53 @@
 
             var monthlyAssessments = ko.observable();
 
+            var startDate = moment().subtract(12, "month");
+            var endDate = moment();
+
             return datacontext.getSupplier(this.accountNumber, supplier)
                 .then(function () {
                     return Q.all([datacontext.getCurrentMonthlyAssessment(supplier().id(), monthlyAssessment),
                         datacontext.getCurrentDeliveryAssessment(supplier().id(), deliveryAssessment),
                         datacontext.getMonthlyAssessmentCount(supplier().id(), assessmentCount),
                         datacontext.getDeliveryAssessmentCount(supplier().id(), deliveryAssessmentCount),
-                        datacontext.getMonthlyAssessments(supplier().id(), 0, 45, "asc", monthlyAssessments)])
+                        datacontext.getMonthlyAssessments(supplier().id(), 0, 45, "asc", monthlyAssessments),
+                        datacontext.getDeliveryAssessmentsByDateRange(supplier().id(), startDate.toDate(), endDate.toDate(), deliveryAssessments)
+                    ])
                 }).then(function () {
-                    for (var i = 0; i < monthlyAssessments().length; i++) {
-                        var monthlyAssessment = {
-                            date: moment(monthlyAssessments()[i].date()).format("YYYY-MM").toString(),
-                            scoreAverage: parseFloat(monthlyAssessments()[i].scoreAverage()),
-                            deliveryAssessmentAverage: parseFloat(monthlyAssessments()[i].deliveryAssessmentAverage()),
-                            serviceFailureScore: parseFloat(monthlyAssessments()[i].serviceFailureScore())
-                        };
 
-                        monthlyAssessmentScores.push(monthlyAssessment);
+                    var deliveryDateGrades = {};
+
+                    for (var i = 0; i < deliveryAssessments().length; i++) {
+                        var deliveryAssessment = deliveryAssessments()[i];
+                        var date = moment(deliveryAssessment.date()).format("YYYY-MM");
+
+                        if (deliveryDateGrades[date] == null) {
+                            deliveryDateGrades[date] = {}
+                            deliveryDateGrades[date]["Gold"] = 0;
+                            deliveryDateGrades[date]["Silver"] = 0;
+                            deliveryDateGrades[date]["Bronze"] = 0;
+                            deliveryDateGrades[date]["Merchandise Review"] = 0;
+                        }
+
+                        deliveryDateGrades[date][deliveryAssessment.currentGrade()]++;
+                    }
+
+                    var assessmentDate = startDate;
+
+                    while (assessmentDate <= endDate) {
+                        var date = assessmentDate.format("YYYY-MM");
+
+                        if (deliveryDateGrades[date] != null) {
+                            monthlyAssessmentScores.push({
+                                date: date,
+                                gold: deliveryDateGrades[date]["Gold"],
+                                silver: deliveryDateGrades[date]["Silver"],
+                                bronze: deliveryDateGrades[date]["Bronze"],
+                                merchandiseReview: deliveryDateGrades[date]["Merchandise Review"]
+                            });
+                        }
+
+                        assessmentDate.add(1, "month");
                     }
                 });
         };

@@ -66,10 +66,14 @@
 
         this.select = function (assessment) {
             assessment.selected(true);
+
+            return true;
         };
 
         this.unselect = function (assessment) {
             assessment.selected(false);
+
+            return true;
         };
 
         this.activate = function (accountNumber) {

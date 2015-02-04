@@ -4,7 +4,8 @@
 
         this.deliveryAssessments = deliveryAssessments;
 
-        this.select = function (assessment) {
+        this.select = function(assessment)
+        {
             router.navigate("#deliveryAssessment/" + assessment.id());
         }
 

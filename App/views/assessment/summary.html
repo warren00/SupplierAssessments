@@ -13,6 +13,8 @@
             <dd><span data-bind="text: assessment().leadTime()" /></dd>
             <dt class="text-muted">Lead Time Score:</dt>
             <dd><span data-bind="text: assessment().leadTimeScore()" /></dd>
+            <dt class="text-muted">Service Score:</dt>
+            <dd><span data-bind="text: assessment().serviceScore()" /></dd>
         </dl>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -27,7 +29,9 @@
             <dd><span data-bind="text: assessment().totalScore()" /></dd>
             <dt class="text-muted">Score(Average):</dt>
             <dd><span data-bind="text: assessment().scoreAverage()" /></dd>
-            <dt class="text-muted">Grade Awarded</dt>
+            <dt class="text-muted">Service Grade</dt>
+            <dd><span data-bind="text: assessment().serviceGrade()" /></dd>
+            <dt class="text-muted">Overall Grade</dt>
             <dd><span data-bind="text: assessment().currentGrade()" /></dd>
         </dl>
     </div>

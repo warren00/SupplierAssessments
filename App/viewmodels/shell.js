@@ -39,6 +39,12 @@
 
         return shell;
 
+        function navigateBack() {
+
+            if (!router.isNavigating())
+                router.navigateBack();
+        }
+		
         function showBackButton() {
             for (var i = 0; i < router.routes.length; i++) {
                 var route = router.routes[i];
@@ -51,15 +57,7 @@
 
             return true;
         }
-
-        function navigateBack() {
-
-            $(this).clearQueue();
-
-            if (!router.isNavigating())
-                router.navigateBack();
-        }
-
+		
         function activate() {
             return initialize().then(boot)
                 .fail(failedInitialization);
