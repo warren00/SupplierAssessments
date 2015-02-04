@@ -1,4 +1,4 @@
-﻿define(['durandal/system', 'config'], function (system, config) {
+﻿define(['durandal/system', 'config', 'platform'], function (system, config, platform) {
     var EntityQuery = breeze.EntityQuery;
     var Predicate = breeze.Predicate;
 
