@@ -77,7 +77,7 @@
                 }
             }).fail(function (result) {
                 if (result.status == 401)
-                    document.location = "/";
+                    platform.logout();
             }));
         }
 
