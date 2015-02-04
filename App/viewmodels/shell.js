@@ -1,5 +1,5 @@
-﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService', 'durandal/app'],
-    function (system, router, config, datacontext, accountService, app) {
+﻿define(['durandal/system', 'plugins/router', 'config', 'services/datacontext', 'services/accountService', 'durandal/app', 'platform'],
+    function (system, router, config, datacontext, accountService, app, platform) {
 
         var self = this;
         self.roles = null;
@@ -12,22 +12,13 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                StatusBar.overlaysWebView(false);
-                StatusBar.backgroundColorByHexString("#474D54");
-                StatusBar.styleLightContent();
-                StatusBar.show();
+                platform.initializeShell();
 
-                if (device.platform === 'iOS') {
-
-                    $(".navbar").css("border", "none")
-                    $(".navbar-toggle").css("margin-right", "5px");
-
-                    $(document).on('blur', 'input, textarea', function () {
-                        setTimeout(function () {
-                            window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
-                        }, 0);
-                    });
-                }
+                $(document).on('blur', 'input, textarea', function () {
+                    setTimeout(function () {
+                        window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+                    }, 0);
+                });
 
                 $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a')) {
@@ -44,7 +35,6 @@
             if (!router.isNavigating())
                 router.navigateBack();
         }
-		
         function showBackButton() {
             for (var i = 0; i < router.routes.length; i++) {
                 var route = router.routes[i];
@@ -57,45 +47,15 @@
 
             return true;
         }
-		
+
         function activate() {
+
             return initialize().then(boot)
                 .fail(failedInitialization);
         }
 
-
         function failedInitialization(error) {
-
-            var dialogTitle = "VOW Supplier Portal";
-            var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-            var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
-
-            if (error.status != 401) {
-                if (window.cordova != null) {
-                    var networkState = navigator.connection.type;
-
-                    if (networkState == Connection.NONE) {
-                        window.navigator.notification.alert(noConnectionMessage, null, dialogTitle, "Ok");
-                        document.location = "login.html"
-                    }
-                    else {
-                        window.navigator.notification.alert(errorMessage, null, dialogTitle, "Ok");
-                    }
-                }
-                else {
-                    alert(errorMessage);
-                }
-            }
-        }
-
-        function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            if (networkState == Connection.NONE) {
-                window.navigator.notification.alert("No internet connection. Please check your connection and try again.", null, "VOW Supplier Portal", "Ok");
-
-                document.location = "login.html"
-            }
+            platform.initializeShellFailed(error);
         }
 
         function initialize() {
@@ -117,7 +77,7 @@
                 }
             }).fail(function (result) {
                 if (result.status == 401)
-                    document.location = "./login.html";
+                    document.location = "/";
             }));
         }
 
@@ -173,8 +133,7 @@
         function logout() {
             accountService.logout()
                 .done(function (result) {
-                    window.cookies.clear();
-                    document.location = "./login.html";
+                    platform.logout();
                 });
         }
     });
