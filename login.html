@@ -547,7 +547,7 @@
                     data: JSON.stringify(request)
                 }).success(function (data) {
                     if (data.isAuthorized) {
-                        document.location = '/'
+                        document.location = 'index.html'
                     }
                     else {
                         $('#FailureText').text(data.message);
