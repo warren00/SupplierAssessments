@@ -1,4 +1,4 @@
-﻿define(function () {
+﻿define(["platform"], function (platform) {
 
     var remoteDataServicePath = "http://supplierassessment6729.azurewebsites.net/api/breeze"
     var remoteAccountServicePath = "http://supplierassessment6729.azurewebsites.net/api/account";
