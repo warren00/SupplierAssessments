@@ -21,7 +21,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -41,7 +40,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
 
@@ -61,7 +59,6 @@
 
         return manager.executeQuery(query)
                 .then(querySucceeded)
-                .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -105,7 +102,6 @@
     var getMonthlyAssessmentById = function (id, observable) {
         return manager.fetchEntityByKey("Assessment", id)
             .then(querySucceeded)
-            .fail(queryFailed);
 
         function querySucceeded(data) {
 
@@ -153,7 +149,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable)
@@ -168,7 +163,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -191,7 +185,6 @@
 
         return manager.executeQuery(query)
                 .then(querySucceeded)
-                .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -204,7 +197,6 @@
 
         return manager.fetchEntityByKey('DeliveryAssessment', id, true)
             .then(fetchNavigationProperties)
-            .fail(queryFailed)
 
         function fetchNavigationProperties(data) {
             var entity = data.entity;
@@ -213,7 +205,6 @@
                 .expand("details")
                 .using(manager).execute()
                 .then(querySucceeded)
-                .fail(queryFailed)
         }
 
 
@@ -240,7 +231,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -260,7 +250,7 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
+
 
         function querySucceeded(data) {
             if (observable) {
@@ -276,7 +266,6 @@
 
         return manager.executeQuery(query)
             .then(querySucceeded)
-            .fail(queryFailed)
 
         function querySucceeded(data) {
             if (observable) {
@@ -314,13 +303,6 @@
                 observable(entity);
             }
         }
-    }
-
-    function queryFailed(jqXHR, textStatus, errorThrown) {
-
-        platform.queryFailed(jqXHR, textStatus, errorThrown);
-
-        throw error;
     }
 
     return {
