@@ -27,13 +27,26 @@ define(function () {
         document.location = "login.html";
     }
 
-    var queryFailed = function (error) {
-        if (error.status == 401) {
-            this.logout();
+    var queryFailed = function(jqXHR, textStatus, errorThrown) {
+        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
+        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 
-            return;
+        if (jqXHR.message != "abort") {
+
+            var networkState = navigator.connection.type;
+
+            if (networkState == Connection.NONE) {
+                this.showMessage(noConnectionMessage);
+                this.logout();
+            }
+            else {
+                this.showMessage(errorMessage);
+            }
         }
+    }
 
+    var connectionError = function(jqXHR, textStatus, errorThrown)
+    {
         var noConnectionMessage = "No internet connection. Please check your connection and try again.";
         var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 

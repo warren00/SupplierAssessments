@@ -29,9 +29,8 @@
         error: function (jqXHR, textStatus, errorThrown) {
             if (jqXHR.status == "401") { // Unauthorized
                 platform.logout();
-            } else {
-                platform.showMessage("Error: " + textStatus + ": " + errorThrown);
-            }
+            } else
+                platform.connectionError(jqXHR, textStatus, errorThrown);
         }
     });
 

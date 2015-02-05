@@ -70,9 +70,6 @@
                             return datacontext.getSupplier(accountNumber, supplier);
                         })
                 }
-            }).fail(function (result) {
-                if (result.status == 401)
-                    platform.logout();
             }));
         }
 

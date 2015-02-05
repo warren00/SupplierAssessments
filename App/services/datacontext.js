@@ -316,9 +316,9 @@
         }
     }
 
-    function queryFailed(error) {
+    function queryFailed(jqXHR, textStatus, errorThrown) {
 
-        platform.queryFailed(error);
+        platform.queryFailed(jqXHR, textStatus, errorThrown);
 
         throw error;
     }
