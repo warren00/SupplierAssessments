@@ -68,6 +68,7 @@ define(function () {
         shellAttached: shellAttached,
         showMessage: showMessage,
         logout: logout,
-        queryFailed: queryFailed
+        queryFailed: queryFailed,
+        connectionError: connectionError
     }
 });
