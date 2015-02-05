@@ -18,11 +18,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'platform'], 
 
     system.error = function (e) {
 
-        if (e.status != 401) {
-            platform.error();
+        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
+        platform.showMessage(errorMessage);
 
-            throw e;
-        }
+        throw e;
     };
 
     app.title = 'Supplier';

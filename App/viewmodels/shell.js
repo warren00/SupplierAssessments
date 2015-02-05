@@ -49,6 +49,7 @@
         }
 
         function activate() {
+
             return initialize().then(boot);
         }
 

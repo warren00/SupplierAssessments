@@ -27,21 +27,6 @@ define(function () {
         document.location = "login.html";
     }
 
-    var error = function () {
-        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
-
-        var networkState = navigator.connection.type;
-
-        if (networkState == Connection.NONE) {
-            this.showMessage(noConnectionMessage);
-            this.logout();
-        }
-        else {
-            this.showMessage(errorMessage);
-        }
-    }
-
     var queryFailed = function (error) {
         if (error.status == 401) {
             this.logout();
@@ -49,7 +34,6 @@ define(function () {
             return;
         }
 
-        var dialogTitle = "VOW Supplier Portal";
         var noConnectionMessage = "No internet connection. Please check your connection and try again.";
         var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 
@@ -71,7 +55,6 @@ define(function () {
         shellAttached: shellAttached,
         showMessage: showMessage,
         logout: logout,
-        error: error,
         queryFailed: queryFailed
     }
 });
