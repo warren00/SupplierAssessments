@@ -50,7 +50,7 @@ define(function () {
         var noConnectionMessage = "No internet connection. Please check your connection and try again.";
         var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 
-        if (error.message != "abort") {
+        if (textStatus != "abort") {
 
             var networkState = navigator.connection.type;
 
