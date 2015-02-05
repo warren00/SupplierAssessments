@@ -27,7 +27,7 @@
     $.ajaxSetup({
         timeout: 60000,
         error: function (jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status == 403) {
+            if (jqXHR.status == 401) { // Unauthorized
                 platform.logout();
             } else {
                 platform.showMessage("Error: " + textStatus + ": " + errorThrown);
