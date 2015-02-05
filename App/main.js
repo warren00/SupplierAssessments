@@ -18,9 +18,11 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'platform'], 
 
     system.error = function (e) {
 
-        platform.error();
+        if (e.status != 401) {
+            platform.error();
 
-        throw e;
+            throw e;
+        }
     };
 
     app.title = 'Supplier';

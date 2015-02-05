@@ -18,33 +18,6 @@ define(function () {
         }
     }
 
-    var shellFailedInitialization = function (error) {
-        var noConnectionMessage = "No internet connection. Please check your connection and try again.";
-        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
-
-        if (error.status != 401) {
-                var networkState = navigator.connection.type;
-
-                if (networkState == Connection.NONE) {
-                    this.showMessage(noConnectionMessage);
-                    document.location = "login.html"
-                }
-                else {
-                    this.showMessage(errorMessage);
-                }
-            }
-        }
-
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-
-        if (networkState == Connection.NONE) {
-            window.navigator.notification.alert("No internet connection. Please check your connection and try again.", null, "VOW Supplier Portal", "Ok");
-
-            document.location = "login.html"
-        }
-    }
-
     var showMessage = function (message) {
         window.navigator.notification.alert(message, null, "Supplier Assessment", "Ok");
     }
@@ -99,7 +72,6 @@ define(function () {
         showMessage: showMessage,
         logout: logout,
         error: error,
-        queryFailed: queryFailed,
-        shellFailedInitialization: shellFailedInitialization
+        queryFailed: queryFailed
     }
 });
