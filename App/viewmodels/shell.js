@@ -55,7 +55,7 @@
         }
 
         function failedInitialization(error) {
-            platform.shellFailedInitialization();
+            platform.shellFailedInitialization(error);
         }
 
         function initialize() {
