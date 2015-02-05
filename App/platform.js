@@ -42,7 +42,7 @@ define(function () {
         }
     }
 
-    var queryFailed = function () {
+    var queryFailed = function (error) {
         if (error.status == 401) {
             document.location = "login.html";
             return;
