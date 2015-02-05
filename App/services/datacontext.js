@@ -317,7 +317,10 @@
     }
 
     function queryFailed(error) {
+
         platform.queryFailed(error);
+
+        throw error;
     }
 
     return {
