@@ -35,7 +35,7 @@ define(function () {
 
         if (networkState == Connection.NONE) {
             this.showMessage(noConnectionMessage);
-            document.location = "login.html"
+            this.logout();
         }
         else {
             this.showMessage(errorMessage);
@@ -44,7 +44,8 @@ define(function () {
 
     var queryFailed = function (error) {
         if (error.status == 401) {
-            document.location = "login.html";
+            this.logout();
+
             return;
         }
 
@@ -54,19 +55,14 @@ define(function () {
 
         if (error.message != "abort") {
 
-            if (window.cordova != null) {
-                var networkState = navigator.connection.type;
+            var networkState = navigator.connection.type;
 
-                if (networkState == Connection.NONE) {
-                    window.navigator.notification.alert(noConnectionMessage, null, dialogTitle, "Ok");
-                    document.location = "login.html"
-                }
-                else {
-                    window.navigator.notification.alert(errorMessage, null, dialogTitle, "Ok");
-                }
+            if (networkState == Connection.NONE) {
+                this.showMessage(noConnectionMessage);
+                this.logout();
             }
             else {
-                alert(errorMessage);
+                this.showMessage(errorMessage);
             }
         }
     }
