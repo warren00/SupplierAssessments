@@ -318,7 +318,7 @@
 
     function queryFailed(error) {
 
-        platform.queryFailed();
+        platform.queryFailed(error);
 
         throw error;
     }
