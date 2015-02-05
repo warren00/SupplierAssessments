@@ -18,7 +18,7 @@ define(function () {
         }
     }
 
-    var shellFailedInitialization = function () {
+    var shellFailedInitialization = function (error) {
         var noConnectionMessage = "No internet connection. Please check your connection and try again.";
         var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
 
