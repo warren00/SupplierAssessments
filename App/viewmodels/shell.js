@@ -12,7 +12,7 @@
             navigateBack: navigateBack,
             attached: function () {
 
-                platform.initializeShell();
+                platform.shellAttached();
 
                 $(document).on('blur', 'input, textarea', function () {
                     setTimeout(function () {
@@ -55,7 +55,8 @@
         }
 
         function failedInitialization(error) {
-            platform.initializeShellFailed(error);
+            var message = "Oops! There appears to be a problem with your application. Please close down and try again";
+            platform.showMessage()
         }
 
         function initialize() {
