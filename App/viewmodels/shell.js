@@ -55,8 +55,7 @@
         }
 
         function failedInitialization(error) {
-            var message = "Oops! There appears to be a problem with your application. Please close down and try again";
-            platform.showMessage()
+            platform.shellFailedInitialization();
         }
 
         function initialize() {
