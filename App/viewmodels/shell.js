@@ -12,6 +12,9 @@
             navigateBack: navigateBack,
             attached: function () {
 
+                var test = null;
+                test.test();
+
                 platform.shellAttached();
 
                 $(document).on('blur', 'input, textarea', function () {
