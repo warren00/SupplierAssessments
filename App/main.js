@@ -16,14 +16,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'platform'], 
     system.debug(false);
     //>>excludeEnd("build");
 
-    system.error = function (e) {
-
-        var errorMessage = "Oops! There appears to be a problem with your application. Please close down and try again";
-        platform.showMessage(errorMessage);
-
-        throw e;
-    };
-
     app.title = 'Supplier';
 
     app.configurePlugins({
