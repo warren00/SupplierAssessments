@@ -49,13 +49,7 @@
         }
 
         function activate() {
-
-            return initialize().then(boot)
-                .fail(failedInitialization);
-        }
-
-        function failedInitialization(error) {
-            platform.shellFailedInitialization(error);
+            return initialize().then(boot);
         }
 
         function initialize() {
