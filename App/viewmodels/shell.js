@@ -55,8 +55,6 @@
 
         function initialize() {
 
-            var supplier = ko.observable();
-
             return Q.when(accountService.getLoggedInUserRoles().then(function (roles) {
 
                 self.roles = roles;
@@ -66,11 +64,53 @@
                         .then(function (accountNumber) {
 
                             config.accountNumber = accountNumber;
-
-                            return datacontext.getSupplier(accountNumber, supplier);
                         })
                 }
-            }));
+            }))
+            .then(function () {
+                router.isNavigating.subscribe(function (isNavigating) {
+
+                    if (isNavigating == true) {
+
+                        var expandedMenu = $('.navbar-collapse.in');
+
+                        if (expandedMenu != null && expandedMenu.length > 0)
+                            $('.navbar-collapse.in').collapse('hide');
+                    }
+                });
+
+                router.activeItem.subscribe(function (activeItem) {
+
+                    if (roles != null && ($.inArray("Administrator", roles) != -1 ||
+                        $.inArray("Operations", roles) != -1)) {
+
+                        if (activeItem.__moduleId__ != "viewmodels/searchSuppliers") {
+
+                            for (var i = 0; i < router.routes.length; i++) {
+
+                                var route = router.routes[i];
+
+                                if (route.title == "Dashboard") {
+                                    route.nav = true;
+                                    route.hash = "#" + router.activeInstruction().fragment;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var i = 0; i < router.routes.length; i++) {
+
+                                var route = router.routes[i];
+
+                                if (route.title == "Dashboard")
+                                    route.nav = false;
+                            }
+                        }
+
+                        router.buildNavigationModel();
+                    }
+                });
+            });
         }
 
         function boot() {
@@ -84,38 +124,6 @@
                 for (var j = 0; j < roleRoutes.length; j++)
                     routes.push(roleRoutes[j]);
             }
-
-            router.isNavigating.subscribe(function (isNavigating) {
-
-                if (isNavigating == true) {
-
-                    var expandedMenu = $('.navbar-collapse.in');
-
-                    if (expandedMenu != null && expandedMenu.length > 0)
-                        $('.navbar-collapse.in').collapse('hide');
-                }
-            });
-
-            router.activeItem.subscribe(function (activeItem) {
-                if (roles != null && ($.inArray("Administrator", roles) != -1 ||
-                    $.inArray("Operator", roles) != -1)) {
-
-                    if (activeItem.__moduleId__ == "viewmodels/dashboard") {
-
-                        for (var i = 0; i < router.routes.length; i++) {
-
-                            var route = router.routes[i];
-
-                            if (route.title == "Dashboard") {
-                                route.nav = true;
-                                route.hash = "#" + router.activeInstruction().fragment;
-                            }
-                        }
-                    }
-
-                    router.buildNavigationModel();
-                }
-            });
 
             return router.map(routes)
                 .buildNavigationModel()

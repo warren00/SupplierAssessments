@@ -10,25 +10,6 @@
         return new breeze.EntityManager(config.remoteDataServicePath);
     }
 
-    var getMonthlyAssessmentCount = function (supplierId, observable) {
-        var p1 = new Predicate("supplierId", "eq", supplierId);
-        var p2 = new Predicate("isComplete", "eq", 1);
-
-        var query = EntityQuery.from("Assessments")
-            .where(p1.and(p2))
-            .take(0)
-            .inlineCount(true);
-
-        return manager.executeQuery(query)
-            .then(querySucceeded)
-
-        function querySucceeded(data) {
-            if (observable) {
-                observable(data.inlineCount);
-            }
-        }
-    }
-
     var getMonthlyAssessments = function (supplierId, skip, take, order, observable) {
         var p1 = new Predicate("supplierId", "eq", supplierId);
         var p2 = new Predicate("isComplete", "eq", 1);
@@ -65,9 +46,11 @@
 
                 var entity = data.results[0];
 
-                observable(entity);
+                if (entity == null)
+                    return;
 
-                observable.serviceScore = ko.computed(function () {
+                entity.serviceScore = ko.computed(function () {
+
                     var serviceFailureScore = parseFloat(entity.serviceFailureScore());
                     var fillRate = parseFloat(entity.fillRateScore());
                     var leadTime = parseFloat(entity.leadTimeScore());
@@ -75,7 +58,7 @@
                     return serviceFailureScore + fillRate + leadTime;
                 });
 
-                observable.serviceGrade = ko.computed(function () {
+                entity.serviceGrade = ko.computed(function () {
                     var bronzeGradeScore = 12;
                     var goldGradeScore = 2;
                     var silverGradeScore = 7;
@@ -95,6 +78,8 @@
                     else if (serviceScore < bronzeGradeScore)
                         return "Bronze";
                 });
+
+                observable(entity);
             }
         }
     }
@@ -139,20 +124,6 @@
 
             if (observable)
                 observable(entity);
-        }
-    }
-
-    var getDeliveryAssessmentCount = function (supplierId, observable) {
-        var query = EntityQuery.from("DeliveryAssessments")
-            .where("supplierId", "eq", supplierId)
-            .take(0).inlineCount(true);
-
-        return manager.executeQuery(query)
-            .then(querySucceeded)
-
-        function querySucceeded(data) {
-            if (observable)
-                observable(data.inlineCount);
         }
     }
 
@@ -270,8 +241,6 @@
         function querySucceeded(data) {
             if (observable) {
 
-                var results = data.results[0];
-
                 var date_sort_desc = function (left, right) {
                     if (left.date() > right.date()) return -1;
                     if (left.date() < right.date()) return 1;
@@ -280,6 +249,12 @@
 
                 var entity = data.results[0];
 
+                if (entity.email() == null || entity.email() == "")
+                    entity.email("Unknown");
+
+                if (entity.currentGrade() == null || entity.currentGrade() == "")
+                    entity.currentGrade("Unknown");
+
                 entity.assessments.sort(date_sort_desc);
                 entity.deliveryAssessments.sort(date_sort_desc);
 
@@ -287,6 +262,11 @@
                     var bronzeGradeScore = 12;
                     var goldGradeScore = 2;
                     var silverGradeScore = 7;
+
+                    var serviceScore = null;
+
+                    if (entity.yearToDateScore() == null || entity.yearToDateScore() == "")
+                        return "Unknown"
 
                     var serviceScore = entity.yearToDateScore().totalScore();
 
@@ -309,8 +289,6 @@
         getSupplier: getSupplier,
         getCurrentMonthlyAssessment: getCurrentMonthlyAssessment,
         getCurrentDeliveryAssessment: getCurrentDeliveryAssessment,
-        getMonthlyAssessmentCount: getMonthlyAssessmentCount,
-        getDeliveryAssessmentCount: getDeliveryAssessmentCount,
         getMonthlyAssessments: getMonthlyAssessments,
         getMonthlyAssessmentById: getMonthlyAssessmentById,
         getDeliveryAssessmentsByDateRange: getDeliveryAssessmentsByDateRange,

@@ -53,8 +53,8 @@
             var handle = window.setInterval(function () {
 
                 var element = $(view, ".box-container");
+
                 if (element.css("width") != "0px") {
-                    // trigger the event
                     window.clearInterval(handle);
                     updateTileWidth($(".box-container"));
                 }

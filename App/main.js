@@ -1,4 +1,4 @@
-﻿requirejs.config({
+requirejs.config({
     paths: {
         'text': '../Scripts/text',
         'durandal': '../Scripts/durandal',
@@ -13,7 +13,7 @@ define('knockout', ko);
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'platform'], function (system, app, viewLocator, platform) {
     //>>excludeStart("build", true);
-    system.debug(false);
+    system.debug(true);
     //>>excludeEnd("build");
 
     app.title = 'Supplier';

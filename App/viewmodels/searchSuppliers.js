@@ -18,7 +18,7 @@
 
     function updateTileWidth(boxContainer) {
 
-        var specifiedTileWidth = 235,
+        var specifiedTileWidth = 236,
         computedLiStyle,
         availableClientWidth,
         numberOfColumns,
@@ -53,8 +53,8 @@
         var handle = window.setInterval(function () {
 
             var element = $(view, ".box-container");
+
             if (element.css("width") != "0px") {
-                // trigger the event
                 window.clearInterval(handle);
                 updateTileWidth($("#supplier-list"));
             }
@@ -65,9 +65,11 @@
     function Canceller() {
         var canceller = this;
         var _cancelled = false;
+
         canceller.cancelled = function () { return _cancelled; };
         canceller.requestInfo = null; // to be set by requestInterceptor
-        canceller.cancel = function (/*reason*/) {
+
+        canceller.cancel = function () {
             var jqxhr = canceller.requestInfo && canceller.requestInfo.jqXHR;
             if (jqxhr && jqxhr.abort) {
                 jqxhr.abort();
@@ -98,16 +100,6 @@
         },
         searchTerm: searchTerm,
         activate: function () {
-            for (var i = 0; i < router.routes.length; i++) {
-                var route = router.routes[i];
-
-                if (route.name == 'Dashboard') {
-                    route.nav = false;
-                }
-            }
-
-            router.buildNavigationModel();
-
             this.searchTerm.subscribe(function (newValue) {
 
                 suppliers([]);
@@ -133,8 +125,7 @@
                     return datacontext.getSuppliersByName(newValue, 0, 100, newSuppliers)
                         .then(function () {
                             ko.utils.arrayForEach(newSuppliers(), function (supplier) {
-                                supplier.selected = ko.observable();
-                                supplier.selected(false);
+                                supplier.selected = ko.observable(false);
                             })
 
                             suppliers(newSuppliers());

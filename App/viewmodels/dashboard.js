@@ -1,25 +1,11 @@
 ﻿define(['plugins/router', 'services/datacontext', 'services/accountService', 'config'], function (router, datacontext, accountService, config) {
     var ctor = function () {
-        var supplier = ko.observable();
-        var monthlyAssessment = ko.observable();
-        var deliveryAssessment = ko.observable();
-        var deliveryAssessments = ko.observableArray();
-
-        var supplierAssessmentCount = ko.observable();
-        var deliveryAssessmentCount = ko.observable();
-
-        var assessmentCount = ko.observable();
-
-        var monthlyAssessmentScores = ko.observableArray();
-
-        var initialized = false;
 
         function pollForGraphContainerUpdate(view) {
             var handle = window.setInterval(function () {
 
                 var element = $(view, "#monthly-assessments-graph");
                 if (element.css("width") != "0px") {
-                    // trigger the event
                     window.clearInterval(handle);
                     $('#monthly-assessments-graph').resize();
                 }
@@ -27,14 +13,49 @@
             }, 100);
         }
 
-        this.supplier = supplier;
-        this.monthlyAssessment = monthlyAssessment;
-        this.deliveryAssessment = deliveryAssessment;
-        this.assessmentCount = assessmentCount;
-        this.deliveryAssessmentCount = deliveryAssessmentCount;
-        this.monthlyAssessmentScores = monthlyAssessmentScores;
+        this.supplierAccountNumber = ko.observableArray();
+        this.currentMonthlyAssessmentId = ko.observableArray();
+        this.monthlyAssessmentScores = ko.observableArray();
 
-        this.accountNumber = null;
+        this.supplier = ko.observable();
+        this.deliveryAssessments = ko.observable();
+
+        this.currentMonthlyAssessment = ko.observable();
+        this.currentDeliveryAssessment = ko.observable();
+
+        var self = this;
+
+        this.monthlyAssessmentAvailable = ko.computed(function () {
+            return self.currentMonthlyAssessment() != null;
+        });
+
+        this.yearToDateGrade = ko.computed(function () {
+            if (self.supplier() == null)
+                return "Unknown";
+
+            return self.supplier().yearToDateGrade();
+        });
+
+        this.monthlyAssessmentGrade = ko.computed(function () {
+            if (self.currentMonthlyAssessment() == null)
+                return "Unknown";
+
+            return self.currentMonthlyAssessment().currentGrade();
+        })
+
+        this.deliveryAssessmentGrade = ko.computed(function () {
+            if (self.currentDeliveryAssessment() == null)
+                return "Unknown";
+
+            return self.currentDeliveryAssessment().currentGrade();
+        });
+
+        this.serviceGrade = ko.computed(function () {
+            if (self.currentMonthlyAssessment() == null)
+                return "Unknown";
+
+            return self.currentMonthlyAssessment().serviceGrade();
+        });
 
         this.attached = function (view, parent) {
             pollForGraphContainerUpdate(view);
@@ -42,31 +63,30 @@
 
         this.activate = function (accountNumber) {
 
-            monthlyAssessmentScores([]);
-
-            this.accountNumber = accountNumber != null ? accountNumber : config.accountNumber;
+            self.supplierAccountNumber(accountNumber != null ? accountNumber : config.accountNumber);
 
             var monthlyAssessments = ko.observable();
 
             var startDate = moment().subtract(12, "month");
             var endDate = moment();
 
-            return datacontext.getSupplier(this.accountNumber, supplier)
+            return datacontext.getSupplier(self.supplierAccountNumber(), self.supplier)
                 .then(function () {
-                    return Q.all([datacontext.getCurrentMonthlyAssessment(supplier().id(), monthlyAssessment),
-                        datacontext.getCurrentDeliveryAssessment(supplier().id(), deliveryAssessment),
-                        datacontext.getMonthlyAssessmentCount(supplier().id(), assessmentCount),
-                        datacontext.getDeliveryAssessmentCount(supplier().id(), deliveryAssessmentCount),
-                        datacontext.getMonthlyAssessments(supplier().id(), 0, 45, "asc", monthlyAssessments),
-                        datacontext.getDeliveryAssessmentsByDateRange(supplier().id(), startDate.toDate(), endDate.toDate(), deliveryAssessments)
+                    return Q.all([datacontext.getCurrentMonthlyAssessment(self.supplier().id(), self.currentMonthlyAssessment),
+                        datacontext.getCurrentDeliveryAssessment(self.supplier().id(), self.currentDeliveryAssessment),
+                        datacontext.getMonthlyAssessments(self.supplier().id(), 0, 45, "asc", monthlyAssessments),
+                        datacontext.getDeliveryAssessmentsByDateRange(self.supplier().id(), startDate.toDate(), endDate.toDate(), self.deliveryAssessments)
                     ])
                 }).then(function () {
 
+                    if (self.currentMonthlyAssessment() != null)
+                        self.currentMonthlyAssessmentId(self.currentMonthlyAssessment().id());
+
                     var deliveryDateGrades = {};
 
-                    for (var i = 0; i < deliveryAssessments().length; i++) {
-                        var deliveryAssessment = deliveryAssessments()[i];
-                        var date = moment(deliveryAssessment.date()).format("YYYY-MM");
+                    for (var i = 0; i < self.deliveryAssessments().length; i++) {
+                        var currentDeliveryAssessment = self.deliveryAssessments()[i];
+                        var date = moment(currentDeliveryAssessment.date()).format("YYYY-MM");
 
                         if (deliveryDateGrades[date] == null) {
                             deliveryDateGrades[date] = {}
@@ -76,8 +96,10 @@
                             deliveryDateGrades[date]["Merchandise Review"] = 0;
                         }
 
-                        deliveryDateGrades[date][deliveryAssessment.currentGrade()]++;
+                        deliveryDateGrades[date][currentDeliveryAssessment.currentGrade()]++;
                     }
+
+                    self.monthlyAssessmentScores([]);
 
                     var assessmentDate = startDate;
 
@@ -85,7 +107,7 @@
                         var date = assessmentDate.format("YYYY-MM");
 
                         if (deliveryDateGrades[date] != null) {
-                            monthlyAssessmentScores.push({
+                            self.monthlyAssessmentScores.push({
                                 date: date,
                                 gold: deliveryDateGrades[date]["Gold"],
                                 silver: deliveryDateGrades[date]["Silver"],

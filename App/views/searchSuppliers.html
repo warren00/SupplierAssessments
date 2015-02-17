@@ -14,7 +14,12 @@
         </div>
     </div>
 </form>
+
 <div>
+    <div style="text-align:center">
+        <h1 data-bind="visible: !isSearching() && suppliers().length == 0">No Results</h1>
+    </div>
+
     <ul id="supplier-list" class="box-container" data-bind="foreach: suppliers">
         <li class="box" data-bind="event: {touch: $parent.select, mousedown: $parent.select, mouseup: $parent.unselect, mouseleave: $parent.unselect }, css: {'ui-btn-down-a': selected(), 'box-focus' : selected(), 'ui-btn-up-a': !selected()}">
             <a data-bind="attr: { href: '#dashboard/' + accountNumber() }">
@@ -23,8 +28,9 @@
             </a>
         </li>
     </ul>
+    <div style="clear:both"></div>
 </div>
-<div style="clear:both"></div>
+
 <div style="width:100%;height:40px;position:relative">
     <i data-bind="visible: isSearching" class="fa fa-spinner fa-spin fa-2x" style="top:5px; left:50%; position:absolute;"></i>
 </div>
