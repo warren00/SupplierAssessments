@@ -5,6 +5,11 @@ html {
     z-index: 0;
 }
 
+input[type=text]::-ms-clear, input[type=email]::-ms-clear, input[type=password]::-ms-clear {
+    display: none;
+}
+
+
 .page-header {
     margin: 0px 0 15px;
 }
@@ -334,67 +339,44 @@ table {
     cursor: pointer;
 }
 
-.merchandiseReview {
+.merchandiseReviewLabel {
     padding-bottom: 7px;
 }
 
-.register-form .fail {
-    display: none;
+.gold {
+    background-color: #cdac19;
 }
 
-.register-form .success {
-    display: none;
+.silver {
+    background-color: #a0a0a0;
 }
 
+.bronze {
+    background-color: #cd7f32;
+}
 
-.register-form {
-    display: none;
-    width: 100%;
-    max-width: 325px;
+.merchandise_review, .unknown {
+    background-color: #cb4b4b;
+}
+
+.disableLink {
+    pointer-events: none;
+}
+
+.textDisable {
+    color: #aaaaaa;
+}
+
+.graphUnavailable {
+    font-size: 2.1em;
     position: absolute;
-    top: 47%;
-    margin-top: -144px;
-    left: 48%;
-    margin-left: -155px;
-    padding: 10px;
-}
-
-    .register-form .fail {
-        display: none;
-    }
-
-    .register-form .success {
-        display: none;
-    }
-
-.lost-password-form {
-    display: none;
-    width: 100%;
-    max-width: 325px;
-    position: absolute;
-    top: 47%;
-    margin-top: -144px;
-    left: 48%;
-    margin-left: -155px;
-    padding: 10px;
-}
-
-    .lost-password-form .fail {
-        display: none;
-    }
-
-    .lost-password-form .success {
-        display: none;
-    }
-
-.submit-login {
-    width: 100%;
-}
-
-.register-close {
-    cursor: pointer;
-}
-
-.lost-password-close {
-    cursor: pointer;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+    margin: auto;
+    top: 37%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
 }
