@@ -24,7 +24,9 @@ define(function () {
 
     var logout = function () {
         window.cookies.clear();
-        document.location = "login.html";
+        setTimeout(function () {
+            document.location.href = "login.html";
+        }, 100);
     }
 
     var connectionError = function(jqXHR, textStatus, errorThrown)
