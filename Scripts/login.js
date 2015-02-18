@@ -15,7 +15,7 @@
             }
         });
 
-        loginButton.click(function () {
+        loginButton.on(['click', 'touch'], function () {
 
             Ladda.bind('.ladda-button');
 
