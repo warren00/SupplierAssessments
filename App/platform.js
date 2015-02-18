@@ -24,6 +24,7 @@ define(function () {
 
     var logout = function () {
         window.cookies.clear();
+
         setTimeout(function () {
             document.location.href = "login.html";
         }, 100);
