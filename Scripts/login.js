@@ -48,7 +48,7 @@
                 }).fail(function (jqXHR, textStatus) {
                     if (textStatus == "error" && jqXHR.status == 0) {
                         Ladda.stopAll();
-                        $('#FailureText').text("No data connection");
+                        $('.failure-text').text("No data connection");
                     }
                 });
             }
@@ -205,7 +205,7 @@
 }(jQuery));
 
 $(document).ready(function () {
-    $("#LoginForm").login("/api/account/login");
+    $("#LoginForm").login("http://supplierassessment6729.azurewebsites.net/api/account/login");
 
     $(".register-link").toggleDiv({ main: '#LoginForm', target: '.register-form' });
     $(".forgot-password-link").toggleDiv({ main: '#LoginForm', target: '.lost-password-form' });
