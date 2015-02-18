@@ -39,7 +39,7 @@
                     data: JSON.stringify(request)
                 }).success(function (data) {
                     if (data.isAuthorized) {
-                        document.location = '/'
+                        document.location = 'index.html'
                     }
                     else {
                         $('.failure-text').text(data.message);
@@ -211,7 +211,7 @@ $(document).ready(function () {
     $(".forgot-password-link").toggleDiv({ main: '#LoginForm', target: '.lost-password-form' });
 
     $(".register-form").form({
-        url: "/api/account/SendRegisterRequest",
+        url: "https://supplierassessment6729.azurewebsites.net/api/account/SendRegisterRequest",
         request: function () {
             return {
                 company: $('#registerCompany').val(),
@@ -222,7 +222,7 @@ $(document).ready(function () {
     });
 
     $(".lost-password-form").form({
-        url: "/api/account/SendForgotPasswordRequest",
+        url: "https://supplierassessment6729.azurewebsites.net/api/account/SendForgotPasswordRequest",
         request: function () {
             return {
                 accountNumber: $('#lostPasswordAccountNumber').val(),
