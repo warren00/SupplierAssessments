@@ -4,6 +4,8 @@
 
         var loginButton = $("button", $(this));
 
+        Ladda.bind('.ladda-button');
+
         $(":input[type=password]", $(this)).keypress(function (e) {
             if (e.which == 13) // enter key code
             {
@@ -15,9 +17,7 @@
             }
         });
 
-        loginButton.on(['click', 'touch'], function () {
-
-            Ladda.bind('.ladda-button');
+        loginButton.on('click touch', function () {
 
             $('.failure-text').text('');
 
