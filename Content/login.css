@@ -1,0 +1,191 @@
+﻿html,
+body,
+.labelStyle {
+    color: #ffffff;
+}
+
+input[type=text]::-ms-clear, input[type=email]::-ms-clear, input[type=password]::-ms-clear {
+    display: none;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+.page-header {
+    margin: 0px 0 15px;
+}
+
+.requiredStyle {
+    color: #FF1B1B;
+}
+
+.buttonStyle {
+    color: #ffffff;
+    background-color: #555555;
+    border: 1px solid #ababab;
+}
+
+    .buttonStyle:hover {
+        background-color: #666666;
+    }
+
+    .buttonStyle:active {
+        background-color: #888888;
+    }
+
+.textBoxStyle {
+    color: #ffffff;
+    background-color: #444444;
+    border: 1px solid #ababab;
+}
+
+.failureNotification {
+    color: #ff1b1b;
+    margin-bottom: 5px;
+}
+
+* {
+    margin: 0px;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.accountInfo {
+    width: 100%;
+    max-width: 325px;
+    position: absolute;
+    top: 47%;
+    margin-top: -144px;
+    left: 48%;
+    margin-left: -155px;
+    padding: 12px 10px 10px 10px;
+}
+
+    .accountInfo h1 {
+        font-size: 2.4em;
+    }
+
+.labelStyle {
+    font-family: 'Segoe UI Semibold', 'Frutiger','Helvetica Neue Semibold',Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+.requiredStyle {
+    font-size: 24px;
+    line-height: 14px;
+    height: 12px;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+.buttonStyle {
+    font-family: 'Segoe UI','Frutiger','Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 112px;
+    height: 38px;
+}
+
+.textBoxStyle {
+    background-image: none;
+    font-size: 16px;
+    display: block;
+    outline: 0;
+    height: 36px;
+    padding: 1px 8px;
+    margin: 0px;
+    width: 100%;
+    line-height: 36px;
+}
+
+.submit-login {
+    margin-top: 10px;
+}
+
+.rememberme {
+    margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+    margin: 0px 6px 0px 0px;
+    vertical-align: -1px;
+    cursor: pointer;
+}
+
+.checkStyle label {
+    font-size: 15px;
+}
+
+.logInBtn button {
+    width: 100%;
+}
+
+.register-form .fail {
+    display: none;
+}
+
+.register-form .success {
+    display: none;
+}
+
+
+.register-form {
+    display: none;
+    width: 100%;
+    max-width: 325px;
+    position: absolute;
+    top: 47%;
+    margin-top: -144px;
+    left: 48%;
+    margin-left: -155px;
+    padding: 10px;
+}
+
+    .register-form .fail {
+        display: none;
+    }
+
+    .register-form .success {
+        display: none;
+    }
+
+.lost-password-form {
+    display: none;
+    width: 100%;
+    max-width: 325px;
+    position: absolute;
+    top: 47%;
+    margin-top: -144px;
+    left: 48%;
+    margin-left: -155px;
+    padding: 10px;
+}
+
+    .lost-password-form .fail {
+        display: none;
+    }
+
+    .lost-password-form .success {
+        display: none;
+    }
+
+.submit-login {
+    width: 100%;
+}
+
+.form-close {
+    cursor: pointer;
+}
+
+.page-header {
+    border-bottom: none;
+    margin:0 0 5px
+}
