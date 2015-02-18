@@ -205,7 +205,7 @@
 }(jQuery));
 
 $(document).ready(function () {
-    $("#LoginForm").login("http://supplierassessment6729.azurewebsites.net/api/account/login");
+    $("#LoginForm").login("https://supplierassessment6729.azurewebsites.net/api/account/login");
 
     $(".register-link").toggleDiv({ main: '#LoginForm', target: '.register-form' });
     $(".forgot-password-link").toggleDiv({ main: '#LoginForm', target: '.lost-password-form' });
